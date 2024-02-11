@@ -2,9 +2,14 @@ import './globals.css'
 
 import NavBar from '@/components/nav-bar'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+})
 
 export const metadata: Metadata = {
   title: 'From??? Basketball Quizzes',
@@ -18,8 +23,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <main className="pt-32 flex min-h-screen flex-col items-center justify-between">
+      <body className={poppins.className}>
+        <main className="fixed left-0 top-32 w-full flex min-h-screen flex-col items-center justify-between">
           <NavBar />
           {children}
         </main>

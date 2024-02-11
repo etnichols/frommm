@@ -1,9 +1,26 @@
+'use client'
+
+import { Section } from '@/components/section'
+import { Button } from '@/components/ui/button'
+import { useRouter } from 'next/navigation'
+
 export default function Home() {
-  const navItems = ['browse', 'create', 'leaderboard', 'about']
+  const router = useRouter()
 
   return (
-    <div className="h-100 w-full bg-indigo-300">
-      Quizzes on where current and former NBA players went to college
-    </div>
+    <Section
+      headline="Quizzes on where current and former NBA players went to college"
+      withImage={true}
+    >
+      <Button
+        onClick={() => {
+          router.push('/quizzes')
+        }}
+        className="flex w-48"
+        variant="default"
+      >
+        Take a Quiz Now
+      </Button>
+    </Section>
   )
 }
