@@ -1,6 +1,6 @@
 import './globals.css'
 
-import NavBar from '@/components/nav-bar'
+import NavBar from '@/components/quiz/nav-bar'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 
