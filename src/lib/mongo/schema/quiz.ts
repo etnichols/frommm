@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 const quizSchema = new mongoose.Schema({
   title: String,

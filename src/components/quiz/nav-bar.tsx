@@ -31,7 +31,7 @@ export default function NavBar() {
         <button
           onClick={() => setShowNav(!showNav)}
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex h-10 w-10 bg-white items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-default"
           aria-expanded="false"
         >
@@ -57,7 +57,7 @@ export default function NavBar() {
             hidden: !showNav,
           })}
         >
-          <ul className="mt-4 flex flex-col rounded-lg border w-full border-gray-100 bg-white p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 rtl:space-x-reverse dark:border-gray-700 dark:bg-gray-800 md:dark:bg-gray-900">
+          <ul className="mt-4 flex flex-col rounded-lg border w-full border-gray-100 p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 rtl:space-x-reverse dark:border-gray-700">
             {navItems.map(([display, route], i) => (
               <li key={`nav-item-${i}`}>
                 <a

@@ -2,91 +2,91 @@ const Quiz = require('../lib/mongo/schema/quiz.ts')
 const mongoose = require('mongoose')
 
 const QUIZ_DATA = {
-  title: 'Test Quiz 1',
-  slug: 'test-quiz-1',
+  title: 'The Original',
+  slug: 'the-original',
   creator: 'Evan Nichols',
   createdAt: new Date(),
   updatedAt: new Date(),
   questions: [
     {
-      question: 'Chris Paul',
-      answer: ['Wake Forest University', 'Wake Forest'],
+      playerName: 'Chris Paul',
+      correctAnswers: ['Wake Forest University', 'Wake Forest'],
     },
     {
-      question: 'Klay Thompson',
-      answer: ['Washington State University', 'Washington State', 'WSU'],
+      playerName: 'Klay Thompson',
+      correctAnswers: ['Washington State University', 'Washington State', 'WSU'],
     },
     {
-      question: 'Rudy Gobert',
-      answer: ['None', 'Did not attend college in the USA'],
+      playerName: 'Rudy Gobert',
+      correctAnswers: ['None', 'Did not attend college in the USA'],
     },
     {
-      question: 'Donovan Mitchell',
-      answer: ['University of Louisville', 'Louisville'],
+      playerName: 'Donovan Mitchell',
+      correctAnswers: ['University of Louisville', 'Louisville'],
     },
     {
-      question: 'Bam Adebayo',
-      answer: ['University of Kentucky', 'Kentucky', 'UK'],
+      playerName: 'Bam Adebayo',
+      correctAnswers: ['University of Kentucky', 'Kentucky', 'UK'],
     },
     {
-      question: 'Draymond Green',
-      answer: ['Michigan State University', 'Michigan State', 'MSU'],
+      playerName: 'Draymond Green',
+      correctAnswers: ['Michigan State University', 'Michigan State', 'MSU'],
     },
     {
-      question: 'Zach LaVine',
-      answer: ['University of California Los Angeles', 'UCLA'],
+      playerName: 'Zach LaVine',
+      correctAnswers: ['University of California Los Angeles', 'UCLA'],
     },
     {
-      question: 'CJ McCollum',
-      answer: ['Lehigh University', 'Lehigh'],
+      playerName: 'CJ McCollum',
+      correctAnswers: ['Lehigh University', 'Lehigh'],
     },
     {
-      question: "De'Aaron Fox",
-      answer: ['University of Kentucky', 'Kentucky', 'UK'],
+      playerName: "De'Aaron Fox",
+      correctAnswers: ['University of Kentucky', 'Kentucky', 'UK'],
     },
     {
-      question: 'Julius Randle',
-      answer: ['University of Kentucky', 'Kentucky', 'UK'],
+      playerName: 'Julius Randle',
+      correctAnswers: ['University of Kentucky', 'Kentucky', 'UK'],
     },
     {
-      question: 'Jayson Tatum',
-      answer: ['Duke University', 'Duke'],
+      playerName: 'Jayson Tatum',
+      correctAnswers: ['Duke University', 'Duke'],
     },
     {
-      question: 'Brandon Ingram',
-      answer: ['Duke University', 'Duke'],
+      playerName: 'Brandon Ingram',
+      correctAnswers: ['Duke University', 'Duke'],
     },
     {
-      question: 'Ja Morant',
-      answer: ['Murray State University', 'Murray State'],
+      playerName: 'Ja Morant',
+      correctAnswers: ['Murray State University', 'Murray State'],
     },
     {
-      question: 'Trae Young',
-      answer: ['University of Oklahoma', 'Oklahoma', 'OU'],
+      playerName: 'Trae Young',
+      correctAnswers: ['University of Oklahoma', 'Oklahoma', 'OU'],
     },
     {
-      question: 'Pascal Siakam',
-      answer: ['New Mexico State University', 'New Mexico State', 'NMSU'],
+      playerName: 'Pascal Siakam',
+      correctAnswers: ['New Mexico State University', 'New Mexico State', 'NMSU'],
     },
     {
-      question: 'Devin Booker',
-      answer: ['University of Kentucky', 'Kentucky', 'UK'],
+      playerName: 'Devin Booker',
+      correctAnswers: ['University of Kentucky', 'Kentucky', 'UK'],
     },
     {
-      question: 'Karl-Anthony Towns',
-      answer: ['University of Kentucky', 'Kentucky', 'UK'],
+      playerName: 'Karl-Anthony Towns',
+      correctAnswers: ['University of Kentucky', 'Kentucky', 'UK'],
     },
     {
-      question: 'Ben Simmons',
-      answer: ['Louisiana State University', 'LSU', 'Louisiana State'],
+      playerName: 'Ben Simmons',
+      correctAnswers: ['Louisiana State University', 'LSU', 'Louisiana State'],
     },
     {
-      question: 'Bradley Beal',
-      answer: ['University of Florida', 'Florida', 'UF'],
+      playerName: 'Bradley Beal',
+      correctAnswers: ['University of Florida', 'Florida', 'UF'],
     },
     {
-      question: 'John Collins',
-      answer: ['Wake Forest University', 'Wake Forest'],
+      playerName: 'John Collins',
+      correctAnswers: ['Wake Forest University', 'Wake Forest'],
     },
   ],
 }

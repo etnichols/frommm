@@ -1,15 +1,15 @@
+import Quiz from '@/lib/mongo/schema/quiz'
 import mongoose from 'mongoose'
 
-// Export the connection
-export default mongoose.connection
-
 export async function GET(request: Request, { params }: { params: { slug: string } }) {
-  console.log('params: ', params)
-  const slug = params.slug
+  await mongoose.connect(process.env.MONGO_DB_URI!)
 
-  // Connect to MongoDB
-  mongoose
-    .connect(process.env.MONGO_DB_URI!)
-    .then(() => console.log('MongoDB Connected'))
-    .catch((err: any) => console.error('MongoDB connection error:', err))
+  const quiz = await Quiz.findOne({ slug: params.slug }).lean().exec()
+
+  if (!quiz) {
+    console.log('Quiz not found')
+    return new Response('Quiz not found', { status: 404 })
+  }
+
+  return new Response(JSON.stringify(quiz), { status: 200 })
 }

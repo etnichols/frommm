@@ -1,22 +1,4 @@
-'use server'
-
-async function getQuiz(slug: string) {
-  fetch(`/api/quiz/${slug}`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log('Quiz: ', data)
-    })
-    .catch((err) => {
-      console.error('Error fetching quiz:', err)
-    })
-  console.log('Quiz: ', quiz)
-
-  return {
-    props: {
-      quiz: {},
-    },
-  }
-}
+import Quiz from '@/components/quiz/quiz'
 
 interface PageProps {
   params: {
@@ -25,12 +7,20 @@ interface PageProps {
 }
 
 export default async function Page({ params }: PageProps) {
-  console.dir(params)
   const quiz = await getQuiz(params.slug)
-  return (
-    <div>
-      <div>Page for {params.slug}</div>
-      {/* <div>Quiz: {JSON.stringify(quiz)}</div> */}
-    </div>
-  )
+
+  return <Quiz quiz={quiz} />
+}
+
+async function getQuiz(slug: string) {
+  const quizJson = await fetch(`${process.env.BASE_URL}/api/quiz/${slug}`, {
+    cache: 'no-cache',
+  }).then((res) => res.json())
+
+  if (!quizJson) {
+    console.log('Quiz not found')
+    return null
+  }
+
+  return quizJson
 }
