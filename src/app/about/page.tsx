@@ -12,7 +12,7 @@ export default function Home() {
   ]
 
   return (
-    <div className="flex flex-col gap-8 items-center lg:min-h-72 overflow-scroll">
+    <div className="flex flex-col gap-8 items-center lg:min-h-72">
       <h1 className="flex text-xl text-center mx-8 font-semibold tracking-wide">
         What the hell is 'From???'
       </h1>

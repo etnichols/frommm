@@ -9,7 +9,7 @@ export default function Home() {
       slug: '65dc0cbe2e0c821efa6ef0b8',
       name: 'The Original ™',
       description:
-        'The original "From???" quiz. Thirty questions of increasing difficulty (Note: intentionally excludes Big 12 players).',
+        'Thirty questions of increasing difficulty Note: intentionally excludes Big 12 players.',
     },
     {
       slug: 'old-school',

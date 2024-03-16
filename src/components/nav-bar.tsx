@@ -1,13 +1,18 @@
 'use client'
 
+import { useRef, useState } from 'react'
+
 import Image from 'next/image'
 import classNames from 'classnames'
+import useOnClickOutside from '@/lib/hooks/use-on-click-outside'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
 
 export default function NavBar() {
+  const ref = useRef(null)
+
   const router = useRouter()
   const [showNav, setShowNav] = useState(false)
+
   const navItems = [
     ['browse', '/quizzes'],
     ['create', '/create'],
@@ -15,9 +20,11 @@ export default function NavBar() {
     ['about', '/about'],
   ]
 
+  useOnClickOutside(ref, () => setShowNav(false))
+
   return (
-    <nav className="fixed left-0 top-0 bg-slate-100 dark:bg-blue-900 w-screen">
-      <div className="flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+    <nav ref={ref} className="h-32 fixed left-0 top-0 w-screen z-40">
+      <div className="flex bg-slate-100 max-w-screen-xl flex-wrap items-center justify-between p-4">
         <a href="/" className="flex place-items-center gap-2 lg:pointer-events-auto lg:p-0">
           <Image
             src="/from_logo.svg"
@@ -53,11 +60,11 @@ export default function NavBar() {
           </svg>
         </button>
         <div
-          className={classNames('flex w-full md:block md:w-auto', {
+          className={classNames('z-40 flex w-full md:block md:w-auto', {
             hidden: !showNav,
           })}
         >
-          <ul className="mt-4 flex flex-col rounded-lg border w-full border-gray-100 p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 rtl:space-x-reverse dark:border-gray-700">
+          <ul className="z-40 mt-4 flex flex-col rounded-lg border w-full border-gray-100 p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 rtl:space-x-reverse dark:border-gray-700">
             {navItems.map(([display, route], i) => (
               <li key={`nav-item-${i}`}>
                 <a
