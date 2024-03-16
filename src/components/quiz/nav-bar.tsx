@@ -1,7 +1,7 @@
 'use client'
 
-import classNames from 'classnames'
 import Image from 'next/image'
+import classNames from 'classnames'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
@@ -16,7 +16,7 @@ export default function NavBar() {
   ]
 
   return (
-    <nav className="fixed left-0 top-0 bg-slate-100 dark:bg-gray-900 w-screen">
+    <nav className="fixed left-0 top-0 bg-slate-100 dark:bg-blue-900 w-screen">
       <div className="flex max-w-screen-xl flex-wrap items-center justify-between p-4">
         <a href="/" className="flex place-items-center gap-2 lg:pointer-events-auto lg:p-0">
           <Image

@@ -8,10 +8,7 @@ export default function Home() {
   const router = useRouter()
 
   return (
-    <Section
-      headline="Quizzes on where current and former NBA players went to college"
-      withImage={true}
-    >
+    <Section headline="Create, take and share quizzes on where current and former NBA players went to college.">
       <Button
         onClick={() => {
           router.push('/quizzes')
