@@ -3,8 +3,13 @@ import { useEffect, useState } from 'react'
 import { Input } from '../ui/input'
 import { NCAA_DIV_1_SCHOOLS } from '@/lib/data/ncaa-schools'
 
-function AutoCompleteInput() {
-  const [inputValue, setInputValue] = useState<string>('')
+function AutoCompleteInput({
+  inputValue,
+  setInputValue,
+}: {
+  inputValue: string
+  setInputValue: (value: string) => void
+}) {
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [showSuggestions, setShowSuggestions] = useState<boolean>(false)
 
@@ -21,10 +26,10 @@ function AutoCompleteInput() {
   }, [inputValue])
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <Input
         type="text"
-        className="border border-gray-300 p-2"
+        className="flex w-full border border-gray-300 p-2"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}

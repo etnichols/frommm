@@ -6,10 +6,10 @@ import { Section } from '@/components/section'
 export default function Home() {
   const quizData = [
     {
-      slug: '65dc0cbe2e0c821efa6ef0b8',
+      slug: 'the-original',
       name: 'The Original ™',
       description:
-        'Thirty questions of increasing difficulty Note: intentionally excludes Big 12 players.',
+        'Thirty questions of increasing difficulty. Note: intentionally excludes Big 12 players.',
     },
     {
       slug: 'old-school',

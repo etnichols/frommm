@@ -11,8 +11,8 @@ const quizSchema = new mongoose.Schema({
   updatedAt: Date,
   questions: [
     {
-      playerName: String,
-      correctAnswers: [String],
+      name: String,
+      college: String,
     },
   ],
 })

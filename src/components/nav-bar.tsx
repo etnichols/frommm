@@ -14,17 +14,17 @@ export default function NavBar() {
   const [showNav, setShowNav] = useState(false)
 
   const navItems = [
+    ['about', '/about'],
     ['browse', '/quizzes'],
     ['create', '/create'],
     ['leaderboard', '/leaderboard'],
-    ['about', '/about'],
   ]
 
   useOnClickOutside(ref, () => setShowNav(false))
 
   return (
     <nav ref={ref} className="h-32 fixed left-0 top-0 w-screen z-40">
-      <div className="flex bg-slate-100 max-w-screen-xl flex-wrap items-center justify-between p-4">
+      <div className="flex bg-slate-100 flex-wrap items-center justify-between p-4">
         <a href="/" className="flex place-items-center gap-2 lg:pointer-events-auto lg:p-0">
           <Image
             src="/from_logo.svg"
