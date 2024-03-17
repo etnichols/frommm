@@ -16,6 +16,7 @@ import { QuizAnswer } from '@/models/QuizResult'
 import { Loader2 } from 'lucide-react'
 import AutoCompleteInput from '../ui/autocomplete-input'
 import { Button } from '../ui/button'
+import { SaveResultDialog } from './save-result-dialog'
 
 // Define action types
 enum QuizAction {
@@ -89,7 +90,7 @@ export default function QuizComponent({ quiz }: { quiz: QuizType }) {
   }, [state.step])
 
   const { questions: rawQuestions } = quiz
-  const questions = rawQuestions.slice(0, 5)
+  const questions = rawQuestions
 
   const isFinalQuestion = state.index === questions.length - 1
 
@@ -157,7 +158,7 @@ const QuizResults = ({
   return (
     <div className="flex flex-col justify-center items-center gap-y-8">
       <div className="text-lg font-bold tracking-wider">
-        Result: {correctAnswerCount}/5 ({percentage}%)
+        Result: {correctAnswerCount}/{questions.length} ({percentage}%)
       </div>
       <Table>
         <TableCaption>Your Quiz Results</TableCaption>
@@ -183,9 +184,10 @@ const QuizResults = ({
           })}
         </TableBody>
       </Table>
-      <div className="cursor-pointer hover:underline text-xs font-bold tracking-wide text-slate-500">
+      {/* <div className="cursor-pointer hover:underline text-xs font-bold tracking-wide text-slate-500">
         Share this result
-      </div>
+      </div> */}
+      <SaveResultDialog />
     </div>
   )
 }

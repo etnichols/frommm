@@ -5,36 +5,15 @@ import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/comp
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
-export default function Home() {
-  const quizData = [
-    {
-      slug: '/quiz/all-stars',
-      name: 'All Stars',
-      description: 'Active All-Star NBA players. 15 Questions.',
-    },
-    {
-      slug: '/quiz/the-original',
-      name: 'The Original ™',
-      description:
-        'Thirty questions of increasing difficulty. Note: intentionally excludes Big 12 players.',
-    },
-    // {
-    //   slug: 'old-school',
-    //   name: 'Old School',
-    //   description: 'Players drafted before 1990.',
-    // },
-    // {
-    //   slug: '/quiz/random',
-    //   name: 'Random',
-    //   description:
-    //     'Randomly generated quiz featuring active NBA players only. 30 questions of varying difficulty.',
-    // },
-    {
-      slug: '/create',
-      name: 'Create your own',
-      description: 'Create your own quiz, and share it with friends.',
-    },
-  ]
+interface QuizListProps {
+  quizData: {
+    slug: string
+    name: string
+    description: string
+  }[]
+}
+
+export default function QuizList({ quizData }: QuizListProps) {
   return (
     <div className="flex flex-col gap-8 md:items-center w-full">
       <div className="flex flex-col justify-center items-center md:w-4/12 w-full">
