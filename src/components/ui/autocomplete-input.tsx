@@ -1,21 +1,23 @@
 import { useEffect, useState } from 'react'
 
-import { Input } from '../ui/input'
+import { Input } from './input'
 import { NCAA_DIV_1_SCHOOLS } from '@/lib/data/ncaa-schools'
 
 function AutoCompleteInput({
   inputValue,
   setInputValue,
+  optionSet = NCAA_DIV_1_SCHOOLS,
 }: {
   inputValue: string
   setInputValue: (value: string) => void
+  optionSet?: string[]
 }) {
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [showSuggestions, setShowSuggestions] = useState<boolean>(false)
 
   useEffect(() => {
     if (inputValue) {
-      const filteredOptions = NCAA_DIV_1_SCHOOLS.filter((option) =>
+      const filteredOptions = optionSet.filter((option) =>
         option.toLowerCase().includes(inputValue.toLowerCase()),
       )
       setSuggestions(filteredOptions)

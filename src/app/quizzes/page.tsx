@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Section } from '@/components/section'
+import { Section } from '@/components/ui/section'
 
 export default function Home() {
   const quizData = [

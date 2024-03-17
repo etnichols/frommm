@@ -1,7 +1,7 @@
 'use client'
 
-import { Section } from '@/components/section'
 import { Button } from '@/components/ui/button'
+import { Section } from '@/components/ui/section'
 import { useRouter } from 'next/navigation'
 
 export default function Home() {

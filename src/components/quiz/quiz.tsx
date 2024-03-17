@@ -1,6 +1,6 @@
 'use client'
 
-import AutoCompleteInput from './autocomplete-input'
+import AutoCompleteInput from '../ui/autocomplete-input'
 import { Button } from '../ui/button'
 import Quiz from '@/lib/mongo/schema/quiz'
 import { useReducer } from 'react'
@@ -48,13 +48,15 @@ export default function QuizComponent({ quiz }: { quiz: Quiz }) {
   })
 
   const { questions } = quiz
+
+  const playerName = questions[state.index].name
   const currentAnswer = state.answers[state.index] || ''
 
   return (
     <div className="flex flex-col gap-y-16 items-center justify-center">
       <div className="flex text-2xl font-bold text-center">{quiz.title}</div>
       <div className="flex flex-col gap-y-4 items-center justify-center w-full md:w-96">
-        <div className="flex text-xl">{questions[state.index].name}</div>
+        <div className="flex text-xl">{playerName}</div>
         <AutoCompleteInput
           inputValue={currentAnswer}
           setInputValue={(answer) => dispatch({ type: QuizAction.SET_ANSWER, payload: { answer } })}
