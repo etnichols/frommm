@@ -8,86 +8,36 @@ const QUIZ_DATA = {
   createdAt: new Date(),
   updatedAt: new Date(),
   questions: [
-    {
-      playerName: 'Chris Paul',
-      correctAnswers: ['Wake Forest University', 'Wake Forest'],
-    },
-    {
-      playerName: 'Klay Thompson',
-      correctAnswers: ['Washington State University', 'Washington State', 'WSU'],
-    },
-    {
-      playerName: 'Rudy Gobert',
-      correctAnswers: ['None', 'Did not attend college in the USA'],
-    },
-    {
-      playerName: 'Donovan Mitchell',
-      correctAnswers: ['University of Louisville', 'Louisville'],
-    },
-    {
-      playerName: 'Bam Adebayo',
-      correctAnswers: ['University of Kentucky', 'Kentucky', 'UK'],
-    },
-    {
-      playerName: 'Draymond Green',
-      correctAnswers: ['Michigan State University', 'Michigan State', 'MSU'],
-    },
-    {
-      playerName: 'Zach LaVine',
-      correctAnswers: ['University of California Los Angeles', 'UCLA'],
-    },
-    {
-      playerName: 'CJ McCollum',
-      correctAnswers: ['Lehigh University', 'Lehigh'],
-    },
-    {
-      playerName: "De'Aaron Fox",
-      correctAnswers: ['University of Kentucky', 'Kentucky', 'UK'],
-    },
-    {
-      playerName: 'Julius Randle',
-      correctAnswers: ['University of Kentucky', 'Kentucky', 'UK'],
-    },
-    {
-      playerName: 'Jayson Tatum',
-      correctAnswers: ['Duke University', 'Duke'],
-    },
-    {
-      playerName: 'Brandon Ingram',
-      correctAnswers: ['Duke University', 'Duke'],
-    },
-    {
-      playerName: 'Ja Morant',
-      correctAnswers: ['Murray State University', 'Murray State'],
-    },
-    {
-      playerName: 'Trae Young',
-      correctAnswers: ['University of Oklahoma', 'Oklahoma', 'OU'],
-    },
-    {
-      playerName: 'Pascal Siakam',
-      correctAnswers: ['New Mexico State University', 'New Mexico State', 'NMSU'],
-    },
-    {
-      playerName: 'Devin Booker',
-      correctAnswers: ['University of Kentucky', 'Kentucky', 'UK'],
-    },
-    {
-      playerName: 'Karl-Anthony Towns',
-      correctAnswers: ['University of Kentucky', 'Kentucky', 'UK'],
-    },
-    {
-      playerName: 'Ben Simmons',
-      correctAnswers: ['Louisiana State University', 'LSU', 'Louisiana State'],
-    },
-    {
-      playerName: 'Bradley Beal',
-      correctAnswers: ['University of Florida', 'Florida', 'UF'],
-    },
-    {
-      playerName: 'John Collins',
-      correctAnswers: ['Wake Forest University', 'Wake Forest'],
-    },
+    { name: 'Xavier Tillman (Grizzlies)', college: 'Michigan State University' },
+    { name: 'Lamar Stevens (Cavs)', college: 'The Pennsylvania State University (Penn State)' },
+    { name: 'Alex Len (Kings)', college: 'University of Maryland' },
+    { name: 'Malik Beasley (Lakers)', college: 'Florida State University' },
+    { name: 'Danny Green (Cavs)', college: 'University of North Carolina (UNC)' },
+    { name: 'Lauri Markkanen', college: 'University of Arizona' },
+    { name: 'Jabari Smith (Rockets)', college: 'Auburn University' },
+    { name: 'Kelly Olynyk', college: 'Gonzaga University' },
+    { name: 'Bobby Portis', college: 'University of Arkansas' },
+    { name: 'Larry Nance Jr. (Pelicans)', college: 'University of Wyoming' },
+    { name: 'Montrezl Harrell (76ers)', college: 'University of Louisville' },
+    { name: 'Steven Adams (Grizzlies)', college: 'University of Pittsburgh (Pitt)' },
+    { name: 'Kris Dunn (Timberwolves)', college: 'Providence College' },
+    { name: 'CJ McCollum (Pelicans)', college: 'Lehigh University' },
+    { name: 'Ben Simmons', college: 'Louisiana State University (LSU)' },
+    { name: 'Juan Toscano-Anderson (Jazz)', college: 'Marquette University' },
+    { name: 'Zach LaVine (Bulls)', college: 'UCLA' },
+    { name: 'Damian Lillard (Trailblazers)', college: 'Weber State University' },
+    { name: 'Jaylen Brown', college: 'University of California, Berkeley (Cal)' },
+    { name: 'Cameron Payne (Suns)', college: 'Murray State University' },
+    { name: 'Klay Thompson (Warriors)', college: 'Washington State University' },
+    { name: 'Jrue Holiday (Bucks)', college: 'California State University, Los Angeles (UCLA)' },
+    { name: 'Pascal Siakam (Raptors)', college: 'New Mexico State University' },
+    { name: 'Landry Shamet (Suns)', college: 'Wichita State University' },
+    { name: 'Andre Drummond (Pistons)', college: 'University of Connecticut (UConn)' },
+    { name: 'Jalen Williams (Thunder)', college: 'Santa Clara University' },
+    { name: 'Ziaire Williams (Grizzlies)', college: 'Stanford University' },
+    { name: 'Malachi Flynn (Raptors)', college: 'San Diego State University (SDSU)' },
+    { name: 'Troy Brown Jr. (Lakers)', college: 'University of Oregon' },
+    { name: 'Elfrid Payton (Suns)', college: 'University of Louisiana at Lafayette' },
   ],
 }
 
