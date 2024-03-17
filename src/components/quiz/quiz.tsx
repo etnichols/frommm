@@ -60,7 +60,7 @@ function quizReducer(state: QuizState, action: { type: QuizAction; payload?: any
   }
 }
 
-export default function QuizComponent({ quiz }: { quiz: Quiz }) {
+export default function QuizComponent({ quiz }: { quiz: any }) {
   const [state, dispatch] = useReducer(quizReducer, {
     index: 0,
     inputValue: '',
@@ -126,6 +126,31 @@ export default function QuizComponent({ quiz }: { quiz: Quiz }) {
     </div>
   )
 }
+
+const QuizResults = ({
+  state,
+  dispatch,
+  questions,
+  answers: any,
+}: {
+  state: QuizState
+  dispatch: any
+  questions: any
+  answers: string[]
+}) => {
+  return (
+    <div className="flex flex-col justify-center items-center gap-y-8">
+      <div className="text-lg font-bold">Your results are ready!</div>
+      <div>You got a 3/5</div>
+      <div>Your answers</div>
+      {state.answers.map((answer, index) => (
+        <div key={index}>{answer}</div>
+      ))}
+      <div className="text-xs text-slate-500">Share this result</div>
+    </div>
+  )
+}
+
 const QuizQuestion = ({
   state,
   dispatch,

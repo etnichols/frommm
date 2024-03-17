@@ -14,10 +14,10 @@ export default function NavBar() {
   const [showNav, setShowNav] = useState(false)
 
   const navItems = [
-    ['about', '/about'],
     ['browse', '/quizzes'],
     ['create', '/create'],
     ['leaderboard', '/leaderboard'],
+    ['about', '/about'],
   ]
 
   useOnClickOutside(ref, () => setShowNav(false))
