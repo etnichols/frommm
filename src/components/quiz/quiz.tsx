@@ -5,7 +5,6 @@ import { useEffect, useReducer } from 'react'
 import AutoCompleteInput from '../ui/autocomplete-input'
 import { Button } from '../ui/button'
 import { Loader2 } from 'lucide-react'
-import Quiz from '@/lib/mongo/schema/quiz'
 
 // Define action types
 enum QuizAction {
@@ -74,7 +73,7 @@ export default function QuizComponent({ quiz }: { quiz: Quiz }) {
       // Grade quiz, save results, and display results.
       setTimeout(() => {
         dispatch({ type: QuizAction.DISPLAY_RESULTS })
-      }, 3000)
+      }, 30000)
     }
   }, [state.step])
 
@@ -99,20 +98,23 @@ export default function QuizComponent({ quiz }: { quiz: Quiz }) {
   )
   if (state.step === QuizStep.RESULTS) {
     content = (
-      <div>
+      <div className="flex flex-col justify-center items-center gap-y-8">
         <div className="text-lg font-bold">Your results are ready!</div>
-        <Button className="w-48 flex items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 bg-emerald-500 hover:bg-emerald-600 focus:ring-emerald-400">
-          Show Results
-        </Button>
+        <div>You got a 3/5</div>
+        <div>Your answers</div>
+        {state.answers.map((answer, index) => (
+          <div key={index}>{answer}</div>
+        ))}
+        <div className="text-xs text-slate-500">Share this result</div>
       </div>
     )
   }
 
   if (state.step === QuizStep.GRADING) {
     content = (
-      <div>
-        <div className="text-lg font-bold">Grading your quiz...</div>
-        <Loader2 className="mr-2 h-4 w-4 animate-spin"></Loader2>
+      <div className="flex flex-col justify-center items-center gap-y-8">
+        <div className="text-lg">Grading your quiz...</div>
+        <Loader2 className="h-8 w-8 animate-spin"></Loader2>
       </div>
     )
   }
