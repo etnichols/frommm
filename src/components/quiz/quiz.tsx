@@ -11,8 +11,7 @@ import {
   TableRow,
 } from '../ui/table'
 
-import { QuizQuestion, QuizType } from '@/models/Quiz'
-import { QuizAnswer } from '@/models/QuizResult'
+import { QuizType, type QuizQuestion } from '@/models/Quiz'
 import { Loader2 } from 'lucide-react'
 import AutoCompleteInput from '../ui/autocomplete-input'
 import { Button } from '../ui/button'
@@ -145,7 +144,7 @@ const QuizResults = ({
   state: QuizState
   dispatch: any
   questions: QuizQuestion[]
-  answers: QuizAnswer[]
+  answers: string[]
 }) => {
   const correctAnswerCount = questions
     .map((question, index) => {
@@ -187,7 +186,7 @@ const QuizResults = ({
       {/* <div className="cursor-pointer hover:underline text-xs font-bold tracking-wide text-slate-500">
         Share this result
       </div> */}
-      <SaveResultDialog />
+      <SaveResultDialog quizResult={state.answers} />
     </div>
   )
 }

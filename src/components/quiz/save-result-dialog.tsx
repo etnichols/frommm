@@ -11,12 +11,11 @@ import {
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Label } from '../ui/label'
-import { QuizResult } from '@/models/QuizResult'
 import { useState } from 'react'
 
 const wait = () => new Promise((resolve) => setTimeout(resolve, 2000))
 
-export function SaveResultDialog({ quizResult }: { quizResult: QuizResult }) {
+export function SaveResultDialog({ quizResult }: { quizResult: any }) {
   const [open, setOpen] = useState(false)
   const [name, setName] = useState('')
   const [buttonText, setButtonText] = useState('Save to Leaderboard')
