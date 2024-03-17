@@ -1,9 +1,7 @@
 export const THE_ORIGINAL = {
   title: 'The Original',
   slug: 'the-original',
-  creator: 'Evan Nichols',
-  createdAt: new Date(),
-  updatedAt: new Date(),
+  author: 'Evan Nichols',
   questions: [
     { name: 'Xavier Tillman (Grizzlies)', college: 'Michigan State University (MSU)' },
     { name: 'Lamar Stevens (Cavs)', college: 'The Pennsylvania State University (Penn State)' },

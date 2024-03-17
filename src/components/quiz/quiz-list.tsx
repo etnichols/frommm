@@ -16,7 +16,7 @@ interface QuizListProps {
 export default function QuizList({ quizData }: QuizListProps) {
   return (
     <div className="flex flex-col gap-8 md:items-center w-full">
-      <div className="flex flex-col justify-center items-center md:w-4/12 w-full">
+      <div className="flex flex-col justify-center items-center">
         <div className="flex flex-col gap-y-4 w-full items-center">
           {quizData.map((quiz) => (
             <Card

@@ -1,8 +1,8 @@
 'use client'
 
-import { ALL_STARS } from '@/lib/data/all-stars'
 import { Button } from '@/components/ui/button'
 import { Section } from '@/components/ui/section'
+import { THE_ORIGINAL } from '@/lib/data/the-original'
 import { useState } from 'react'
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
     try {
       const quizCreationResponse = await fetch('/api/quiz/create', {
         method: 'POST',
-        body: JSON.stringify(ALL_STARS),
+        body: JSON.stringify(THE_ORIGINAL),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -29,14 +29,16 @@ export default function Home() {
   return (
     <Section headline="Create Quiz Page">
       Not Yet Implemented, Come Back Soon!
-      <Button
-        onClick={async () => {
-          handleCreateQuiz()
-        }}
-        className="bg-emerald-500 w-full md:w-48"
-      >
-        Create Test Quiz
-      </Button>
+      {process.env.DEV_MODE === 'true' && (
+        <Button
+          onClick={async () => {
+            handleCreateQuiz()
+          }}
+          className="bg-emerald-500 w-full md:w-48"
+        >
+          Create Test Quiz
+        </Button>
+      )}
     </Section>
   )
 }
