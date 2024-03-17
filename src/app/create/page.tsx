@@ -28,7 +28,7 @@ export default function Home() {
             alert('Quiz creation failed, ' + e)
           }
         }}
-        className="bg-emerald-500 w-96"
+        className="bg-emerald-500 w-full md:w-48"
       >
         Create Test Quiz
       </Button>

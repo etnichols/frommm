@@ -1,4 +1,4 @@
-import { Quiz } from '@/models/Quiz'
+import Quiz from '@/models/Quiz'
 import dbConnect from '@/lib/db-connect'
 
 export async function GET(request: Request, { params }: { params: { slug: string } }) {

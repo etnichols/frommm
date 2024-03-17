@@ -5,7 +5,7 @@ export interface QuizQuestion {
   college: string
 }
 
-export interface Quiz extends mongoose.Document {
+export interface QuizType extends mongoose.Document {
   title: string
   author: string
   slug: string
@@ -13,7 +13,7 @@ export interface Quiz extends mongoose.Document {
 }
 
 /* QuizSchema will correspond to a MongoDB collection. */
-const QuizSchema = new mongoose.Schema<Quiz>({
+const QuizSchema = new mongoose.Schema<QuizType>({
   title: {
     type: String,
     required: [true, 'Please provide a title for this quiz.'],

@@ -1,10 +1,21 @@
 'use client'
 
 import { useEffect, useReducer } from 'react'
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '../ui/table'
 
+import { QuizQuestion, QuizType } from '@/models/Quiz'
+import { QuizAnswer } from '@/models/QuizResult'
+import { Loader2 } from 'lucide-react'
 import AutoCompleteInput from '../ui/autocomplete-input'
 import { Button } from '../ui/button'
-import { Loader2 } from 'lucide-react'
 
 // Define action types
 enum QuizAction {
@@ -28,7 +39,7 @@ interface QuizState {
   step: QuizStep
 }
 
-// TODO: Grade quiz, show results, and submit answers.
+// TODO: Save answers to DB
 function quizReducer(state: QuizState, action: { type: QuizAction; payload?: any }) {
   switch (action.type) {
     case QuizAction.SET_ANSWER:
@@ -60,7 +71,7 @@ function quizReducer(state: QuizState, action: { type: QuizAction; payload?: any
   }
 }
 
-export default function QuizComponent({ quiz }: { quiz: any }) {
+export default function QuizComponent({ quiz }: { quiz: QuizType }) {
   const [state, dispatch] = useReducer(quizReducer, {
     index: 0,
     inputValue: '',
@@ -73,7 +84,7 @@ export default function QuizComponent({ quiz }: { quiz: any }) {
       // Grade quiz, save results, and display results.
       setTimeout(() => {
         dispatch({ type: QuizAction.DISPLAY_RESULTS })
-      }, 30000)
+      }, 3000)
     }
   }, [state.step])
 
@@ -98,15 +109,12 @@ export default function QuizComponent({ quiz }: { quiz: any }) {
   )
   if (state.step === QuizStep.RESULTS) {
     content = (
-      <div className="flex flex-col justify-center items-center gap-y-8">
-        <div className="text-lg font-bold">Your results are ready!</div>
-        <div>You got a 3/5</div>
-        <div>Your answers</div>
-        {state.answers.map((answer, index) => (
-          <div key={index}>{answer}</div>
-        ))}
-        <div className="text-xs text-slate-500">Share this result</div>
-      </div>
+      <QuizResults
+        state={state}
+        dispatch={dispatch}
+        questions={questions}
+        answers={state.answers}
+      />
     )
   }
 
@@ -135,18 +143,49 @@ const QuizResults = ({
 }: {
   state: QuizState
   dispatch: any
-  questions: any
-  answers: string[]
+  questions: QuizQuestion[]
+  answers: QuizAnswer[]
 }) => {
+  const correctAnswerCount = questions
+    .map((question, index) => {
+      return question.college === state.answers[index]
+    })
+    .filter(Boolean).length
+
+  const percentage = Math.floor((correctAnswerCount / questions.length) * 100)
+
   return (
     <div className="flex flex-col justify-center items-center gap-y-8">
-      <div className="text-lg font-bold">Your results are ready!</div>
-      <div>You got a 3/5</div>
-      <div>Your answers</div>
-      {state.answers.map((answer, index) => (
-        <div key={index}>{answer}</div>
-      ))}
-      <div className="text-xs text-slate-500">Share this result</div>
+      <div className="text-lg font-bold tracking-wider">
+        Result: {correctAnswerCount}/5 ({percentage}%)
+      </div>
+      <Table>
+        <TableCaption>Your Quiz Results</TableCaption>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[100px]">Player</TableHead>
+            <TableHead>Your Answer</TableHead>
+            <TableHead>Correct Answer</TableHead>
+            <TableHead className="text-right"> </TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {questions.map((question, index) => {
+            const isCorrect = question.college === state.answers[index]
+            return (
+              <TableRow key={index}>
+                <TableCell className="font-medium">{question.name}</TableCell>
+                <TableCell>{state.answers[index] || 'No answer'}</TableCell>
+                <TableCell>{question.college}</TableCell>
+                <TableCell className="text-right">{isCorrect ? '✅' : '❌'}</TableCell>
+              </TableRow>
+            )
+          })}
+        </TableBody>
+      </Table>
+      <div className="cursor-pointer hover:underline text-xs font-bold tracking-wide text-slate-500">
+        Share this result
+      </div>
     </div>
   )
 }
