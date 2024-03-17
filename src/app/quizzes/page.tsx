@@ -6,6 +6,12 @@ import { Section } from '@/components/ui/section'
 export default function Home() {
   const quizData = [
     {
+      slug: 'test-quiz',
+      name: 'Test Quiz ™',
+      description:
+        'If Evan sent you this link to test out the app, use this quiz. It is only five questions long.',
+    },
+    {
       slug: 'the-original',
       name: 'The Original ™',
       description:

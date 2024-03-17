@@ -1,11 +1,13 @@
 'use client'
 
+import { Section } from '@/components/ui/section'
+
 export default function Home() {
   const paragraphs = [
     [
       `You're watching an NBA game, recognize a player from their college days, and turn to your friends and ask,`,
     ],
-    [`From???`, 'text-2xl font-bold italic text-center'],
+    [`From???`, 'text-2xl font-bold italic text-center pb-8'],
     [`They think for a few seconds, and then give up. "I don't know, where?"`],
     [`Then you hit them with the answer, flexing your sports knowledge.`],
     [`This is the "From???" game. And now, it's a website.`],
@@ -17,19 +19,12 @@ export default function Home() {
   ]
 
   return (
-    <div className="flex flex-col gap-8 md:items-center w-full">
-      <div className="flex flex-col md:max-w-96 gap-y-8">
-        <h1 className="flex text-xl md:text-3xl text-center mx-8 font-semibold tracking-wide">
-          {`What the heck is 'From???'`}
-        </h1>
-        <div className="flex flex-col md:max-w-96 gap-y-4">
-          {paragraphs.map(([item, classes], index) => (
-            <p key={index} className={`leading-loose ${classes || ''}`}>
-              {item}
-            </p>
-          ))}
-        </div>
-      </div>
-    </div>
+    <Section headline="What the heck is From???">
+      {paragraphs.map(([item, classes], index) => (
+        <p key={index} className={`leading-loose ${classes || ''}`}>
+          {item}
+        </p>
+      ))}
+    </Section>
   )
 }

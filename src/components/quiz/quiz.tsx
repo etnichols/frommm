@@ -1,24 +1,35 @@
 'use client'
 
+import { useEffect, useReducer } from 'react'
+
 import AutoCompleteInput from '../ui/autocomplete-input'
 import { Button } from '../ui/button'
+import { Loader2 } from 'lucide-react'
 import Quiz from '@/lib/mongo/schema/quiz'
-import { useReducer } from 'react'
 
 // Define action types
 enum QuizAction {
   SET_ANSWER = 'SET_ANSWER',
   NEXT_QUESTION = 'NEXT_QUESTION',
   PREVIOUS_QUESTION = 'PREVIOUS_QUESTION',
+  GRADE_QUIZ = 'GRADE_QUIZ',
+  DISPLAY_RESULTS = 'DISPLAY_RESULTS',
+}
+
+enum QuizStep {
+  QUESTIONS,
+  GRADING,
+  RESULTS,
 }
 
 interface QuizState {
   index: number
   inputValue: string
   answers: string[]
+  step: QuizStep
 }
 
-// Reducer function to manage quiz state
+// TODO: Grade quiz, show results, and submit answers.
 function quizReducer(state: QuizState, action: { type: QuizAction; payload?: any }) {
   switch (action.type) {
     case QuizAction.SET_ANSWER:
@@ -35,6 +46,16 @@ function quizReducer(state: QuizState, action: { type: QuizAction; payload?: any
         ...state,
         index: state.index - 1,
       }
+    case QuizAction.GRADE_QUIZ:
+      return {
+        ...state,
+        step: QuizStep.GRADING,
+      }
+    case QuizAction.DISPLAY_RESULTS:
+      return {
+        ...state,
+        step: QuizStep.RESULTS,
+      }
     default:
       return state
   }
@@ -45,43 +66,117 @@ export default function QuizComponent({ quiz }: { quiz: Quiz }) {
     index: 0,
     inputValue: '',
     answers: [],
+    step: QuizStep.QUESTIONS,
   })
 
-  const { questions } = quiz
+  useEffect(() => {
+    if (state.step === QuizStep.GRADING) {
+      // Grade quiz, save results, and display results.
+      setTimeout(() => {
+        dispatch({ type: QuizAction.DISPLAY_RESULTS })
+      }, 3000)
+    }
+  }, [state.step])
 
-  const playerName = questions[state.index].name
-  const currentAnswer = state.answers[state.index] || ''
+  const { questions: rawQuestions } = quiz
+  const questions = rawQuestions.slice(0, 5)
+
+  const isFinalQuestion = state.index === questions.length - 1
+
+  let content = (
+    <>
+      <QuizQuestion state={state} questions={questions} dispatch={dispatch} />
+      <QuizNavigationControls state={state} questions={questions} dispatch={dispatch} />
+      {isFinalQuestion && (
+        <Button
+          onClick={() => dispatch({ type: QuizAction.GRADE_QUIZ })}
+          className="w-48 flex items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 bg-emerald-500 hover:bg-emerald-600 focus:ring-emerald-400"
+        >
+          Grade Quiz
+        </Button>
+      )}
+    </>
+  )
+  if (state.step === QuizStep.RESULTS) {
+    content = (
+      <div>
+        <div className="text-lg font-bold">Your results are ready!</div>
+        <Button className="w-48 flex items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 bg-emerald-500 hover:bg-emerald-600 focus:ring-emerald-400">
+          Show Results
+        </Button>
+      </div>
+    )
+  }
+
+  if (state.step === QuizStep.GRADING) {
+    content = (
+      <div>
+        <div className="text-lg font-bold">Grading your quiz...</div>
+        <Loader2 className="mr-2 h-4 w-4 animate-spin"></Loader2>
+      </div>
+    )
+  }
 
   return (
     <div className="flex flex-col gap-y-16 items-center justify-center">
       <div className="flex text-2xl font-bold text-center">{quiz.title}</div>
-      <div className="flex flex-col gap-y-4 items-center justify-center w-full md:w-96">
-        <div className="flex text-xl">{playerName}</div>
-        <AutoCompleteInput
-          inputValue={currentAnswer}
-          setInputValue={(answer) => dispatch({ type: QuizAction.SET_ANSWER, payload: { answer } })}
-        />
-      </div>
-      <div className="flex flex-row justify-between w-full px-8 lg:max-w-96">
-        <Button
-          disabled={state.index === 0}
-          onClick={() => dispatch({ type: QuizAction.PREVIOUS_QUESTION })}
-          className="min-w-24 flex items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        >
-          <LeftArrow />
-          <div className="pl-2">Previous</div>
-        </Button>
-        <Button
-          disabled={state.index === questions.length - 1}
-          onClick={() => {
-            dispatch({ type: QuizAction.NEXT_QUESTION })
-          }}
-          className="min-w-24 flex items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        >
-          <div className="pr-2">Next</div>
-          <RightArrow />
-        </Button>
-      </div>
+      {content}
+    </div>
+  )
+}
+const QuizQuestion = ({
+  state,
+  dispatch,
+  questions,
+}: {
+  state: QuizState
+  dispatch: any
+  questions: any
+}) => {
+  const playerName = questions[state.index].name
+  const currentAnswer = state.answers[state.index] || ''
+
+  return (
+    <div className="flex flex-col gap-y-4 items-center justify-center w-full md:w-96">
+      <div className="flex text-xl">{playerName}</div>
+      <div className="text-xs text-slate-500">{`(${state.index + 1}/${questions.length})`}</div>
+      <AutoCompleteInput
+        inputValue={currentAnswer}
+        setInputValue={(answer) => dispatch({ type: QuizAction.SET_ANSWER, payload: { answer } })}
+      />
+    </div>
+  )
+}
+
+const QuizNavigationControls = ({
+  state,
+  dispatch,
+  questions,
+}: {
+  state: QuizState
+  dispatch: any
+  questions: any
+}) => {
+  return (
+    <div className="flex flex-row justify-between w-full px-8 lg:max-w-96">
+      <Button
+        disabled={state.index === 0}
+        onClick={() => dispatch({ type: QuizAction.PREVIOUS_QUESTION })}
+        className="min-w-24 flex items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 "
+      >
+        <LeftArrow />
+        <div className="pl-2">Previous</div>
+      </Button>
+      <Button
+        disabled={state.index === questions.length - 1}
+        onClick={() => {
+          dispatch({ type: QuizAction.NEXT_QUESTION })
+        }}
+        className="min-w-24 flex items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 "
+      >
+        <div className="pr-2">Next</div>
+        <RightArrow />
+      </Button>
     </div>
   )
 }

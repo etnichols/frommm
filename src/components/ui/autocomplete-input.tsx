@@ -25,10 +25,10 @@ function AutoCompleteInput({
     } else {
       setShowSuggestions(false)
     }
-  }, [inputValue])
+  }, [inputValue, optionSet])
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full z-10">
       <Input
         type="text"
         className="flex w-full border border-gray-300 p-2"
