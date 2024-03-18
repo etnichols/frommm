@@ -1,6 +1,8 @@
 export const NBA_DRAFT_LOTTERY_PICKS_2023 = {
   title: '2023 NBA Draft Lottery Picks',
   slug: '2023-nba-draft-lottery-picks',
+  description:
+    'For international players, enter their home country. For G League players, enter their G League team name.',
   author: 'E. Nichols',
   questions: [
     { name: 'Victor Wembanyama (San Antonio Spurs)', college: 'France' },

@@ -7,6 +7,7 @@ export interface QuizQuestion {
 
 export interface QuizType extends mongoose.Document {
   title: string
+  description?: string
   author: string
   slug: string
   questions: QuizQuestion[]
@@ -18,6 +19,10 @@ const QuizSchema = new mongoose.Schema<QuizType>({
     type: String,
     required: [true, 'Please provide a title for this quiz.'],
     maxlength: [70, 'Name cannot be more than 70 characters'],
+  },
+  description: {
+    type: String,
+    maxlength: [500, 'Description cannot be more than 500 characters'],
   },
   author: {
     type: String,

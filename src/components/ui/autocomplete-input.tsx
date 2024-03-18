@@ -27,7 +27,8 @@ function AutoCompleteInput({
     } else {
       setShowSuggestions(false)
     }
-  }, [inputValue, optionSet])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inputValue])
 
   return (
     <div className="relative w-full z-10">
