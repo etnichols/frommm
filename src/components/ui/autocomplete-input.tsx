@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 
+import { COUNTRIES } from '@/lib/data/countries'
+import { G_LEAGUE_TEAMS } from '@/lib/data/g-league'
 import { Input } from './input'
 import { NCAA_DIV_1_SCHOOLS } from '@/lib/data/ncaa-schools'
 
 function AutoCompleteInput({
   inputValue,
   setInputValue,
-  optionSet = NCAA_DIV_1_SCHOOLS,
+  optionSet = NCAA_DIV_1_SCHOOLS.concat(G_LEAGUE_TEAMS).concat(COUNTRIES),
 }: {
   inputValue: string
   setInputValue: (value: string) => void

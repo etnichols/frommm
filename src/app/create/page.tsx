@@ -1,8 +1,8 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import { NBA_DRAFT_LOTTERY_PICKS_2023 } from '@/lib/data/lottery-picks'
 import { Section } from '@/components/ui/section'
-import { THE_ORIGINAL } from '@/lib/data/the-original'
 import { useState } from 'react'
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
     try {
       const quizCreationResponse = await fetch('/api/quiz/create', {
         method: 'POST',
-        body: JSON.stringify(THE_ORIGINAL),
+        body: JSON.stringify(NBA_DRAFT_LOTTERY_PICKS_2023),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -28,8 +28,8 @@ export default function Home() {
 
   return (
     <Section headline="Create Quiz Page">
-      Not Yet Implemented, Come Back Soon!
-      {process.env.DEV_MODE === 'true' && (
+      <div className="text-base text-center">Not Yet Implemented. Come Back Soon!</div>
+      {process.env.NODE_ENV === 'development' && (
         <Button
           onClick={async () => {
             handleCreateQuiz()

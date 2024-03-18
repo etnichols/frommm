@@ -4,6 +4,7 @@ export interface QuizResult extends mongoose.Document {
   quizId: mongoose.Schema.Types.ObjectId
   answers: string[]
   score: number
+  initials: string
 }
 
 /* QuizSchema will correspond to a MongoDB collection. */
@@ -16,6 +17,11 @@ const QuizResultSchema = new mongoose.Schema<QuizResult>({
   score: {
     type: Number,
     required: [true, 'Please provide a score.'],
+  },
+  initials: {
+    type: String,
+    required: [true, 'Please provide initials.'],
+    maxlength: [3, 'Initials cannot be more than 3 characters'],
   },
 })
 

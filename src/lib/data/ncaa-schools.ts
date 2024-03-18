@@ -245,7 +245,7 @@ export const NCAA_DIV_1_SCHOOLS = [
   'University of California, Riverside',
   'University of California, Santa Barbara',
   'University of Central Arkansas',
-  'University of Central Florida',
+  'University of Central Florida (UCF)',
   'University of Cincinnati',
   'University of Colorado Boulder',
   'University of Connecticut (UConn)',

@@ -88,7 +88,7 @@ export default function QuizComponent({ quiz }: { quiz: QuizType }) {
     }
   }, [state.step])
 
-  const { questions: rawQuestions } = quiz
+  const { questions: rawQuestions, slug } = quiz
   const questions = rawQuestions
 
   const isFinalQuestion = state.index === questions.length - 1
@@ -114,6 +114,8 @@ export default function QuizComponent({ quiz }: { quiz: QuizType }) {
         dispatch={dispatch}
         questions={questions}
         answers={state.answers}
+        quizId={quiz._id}
+        slug={slug}
       />
     )
   }
@@ -140,11 +142,15 @@ const QuizResults = ({
   dispatch,
   questions,
   answers: any,
+  quizId,
+  slug,
 }: {
   state: QuizState
   dispatch: any
   questions: QuizQuestion[]
   answers: string[]
+  quizId: string
+  slug: string
 }) => {
   const correctAnswerCount = questions
     .map((question, index) => {
@@ -153,6 +159,29 @@ const QuizResults = ({
     .filter(Boolean).length
 
   const percentage = Math.floor((correctAnswerCount / questions.length) * 100)
+
+  const saveQuizResult = async (nickname: string) => {
+    const quizResult = {
+      answers: state.answers,
+      quizId,
+      score: correctAnswerCount,
+    }
+    console.log('Save to leaderbaord: ', quizResult)
+
+    const saveQuizResultResponse = await fetch(`/api/quiz/${slug}`, {
+      method: 'POST',
+      body: JSON.stringify(quizResult),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
+    const saveQuizResultJson = await saveQuizResultResponse.json()
+
+    console.log('Save to leaderboard response: ', saveQuizResultJson)
+
+    return saveQuizResultJson
+  }
 
   return (
     <div className="flex flex-col justify-center items-center gap-y-8">
@@ -186,7 +215,7 @@ const QuizResults = ({
       {/* <div className="cursor-pointer hover:underline text-xs font-bold tracking-wide text-slate-500">
         Share this result
       </div> */}
-      <SaveResultDialog quizResult={state.answers} />
+      <SaveResultDialog saveResultFn={saveQuizResult} />
     </div>
   )
 }

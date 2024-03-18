@@ -10,6 +10,7 @@ interface QuizListProps {
     slug: string
     name: string
     description: string
+    buttonText?: string
   }[]
 }
 
@@ -33,7 +34,7 @@ export default function QuizList({ quizData }: QuizListProps) {
                 <CardFooter>
                   <Link key={quiz.slug} href={`${quiz.slug}`}>
                     <Button className="bg-emerald-500 w-full tracking-wide hover:bg-emerald-600">
-                      Take this quiz
+                      {quiz.buttonText || 'Take this quiz'}
                     </Button>
                   </Link>
                 </CardFooter>

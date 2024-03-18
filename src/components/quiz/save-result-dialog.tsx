@@ -15,23 +15,28 @@ import { useState } from 'react'
 
 const wait = () => new Promise((resolve) => setTimeout(resolve, 2000))
 
-export function SaveResultDialog({ quizResult }: { quizResult: any }) {
+interface SaveResultDialogProps {
+  saveResultFn: (name: string) => Promise<void>
+}
+
+export function SaveResultDialog({ saveResultFn }: SaveResultDialogProps) {
   const [open, setOpen] = useState(false)
   const [name, setName] = useState('')
   const [buttonText, setButtonText] = useState('Save to Leaderboard')
 
   const handleSave = async () => {
     setButtonText('Saving...')
-    console.log('Save to leaderbaord: ', quizResult)
 
-    await wait()
-
-    setButtonText('Saved!')
+    try {
+      await saveResultFn(name)
+    } catch (error) {
+      setButtonText('Error saving, sorry')
+      console.error('Error saving quiz result: ', error)
+    }
 
     setTimeout(() => {
       setOpen(false)
     }, 1000)
-    // Save the results
   }
 
   return (
