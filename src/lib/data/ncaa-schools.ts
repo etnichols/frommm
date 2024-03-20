@@ -304,7 +304,7 @@ export const NCAA_DIV_1_SCHOOLS = [
   'University of South Carolina',
   'University of South Carolina Upstate',
   'University of South Dakota',
-  'University of Southern California',
+  'University of Southern California (USC)',
   'University of Southern Mississippi',
   'University of South Florida',
   'University of the Incarnate Word',

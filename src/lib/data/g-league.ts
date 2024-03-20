@@ -30,4 +30,5 @@ export const G_LEAGUE_TEAMS = [
   'South Bay Lakers',
   'Stockton Kings',
   'Texas Legends',
+  'Overtime Elite (OTE)',
 ]
