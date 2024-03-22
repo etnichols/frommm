@@ -1,10 +1,11 @@
-import { Combobox } from '@/components/ui/combo-box'
+import { ComboboxItem } from '@/components/ui/combo-box'
+import Leaderboard from '@/components/leaderboard/leaderboard'
 import { Section } from '@/components/ui/section'
 
 export default async function Home() {
-  const quizzes = await fetchQuizzes()
+  const { quizzes } = await fetchQuizzes()
 
-  const actualQuizzes = quizzes.quizzes.map((quiz) => ({
+  const comboxBoxItems: ComboboxItem[] = quizzes.map((quiz: any) => ({
     _id: quiz._id,
     value: quiz._id,
     label: quiz.title,
@@ -12,8 +13,7 @@ export default async function Home() {
 
   return (
     <Section headline="Leaderboard">
-      <Combobox items={actualQuizzes} />
-      <div>Not yet implemented. Come back soon!</div>
+      <Leaderboard items={comboxBoxItems} />
     </Section>
   )
 }

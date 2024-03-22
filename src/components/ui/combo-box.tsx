@@ -8,12 +8,18 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { useState } from 'react'
 
-interface ComboboxProps {
-  items: { value: string; label: string; _id?: string }[]
+export interface ComboboxItem {
+  _id: string
+  value: string
+  label: string
 }
 
-export function Combobox({ items }: ComboboxProps) {
-  console.dir(items)
+interface ComboboxProps {
+  items: ComboboxItem[]
+  onChange: (e?: ComboboxItem) => void
+}
+
+export function Combobox({ items, onChange }: ComboboxProps) {
   const [open, setOpen] = useState(false)
   const [value, setValue] = useState('')
 
@@ -26,7 +32,7 @@ export function Combobox({ items }: ComboboxProps) {
           aria-expanded={open}
           className="w-[270px] justify-between"
         >
-          {value ? items.find((item) => item.value === value)?.label : 'Select framework...'}
+          {value ? items.find((item) => item.value === value)?.label : 'Select quiz...'}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -40,7 +46,12 @@ export function Combobox({ items }: ComboboxProps) {
                 key={item.value}
                 value={item.value}
                 onSelect={(currentValue) => {
-                  setValue(currentValue === value ? '' : currentValue)
+                  const newValue = currentValue === value ? '' : currentValue
+                  const newItem = newValue
+                    ? items.find((item) => item.value === currentValue)
+                    : undefined
+                  onChange(newItem)
+                  setValue(newValue)
                   setOpen(false)
                 }}
               >
