@@ -25,14 +25,14 @@ async function fetchQuizzes() {
     })
 
     if (!apiResponse.ok) {
-      console.log('Error fetching quiz', apiResponse)
-      return null
+      console.log('Error fetching quizzes', apiResponse)
+      return { quizzes: [] }
     }
 
     const quizJson = apiResponse.json()
     return quizJson
   } catch (e) {
     console.log('Error fetching quiz', e)
-    return null
+    return { quizzes: [] }
   }
 }

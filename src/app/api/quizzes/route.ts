@@ -1,7 +1,7 @@
 import Quiz from '@/models/Quiz'
 import dbConnect from '@/lib/db-connect'
 
-export async function GET(request: Request, { params }: { params: { slug: string } }) {
+export async function GET() {
   await dbConnect()
 
   const quizzes = await Quiz.find({})
