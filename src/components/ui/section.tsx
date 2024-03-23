@@ -9,7 +9,7 @@ export function Section({
 }) {
   return (
     <div className="flex flex-col gap-8 md:items-center w-full">
-      <div className="flex flex-col justify-center items-center md:w-4/12 w-full">
+      <div className="flex flex-col justify-center items-center md:w-9/12 w-full">
         <h1 className="flex text-xl md:text-3xl text-center mx-8 font-semibold tracking-wide mb-8">
           {headline}
         </h1>

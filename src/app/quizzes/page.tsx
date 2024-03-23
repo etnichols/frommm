@@ -9,7 +9,7 @@ export default function Home() {
       <h1 className="flex text-xl md:text-3xl text-center mx-8 font-semibold tracking-wide mb-8">
         Quizzes
       </h1>
-      <div className="flex flex-col justify-center items-center md:w-4/12 w-full">
+      <div className="flex flex-col justify-center items-center md:w-9/12 w-full">
         <QuizList quizData={AVAILABLE_QUIZZES} />
       </div>
     </div>

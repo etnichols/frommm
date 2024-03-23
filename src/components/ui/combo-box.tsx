@@ -16,12 +16,12 @@ export interface ComboboxItem {
 
 interface ComboboxProps {
   items: ComboboxItem[]
+  selected: ComboboxItem | undefined
   onChange: (e?: ComboboxItem) => void
 }
 
-export function Combobox({ items, onChange }: ComboboxProps) {
+export function Combobox({ items, onChange, selected }: ComboboxProps) {
   const [open, setOpen] = useState(false)
-  const [value, setValue] = useState('')
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -32,7 +32,7 @@ export function Combobox({ items, onChange }: ComboboxProps) {
           aria-expanded={open}
           className="w-[270px] justify-between"
         >
-          {value ? items.find((item) => item.value === value)?.label : 'Select quiz...'}
+          {selected?.label || 'Select quiz...'}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -45,18 +45,21 @@ export function Combobox({ items, onChange }: ComboboxProps) {
               <CommandItem
                 key={item.value}
                 value={item.value}
-                onSelect={(currentValue) => {
-                  const newValue = currentValue === value ? '' : currentValue
-                  const newItem = newValue
-                    ? items.find((item) => item.value === currentValue)
-                    : undefined
+                onSelect={(value) => {
+                  console.log('onSelect', value)
+                  // Deselect the item if it's already selected
+                  const newValue = selected?.value === value ? '' : value
+                  // Find the item that matches the value
+                  const newItem = newValue ? items.find((item) => item.value === value) : undefined
                   onChange(newItem)
-                  setValue(newValue)
                   setOpen(false)
                 }}
               >
                 <Check
-                  className={cn('mr-2 h-4 w-4', value === item.value ? 'opacity-100' : 'opacity-0')}
+                  className={cn(
+                    'mr-2 h-4 w-4',
+                    selected?.value === item.value ? 'opacity-100' : 'opacity-0',
+                  )}
                 />
                 {item.label}
               </CommandItem>

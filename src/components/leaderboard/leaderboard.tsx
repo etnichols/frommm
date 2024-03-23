@@ -10,8 +10,9 @@ import {
   TableHeader,
   TableRow,
 } from '../ui/table'
+import { useEffect, useState } from 'react'
 
-import { useState } from 'react'
+import { QuizResult } from '@/models/QuizResult'
 
 interface QuizItem {
   _id: string
@@ -24,49 +25,50 @@ interface LeaderboardProps {
 }
 
 export default function Leaderboard({ items }: LeaderboardProps) {
-  const [selectedQuiz, setSelectedQuiz] = useState<ComboboxItem | undefined>(undefined)
-
+  const [selectedQuiz, setSelectedQuiz] = useState<ComboboxItem | undefined>(items[0])
   return (
     <div className="flex flex-col justify-center items-center gap-y-8">
-      <Combobox items={items} onChange={setSelectedQuiz} />
+      <Combobox selected={selectedQuiz} items={items} onChange={setSelectedQuiz} />
       <LeaderboardTable selectedQuiz={selectedQuiz} />
     </div>
   )
 }
 
-const FAKE_DATA = [
-  {
-    name: 'JMN',
-    score: '23',
-  },
-  {
-    name: 'ETN',
-    score: '19',
-  },
-  {
-    name: 'PJC',
-    score: '13',
-  },
-  {
-    name: 'MCD',
-    score: '12',
-  },
-  {
-    name: 'RJH',
-    score: '9',
-  },
-  {
-    name: 'JMC',
-    score: '3',
-  },
-]
-
+// TODO: Add loading indicator.
 function LeaderboardTable({ selectedQuiz }: { selectedQuiz?: ComboboxItem }) {
+  const [leaderboardData, setLeaderboardData] = useState<Partial<QuizResult>[]>([])
+
+  useEffect(() => {
+    async function fetchLeaderboard(quizId: string) {
+      try {
+        const apiResponse = await fetch(`/api/leaderboard/${quizId}`, {
+          cache: 'no-cache',
+        })
+
+        if (!apiResponse.ok) {
+          console.log('Error fetching leaderboard', apiResponse)
+          setLeaderboardData([])
+        }
+
+        const leaderboardJson = await apiResponse.json()
+
+        console.dir(leaderboardJson)
+        setLeaderboardData(leaderboardJson as Partial<QuizResult>[])
+      } catch (e) {
+        console.log('Error fetching leaderboard', e)
+        return { leaderboard: [] }
+      }
+    }
+
+    if (!selectedQuiz) return
+
+    fetchLeaderboard(selectedQuiz.value)
+  }, [selectedQuiz])
+
   if (!selectedQuiz) {
     return <div className="p-8 flex text-center">No quiz selected</div>
   }
 
-  // Fetch quiz results.
   return (
     <Table className="mt-8">
       <TableCaption>{`${selectedQuiz.label} Leaderboard`}</TableCaption>
@@ -78,13 +80,20 @@ function LeaderboardTable({ selectedQuiz }: { selectedQuiz?: ComboboxItem }) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {FAKE_DATA.map((entry, index) => {
-          const scoreString = `${entry.score}/30`
+        {leaderboardData.map((entry, index) => {
+          if (!entry || !entry.initials || !entry.score) {
+            return null
+          }
+
+          const { initials, score } = entry
+          const scoreString = `${score}/30`
+          const scorePercentage = `${((score / 30) * 100).toFixed(2)}%`
+
           return (
             <TableRow key={index}>
-              <TableCell className="font-medium">{entry.name}</TableCell>
+              <TableCell className="font-medium">{initials}</TableCell>
               <TableCell>{scoreString}</TableCell>
-              <TableCell>{Math.round((parseInt(entry.score) / 30) * 100)}%</TableCell>
+              <TableCell>{scorePercentage}</TableCell>
             </TableRow>
           )
         })}
