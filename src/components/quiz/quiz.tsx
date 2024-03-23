@@ -172,7 +172,6 @@ const QuizResults = ({
       score: correctAnswerCount,
       initials,
     }
-    console.log('Save to leaderbaord: ', quizResult)
 
     const saveQuizResultResponse = await fetch(`/api/quiz/${slug}`, {
       method: 'POST',
@@ -184,8 +183,6 @@ const QuizResults = ({
 
     const saveQuizResultJson = await saveQuizResultResponse.json()
 
-    console.log('Save to leaderboard response: ', saveQuizResultJson)
-
     return saveQuizResultJson
   }
 
@@ -194,7 +191,8 @@ const QuizResults = ({
       <div className="text-lg font-bold tracking-wider">
         Result: {correctAnswerCount}/{questions.length} ({percentage}%)
       </div>
-      <Table>
+      <SaveResultDialog saveResultFn={saveQuizResult} />
+      <Table className="text-xs">
         <TableCaption>Your Quiz Results</TableCaption>
         <TableHeader>
           <TableRow>
@@ -221,7 +219,6 @@ const QuizResults = ({
       {/* <div className="cursor-pointer hover:underline text-xs font-bold tracking-wide text-slate-500">
         Share this result
       </div> */}
-      <SaveResultDialog saveResultFn={saveQuizResult} />
     </div>
   )
 }
@@ -239,7 +236,7 @@ const QuizQuestion = ({
   const currentAnswer = state.answers[state.index] || ''
 
   return (
-    <div className="flex flex-col gap-y-4 items-center justify-center w-full md:w-4/12">
+    <div className="flex flex-col gap-y-4 items-center justify-center w-full md:w-9/12 lg:w-6/12">
       <div className="flex text-xl">{playerName}</div>
       <div className="text-xs text-slate-500">{`(${state.index + 1}/${questions.length})`}</div>
       <AutoCompleteInput

@@ -19,7 +19,7 @@ export const G_LEAGUE_TEAMS = [
   'Capitanes de Ciudad de México',
   'Iowa Wolves',
   'Memphis Hustle',
-  'NBA G League Ignite',
+  'G League Ignite',
   'Oklahoma City Blue',
   'Ontario Clippers[j]',
   'Rio Grande Valley Vipers',
