@@ -25,16 +25,21 @@ export default function NavBar() {
   return (
     <nav ref={ref} className="h-32 fixed left-0 top-0 w-screen z-40">
       <div className="flex bg-slate-100 flex-wrap items-center justify-between p-4">
-        <a href="/" className="flex place-items-center gap-2 lg:pointer-events-auto lg:p-0">
-          <Image
-            src="/from_logo.svg"
-            alt="From??? Basketball Quiz Logo"
-            className="dark:invert"
-            width={80}
-            height={20}
-          />
-          <div className="m-4 p-4 text-2xl font-bold">From???</div>
-        </a>
+        <div className="flex items-center gap-4">
+          <a href="/" className="flex place-items-center gap-2 lg:pointer-events-auto lg:p-0">
+            <Image
+              src="/from_logo.svg"
+              alt="From??? Basketball Quiz Logo"
+              className="dark:invert"
+              width={80}
+              height={20}
+            />
+          </a>
+          <div className="flex flex-col">
+            <div className="text-2xl font-bold">From???</div>
+            <div className="text-sm">Basketball Quizzes</div>
+          </div>
+        </div>
         <button
           onClick={() => setShowNav(!showNav)}
           type="button"
