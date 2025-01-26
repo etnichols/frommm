@@ -22,7 +22,7 @@ export default function RootLayout({
         <Providers>
           <DefaultLayout previewPixelSRC={"/preview-pixel.png"}>
             <Header />
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow min-h-screen">{children}</main>
             <Footer />
           </DefaultLayout>
         </Providers>

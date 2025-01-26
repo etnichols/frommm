@@ -19,7 +19,7 @@
   padding-right: 2ch;
   padding-bottom: calc(var(--theme-line-height-base) * 1rem);
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
 
   &::-webkit-scrollbar {
     display: none;

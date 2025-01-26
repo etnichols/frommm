@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 import { COUNTRIES } from "@lib/data/countries";
 import { G_LEAGUE_TEAMS } from "@lib/data/g-league";
-import { Input } from "./input";
 import { NCAA_DIV_1_SCHOOLS } from "@lib/data/ncaa-schools";
+import Input from "../Input";
 
 function AutoCompleteInput({
   inputValue,
@@ -17,6 +17,7 @@ function AutoCompleteInput({
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (inputValue) {
       const filteredOptions = optionSet.filter((option) =>
@@ -27,24 +28,30 @@ function AutoCompleteInput({
     } else {
       setShowSuggestions(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputValue]);
 
   return (
-    <div className="relative w-full z-10">
+    <div className="relative w-full bg-white">
       <Input
-        type="text"
-        className="flex w-full border border-gray-300 p-2"
+        onChange={(e) => {
+          setInputValue(e.target.value);
+        }}
+        autoComplete="off"
         value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
         onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
         onFocus={() => inputValue && setShowSuggestions(true)}
       />
       {showSuggestions && (
-        <ul className="absolute border border-gray-300 bg-white w-full max-h-60 overflow-auto">
-          {suggestions.map((suggestion, index) => (
-            <li
-              key={index}
+        <div className="absolute z-50 bg-white border border-gray-900 border-2 w-full max-h-60 overflow-auto">
+          {suggestions.map((suggestion) => (
+            <div
+              key={suggestion}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setInputValue(suggestion);
+                  setShowSuggestions(false);
+                }
+              }}
               className="p-2 hover:bg-gray-100 cursor-pointer"
               onClick={() => {
                 setInputValue(suggestion);
@@ -52,9 +59,9 @@ function AutoCompleteInput({
               }}
             >
               {suggestion}
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

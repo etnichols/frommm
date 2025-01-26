@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useReducer, useState } from "react";
+import { type Dispatch, useEffect, useReducer, useState } from "react";
 import {
   Table,
   TableBody,
@@ -19,7 +19,6 @@ import { SaveResultDialog } from "./save-result-dialog";
 import Row from "../Row";
 import Card from "../Card";
 import ActionListItem from "../ActionListItem";
-import Input from "../Input";
 
 // Define action types
 enum QuizAction {
@@ -31,9 +30,9 @@ enum QuizAction {
 }
 
 enum QuizStep {
-  QUESTIONS,
-  GRADING,
-  RESULTS,
+  QUESTIONS = 0,
+  GRADING = 1,
+  RESULTS = 2,
 }
 
 interface QuizState {
@@ -107,11 +106,6 @@ export default function QuizComponent({ quiz }: { quiz: QuizType }) {
         questions={questions}
         dispatch={dispatch}
       />
-      {/* <QuizNavigationControls
-        state={state}
-        questions={questions}
-        dispatch={dispatch}
-      /> */}
       {isFinalQuestion && (
         <Button
           onClick={() => dispatch({ type: QuizAction.GRADE_QUIZ })}
@@ -163,7 +157,10 @@ const QuizResults = ({
   slug,
 }: {
   state: QuizState;
-  dispatch: any;
+  dispatch: Dispatch<{
+    type: QuizAction;
+    payload?: any;
+  }>;
   questions: QuizQuestion[];
   answers: string[];
   quizId: string;
@@ -230,9 +227,6 @@ const QuizResults = ({
           })}
         </TableBody>
       </Table>
-      {/* <div className="cursor-pointer hover:underline text-xs font-bold tracking-wide text-slate-500">
-        Share this result
-      </div> */}
     </div>
   );
 };
@@ -253,18 +247,16 @@ const QuizQuestionComponent = ({
   return (
     <Row>
       <Row>
-        Test player with long name
+        Victor Wembanyama
         <span className="ml-3 text-slate-500">{`(${state.index + 1}/${questions.length})`}</span>
       </Row>
+      <Row>Team: Spurs</Row>
       <div className="flex flex-col gap-y-4">
-        <Input
-          autoComplete="off"
-          name="input_test_empty"
-          value={value}
-          onChange={(e) => {
-            setValue(e.target.value);
-            // dispatch({ type: QuizAction.SET_ANSWER, payload: { answer: e.target.value } })
-          }}
+        <AutoCompleteInput
+          inputValue={currentAnswer}
+          setInputValue={(answer) =>
+            dispatch({ type: QuizAction.SET_ANSWER, payload: { answer } })
+          }
         />
         <QuizNavigationControls
           state={state}
@@ -288,16 +280,33 @@ const QuizNavigationControls = ({
   return (
     <div>
       <ActionListItem
-        icon="⭢"
-        onClick={() => dispatch({ type: QuizAction.NEXT_QUESTION })}
-      >
-        Next Question
-      </ActionListItem>
-      <ActionListItem
+        disabled={state.index === 0}
         icon="⭠"
-        onClick={() => dispatch({ type: QuizAction.PREVIOUS_QUESTION })}
+        onClick={() => {
+          if (state.index > 0) {
+            dispatch({ type: QuizAction.PREVIOUS_QUESTION });
+          }
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            if (state.index > 0) {
+              dispatch({ type: QuizAction.PREVIOUS_QUESTION });
+            }
+          }
+        }}
       >
         Previous Question
+      </ActionListItem>
+      <ActionListItem
+        icon="⭢"
+        onClick={() => dispatch({ type: QuizAction.NEXT_QUESTION })}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            dispatch({ type: QuizAction.NEXT_QUESTION });
+          }
+        }}
+      >
+        Next Question
       </ActionListItem>
     </div>
   );
