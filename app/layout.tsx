@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import Providers from "@components/Providers";
 import Footer from "@root/components/footer";
 import { Header } from "@root/components/header";
+import DefaultLayout from "@root/components/page/DefaultLayout";
 
 export const metadata: Metadata = {
   title: "From??? Basketball Quizzes",
@@ -17,14 +18,14 @@ export default function RootLayout({
 }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="theme-light min-h-screen flex flex-col">
+      <body className="theme-light min-h-screen flex flex-col px-4 pt-4">
         <Providers>
-          <main className="flex-grow">
+          <DefaultLayout previewPixelSRC={"/preview-pixel.png"}>
             <Header />
-            {children}
-          </main>
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </DefaultLayout>
         </Providers>
-        <Footer />
       </body>
     </html>
   );

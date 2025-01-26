@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { useEffect, useReducer } from 'react'
+import { useEffect, useReducer, useState } from "react";
 import {
   Table,
   TableBody,
@@ -9,21 +9,25 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '../ui/table'
+} from "../ui/table";
 
-import { QuizType, type QuizQuestion } from '@/models/Quiz'
-import { Loader2 } from 'lucide-react'
-import AutoCompleteInput from '../ui/autocomplete-input'
-import { Button } from '../ui/button'
-import { SaveResultDialog } from './save-result-dialog'
+import type { QuizType, QuizQuestion } from "@models/Quiz";
+import { Loader2 } from "lucide-react";
+import AutoCompleteInput from "../ui/autocomplete-input";
+import { Button } from "../ui/button";
+import { SaveResultDialog } from "./save-result-dialog";
+import Row from "../Row";
+import Card from "../Card";
+import ActionListItem from "../ActionListItem";
+import Input from "../Input";
 
 // Define action types
 enum QuizAction {
-  SET_ANSWER = 'SET_ANSWER',
-  NEXT_QUESTION = 'NEXT_QUESTION',
-  PREVIOUS_QUESTION = 'PREVIOUS_QUESTION',
-  GRADE_QUIZ = 'GRADE_QUIZ',
-  DISPLAY_RESULTS = 'DISPLAY_RESULTS',
+  SET_ANSWER = "SET_ANSWER",
+  NEXT_QUESTION = "NEXT_QUESTION",
+  PREVIOUS_QUESTION = "PREVIOUS_QUESTION",
+  GRADE_QUIZ = "GRADE_QUIZ",
+  DISPLAY_RESULTS = "DISPLAY_RESULTS",
 }
 
 enum QuizStep {
@@ -33,70 +37,81 @@ enum QuizStep {
 }
 
 interface QuizState {
-  index: number
-  inputValue: string
-  answers: string[]
-  step: QuizStep
+  index: number;
+  inputValue: string;
+  answers: string[];
+  step: QuizStep;
 }
 
 // TODO: Save answers to DB
-function quizReducer(state: QuizState, action: { type: QuizAction; payload?: any }) {
+function quizReducer(
+  state: QuizState,
+  action: { type: QuizAction; payload?: any }
+) {
   switch (action.type) {
     case QuizAction.SET_ANSWER:
-      const updatedAnswers = [...state.answers]
-      updatedAnswers[state.index] = action.payload.answer
-      return { ...state, answers: updatedAnswers }
+      const updatedAnswers = [...state.answers];
+      updatedAnswers[state.index] = action.payload.answer;
+      return { ...state, answers: updatedAnswers };
     case QuizAction.NEXT_QUESTION:
       return {
         ...state,
         index: state.index + 1,
-      }
+      };
     case QuizAction.PREVIOUS_QUESTION:
       return {
         ...state,
         index: state.index - 1,
-      }
+      };
     case QuizAction.GRADE_QUIZ:
       return {
         ...state,
         step: QuizStep.GRADING,
-      }
+      };
     case QuizAction.DISPLAY_RESULTS:
       return {
         ...state,
         step: QuizStep.RESULTS,
-      }
+      };
     default:
-      return state
+      return state;
   }
 }
 
 export default function QuizComponent({ quiz }: { quiz: QuizType }) {
   const [state, dispatch] = useReducer(quizReducer, {
     index: 0,
-    inputValue: '',
+    inputValue: "",
     answers: [],
     step: QuizStep.QUESTIONS,
-  })
+  });
 
   useEffect(() => {
     if (state.step === QuizStep.GRADING) {
       // Grade quiz, save results, and display results.
       setTimeout(() => {
-        dispatch({ type: QuizAction.DISPLAY_RESULTS })
-      }, 3000)
+        dispatch({ type: QuizAction.DISPLAY_RESULTS });
+      }, 3000);
     }
-  }, [state.step])
+  }, [state.step]);
 
-  const { questions: rawQuestions, slug } = quiz
-  const questions = rawQuestions
+  const { questions: rawQuestions, slug } = quiz;
+  const questions = rawQuestions;
 
-  const isFinalQuestion = state.index === questions.length - 1
+  const isFinalQuestion = state.index === questions.length - 1;
 
   let content = (
     <>
-      <QuizQuestion state={state} questions={questions} dispatch={dispatch} />
-      <QuizNavigationControls state={state} questions={questions} dispatch={dispatch} />
+      <QuizQuestionComponent
+        state={state}
+        questions={questions}
+        dispatch={dispatch}
+      />
+      {/* <QuizNavigationControls
+        state={state}
+        questions={questions}
+        dispatch={dispatch}
+      /> */}
       {isFinalQuestion && (
         <Button
           onClick={() => dispatch({ type: QuizAction.GRADE_QUIZ })}
@@ -106,7 +121,7 @@ export default function QuizComponent({ quiz }: { quiz: QuizType }) {
         </Button>
       )}
     </>
-  )
+  );
   if (state.step === QuizStep.RESULTS) {
     content = (
       <QuizResults
@@ -117,29 +132,26 @@ export default function QuizComponent({ quiz }: { quiz: QuizType }) {
         quizId={quiz._id}
         slug={slug}
       />
-    )
+    );
   }
 
   if (state.step === QuizStep.GRADING) {
     content = (
       <div className="flex flex-col justify-center items-center gap-y-8">
         <div className="text-lg">Grading your quiz...</div>
-        <Loader2 className="h-8 w-8 animate-spin"></Loader2>
+        <Loader2 className="h-8 w-8 animate-spin" />
       </div>
-    )
+    );
   }
 
   return (
-    <div className="flex flex-col gap-y-16 items-center justify-center">
-      <div className="flex flex-col items-center justify-center gap-y-4">
-        <div className="flex text-2xl font-bold text-center">{quiz.title}</div>
-        {quiz.description && (
-          <div className="md:max-w-1/2 text-sm text-center">{quiz.description}</div>
-        )}
+    <Card mode="left" title={quiz.title}>
+      <div className="flex flex-col gap-y-4">
+        {quiz.description && <Row>{quiz.description}</Row>}
+        {content}
       </div>
-      {content}
-    </div>
-  )
+    </Card>
+  );
 }
 
 const QuizResults = ({
@@ -150,20 +162,20 @@ const QuizResults = ({
   quizId,
   slug,
 }: {
-  state: QuizState
-  dispatch: any
-  questions: QuizQuestion[]
-  answers: string[]
-  quizId: string
-  slug: string
+  state: QuizState;
+  dispatch: any;
+  questions: QuizQuestion[];
+  answers: string[];
+  quizId: string;
+  slug: string;
 }) => {
   const correctAnswerCount = questions
     .map((question, index) => {
-      return question.college === state.answers[index]
+      return question.college === state.answers[index];
     })
-    .filter(Boolean).length
+    .filter(Boolean).length;
 
-  const percentage = Math.floor((correctAnswerCount / questions.length) * 100)
+  const percentage = Math.floor((correctAnswerCount / questions.length) * 100);
 
   const saveQuizResult = async (initials: string) => {
     const quizResult = {
@@ -171,20 +183,20 @@ const QuizResults = ({
       quizId,
       score: correctAnswerCount,
       initials,
-    }
+    };
 
     const saveQuizResultResponse = await fetch(`/api/quiz/${slug}`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify(quizResult),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-    })
+    });
 
-    const saveQuizResultJson = await saveQuizResultResponse.json()
+    const saveQuizResultJson = await saveQuizResultResponse.json();
 
-    return saveQuizResultJson
-  }
+    return saveQuizResultJson;
+  };
 
   return (
     <div className="flex flex-col justify-center items-center gap-y-8">
@@ -204,15 +216,17 @@ const QuizResults = ({
         </TableHeader>
         <TableBody>
           {questions.map((question, index) => {
-            const isCorrect = question.college === state.answers[index]
+            const isCorrect = question.college === state.answers[index];
             return (
               <TableRow key={index}>
                 <TableCell className="font-medium">{question.name}</TableCell>
-                <TableCell>{state.answers[index] || 'No answer'}</TableCell>
+                <TableCell>{state.answers[index] || "No answer"}</TableCell>
                 <TableCell>{question.college}</TableCell>
-                <TableCell className="text-right">{isCorrect ? '✅' : '❌'}</TableCell>
+                <TableCell className="text-right">
+                  {isCorrect ? "✅" : "❌"}
+                </TableCell>
               </TableRow>
-            )
+            );
           })}
         </TableBody>
       </Table>
@@ -220,92 +234,71 @@ const QuizResults = ({
         Share this result
       </div> */}
     </div>
-  )
-}
+  );
+};
 
-const QuizQuestion = ({
+const QuizQuestionComponent = ({
   state,
   dispatch,
   questions,
 }: {
-  state: QuizState
-  dispatch: any
-  questions: any
+  state: QuizState;
+  dispatch: any;
+  questions: any;
 }) => {
-  const playerName = questions[state.index].name
-  const currentAnswer = state.answers[state.index] || ''
+  const [value, setValue] = useState("");
+  const playerName = questions[state.index].name;
+  const currentAnswer = state.answers[state.index] || "";
 
   return (
-    <div className="flex flex-col gap-y-4 items-center justify-center w-full md:w-9/12 lg:w-6/12">
-      <div className="flex text-xl">{playerName}</div>
-      <div className="text-xs text-slate-500">{`(${state.index + 1}/${questions.length})`}</div>
-      <AutoCompleteInput
-        inputValue={currentAnswer}
-        setInputValue={(answer) => dispatch({ type: QuizAction.SET_ANSWER, payload: { answer } })}
-      />
-    </div>
-  )
-}
+    <Row>
+      <Row>
+        Test player with long name
+        <span className="ml-3 text-slate-500">{`(${state.index + 1}/${questions.length})`}</span>
+      </Row>
+      <div className="flex flex-col gap-y-4">
+        <Input
+          autoComplete="off"
+          name="input_test_empty"
+          value={value}
+          onChange={(e) => {
+            setValue(e.target.value);
+            // dispatch({ type: QuizAction.SET_ANSWER, payload: { answer: e.target.value } })
+          }}
+        />
+        <QuizNavigationControls
+          state={state}
+          dispatch={dispatch}
+          questions={questions}
+        />
+      </div>
+    </Row>
+  );
+};
 
 const QuizNavigationControls = ({
   state,
   dispatch,
   questions,
 }: {
-  state: QuizState
-  dispatch: any
-  questions: any
+  state: QuizState;
+  dispatch: any;
+  questions: any;
 }) => {
   return (
-    <div className="flex flex-row justify-between w-full px-8 lg:max-w-96">
-      <Button
-        disabled={state.index === 0}
+    <div>
+      <ActionListItem
+        icon="⭢"
+        onClick={() => dispatch({ type: QuizAction.NEXT_QUESTION })}
+      >
+        Next Question
+      </ActionListItem>
+      <ActionListItem
+        icon="⭠"
         onClick={() => dispatch({ type: QuizAction.PREVIOUS_QUESTION })}
-        className="min-w-24 flex items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 "
       >
-        <LeftArrow />
-        <div className="pl-2">Previous</div>
-      </Button>
-      <Button
-        disabled={state.index === questions.length - 1}
-        onClick={() => {
-          dispatch({ type: QuizAction.NEXT_QUESTION })
-        }}
-        className="min-w-24 flex items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 "
-      >
-        <div className="pr-2">Next</div>
-        <RightArrow />
-      </Button>
+        Previous Question
+      </ActionListItem>
     </div>
-  )
-}
-
-const LeftArrow = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className="w-6 h-6"
-  >
-    <path
-      fillRule="evenodd"
-      d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z"
-      clipRule="evenodd"
-    />
-  </svg>
-)
-
-const RightArrow = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className="w-6 h-6"
-  >
-    <path
-      fillRule="evenodd"
-      d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z"
-      clipRule="evenodd"
-    />
-  </svg>
-)
+  );
+};
