@@ -1,31 +1,34 @@
-'use client'
+"use client";
 
-import { useRef, useState } from 'react'
+import { useRef, useState } from "react";
 
-import Image from 'next/image'
-import classNames from 'classnames'
-import useOnClickOutside from '@/lib/hooks/use-on-click-outside'
-import { useRouter } from 'next/navigation'
+import Image from "next/image";
+import classNames from "classnames";
+import useOnClickOutside from "@lib/hooks/use-on-click-outside";
+import { useRouter } from "next/navigation";
 
 export default function NavBar() {
-  const ref = useRef(null)
+  const ref = useRef(null);
 
-  const router = useRouter()
-  const [showNav, setShowNav] = useState(false)
+  const router = useRouter();
+  const [showNav, setShowNav] = useState(false);
 
   const navItems = [
-    ['browse', '/quizzes'],
-    ['create', '/create'],
-    ['leaderboard', '/leaderboard'],
-    ['about', '/about'],
-  ]
+    ["browse", "/quizzes"],
+    ["create", "/create"],
+    ["leaderboard", "/leaderboard"],
+    ["about", "/about"],
+  ];
 
-  useOnClickOutside(ref, () => setShowNav(false))
+  useOnClickOutside(ref, () => setShowNav(false));
 
   return (
     <nav ref={ref} className="h-32 fixed left-0 top-0 w-screen z-40">
       <div className="flex bg-slate-100 flex-wrap items-center justify-between p-4">
-        <a href="/" className="flex place-items-center gap-2 lg:pointer-events-auto lg:p-0">
+        <a
+          href="/"
+          className="flex place-items-center gap-2 lg:pointer-events-auto lg:p-0"
+        >
           <Image
             src="/from_logo.svg"
             alt="From??? Basketball Quiz Logo"
@@ -60,7 +63,7 @@ export default function NavBar() {
           </svg>
         </button>
         <div
-          className={classNames('z-40 flex w-full md:block md:w-auto', {
+          className={classNames("z-40 flex w-full md:block md:w-auto", {
             hidden: !showNav,
           })}
         >
@@ -79,5 +82,5 @@ export default function NavBar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }

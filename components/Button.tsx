@@ -1,20 +1,25 @@
-'use client';
+"use client";
 
-import styles from '@components/Button.module.scss';
+import styles from "@components/Button.module.scss";
 
-import * as React from 'react';
-import * as Utilities from '@/common/utilities';
+import * as React from "react";
+import * as Utilities from "@common/utilities";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  theme?: 'PRIMARY' | 'SECONDARY';
+  theme?: "PRIMARY" | "SECONDARY";
   isDisabled?: boolean;
   children?: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({ theme = 'PRIMARY', isDisabled, children, ...rest }) => {
+const Button: React.FC<ButtonProps> = ({
+  theme = "PRIMARY",
+  isDisabled,
+  children,
+  ...rest
+}) => {
   let classNames = Utilities.classNames(styles.root, styles.primary);
 
-  if (theme === 'SECONDARY') {
+  if (theme === "SECONDARY") {
     classNames = Utilities.classNames(styles.root, styles.secondary);
   }
 
@@ -25,7 +30,13 @@ const Button: React.FC<ButtonProps> = ({ theme = 'PRIMARY', isDisabled, children
   }
 
   return (
-    <button className={classNames} role="button" tabIndex={0} disabled={isDisabled} {...rest}>
+    <button
+      className={classNames}
+      role="button"
+      tabIndex={0}
+      disabled={isDisabled}
+      {...rest}
+    >
       {children}
     </button>
   );

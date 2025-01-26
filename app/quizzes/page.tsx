@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { AVAILABLE_QUIZZES } from '@/lib/data/quiz-list'
-import QuizList from '@components/quiz/quiz-list'
+import { AVAILABLE_QUIZZES } from "@lib/data/quiz-list";
+import QuizList from "@components/quiz/quiz-list";
 
 export default function Home() {
   return (
@@ -13,5 +13,5 @@ export default function Home() {
         <QuizList quizData={AVAILABLE_QUIZZES} />
       </div>
     </div>
-  )
+  );
 }

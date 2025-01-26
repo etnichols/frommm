@@ -18,30 +18,16 @@
       }
     ],
     "paths": {
-      "@root/*": [
-        "./*"
-      ],
-      "@system/*": [
-        "./system/*"
-      ],
-      "@demos/*": [
-        "./demos/*"
-      ],
-      "@common/*": [
-        "./common/*"
-      ],
-      "@data/*": [
-        "./data/*"
-      ],
-      "@components/*": [
-        "./components/*"
-      ],
-      "@pages/*": [
-        "./pages/*"
-      ],
-      "@modules/*": [
-        "./modules/*"
-      ]
+      "@root/*": ["./*"],
+      "@system/*": ["./system/*"],
+      "@demos/*": ["./demos/*"],
+      "@common/*": ["./common/*"],
+      "@data/*": ["./data/*"],
+      "@components/*": ["./components/*"],
+      "@pages/*": ["./pages/*"],
+      "@modules/*": ["./modules/*"],
+      "@lib/*": ["./lib/*"],
+      "@models/*": ["./models/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

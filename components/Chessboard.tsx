@@ -1,29 +1,29 @@
-'use client';
+"use client";
 
-import styles from '@components/Chessboard.module.scss';
+import styles from "@components/Chessboard.module.scss";
 
-import * as React from 'react';
-import * as Utilities from '@/common/utilities';
+import * as React from "react";
+import * as Utilities from "@common/utilities";
 
-const FILE = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+const FILE = ["A", "B", "C", "D", "E", "F", "G", "H"];
 const RANK = [8, 7, 6, 5, 4, 3, 2, 1];
 
 const getPieceSymbol = (piece: string) => {
   const mapping: Record<string, string> = {
-    K: '♔',
-    Q: '♕',
-    R: '♖',
-    B: '♗',
-    N: '♘',
-    P: '♙',
-    k: '♚',
-    q: '♛',
-    r: '♜',
-    b: '♝',
-    n: '♞',
-    p: '♟',
+    K: "♔",
+    Q: "♕",
+    R: "♖",
+    B: "♗",
+    N: "♘",
+    P: "♙",
+    k: "♚",
+    q: "♛",
+    r: "♜",
+    b: "♝",
+    n: "♞",
+    p: "♟",
   };
-  return mapping[piece] || '';
+  return mapping[piece] || "";
 };
 
 interface ChessboardProps {
@@ -49,8 +49,13 @@ const Chessboard: React.FC<ChessboardProps> = ({ board }) => {
               const isDark = (rowIndex + colIndex) % 2 === 0;
               const squareClass = isDark ? styles.dark : styles.light;
               return (
-                <td key={colIndex} className={Utilities.classNames(styles.square, squareClass)}>
-                  <span className={styles.symbol}>{getPieceSymbol(board[rowIndex][colIndex])}</span>
+                <td
+                  key={colIndex}
+                  className={Utilities.classNames(styles.square, squareClass)}
+                >
+                  <span className={styles.symbol}>
+                    {getPieceSymbol(board[rowIndex][colIndex])}
+                  </span>
                 </td>
               );
             })}

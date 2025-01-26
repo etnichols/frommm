@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import styles from '@components/Select.module.scss';
+import styles from "@components/Select.module.scss";
 
-import * as React from 'react';
-import * as Utilities from '@/common/utilities';
+import * as React from "react";
+import * as Utilities from "@common/utilities";
 
 interface SelectProps {
   name: string;
@@ -13,7 +13,13 @@ interface SelectProps {
   onChange?: (selectedValue: string) => void;
 }
 
-const Select: React.FC<SelectProps> = ({ name, options, placeholder, defaultValue = '', onChange }) => {
+const Select: React.FC<SelectProps> = ({
+  name,
+  options,
+  placeholder,
+  defaultValue = "",
+  onChange,
+}) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [index, setIndex] = React.useState(-1);
   const [selectedValue, setSelectedValue] = React.useState(defaultValue);
@@ -45,7 +51,10 @@ const Select: React.FC<SelectProps> = ({ name, options, placeholder, defaultValu
     <>
       <section className={styles.select}>
         <figure
-          className={Utilities.classNames(isOpen ? styles.focused : null, styles.control)}
+          className={Utilities.classNames(
+            isOpen ? styles.focused : null,
+            styles.control
+          )}
           onClick={() => {
             isOpen ? handleClose() : handleOpen();
           }}
@@ -70,7 +79,13 @@ const Select: React.FC<SelectProps> = ({ name, options, placeholder, defaultValu
         <ul className={styles.menu} role="listbox">
           {options.map((option, idx) => {
             return (
-              <li key={option} role="option" tabIndex={0} className={Utilities.classNames(styles.item)} onClick={() => handleSelect(option)}>
+              <li
+                key={option}
+                role="option"
+                tabIndex={0}
+                className={Utilities.classNames(styles.item)}
+                onClick={() => handleSelect(option)}
+              >
                 {option}
               </li>
             );

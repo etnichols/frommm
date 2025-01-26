@@ -1,30 +1,36 @@
-'use client';
+"use client";
 
-import styles from '@components/ListItem.module.scss';
+import styles from "@components/ListItem.module.scss";
 
-import * as React from 'react';
-import * as Utilities from '@/common/utilities';
+import * as React from "react";
+import * as Utilities from "@common/utilities";
 
 const ListItem = ({ children }) => {
   const itemRef = React.useRef<HTMLLIElement>(null);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLLIElement>) => {
     switch (event.key) {
-      case 'Enter':
+      case "Enter":
         event.preventDefault();
         itemRef.current?.click();
         break;
-      case 'ArrowUp':
-      case 'ArrowLeft': {
+      case "ArrowUp":
+      case "ArrowLeft": {
         event.preventDefault();
-        const previousFocusable = Utilities.findNextFocusable(document.activeElement, 'previous');
+        const previousFocusable = Utilities.findNextFocusable(
+          document.activeElement,
+          "previous"
+        );
         previousFocusable?.focus();
         break;
       }
-      case 'ArrowDown':
-      case 'ArrowRight': {
+      case "ArrowDown":
+      case "ArrowRight": {
         event.preventDefault();
-        const nextFocusable = Utilities.findNextFocusable(document.activeElement, 'next');
+        const nextFocusable = Utilities.findNextFocusable(
+          document.activeElement,
+          "next"
+        );
         nextFocusable?.focus();
         break;
       }
@@ -34,7 +40,12 @@ const ListItem = ({ children }) => {
   };
 
   return (
-    <li className={styles.root} tabIndex={0} ref={itemRef} onKeyDown={handleKeyDown}>
+    <li
+      className={styles.root}
+      tabIndex={0}
+      ref={itemRef}
+      onKeyDown={handleKeyDown}
+    >
       {children}
     </li>
   );
