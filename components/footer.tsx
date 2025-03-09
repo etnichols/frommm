@@ -1,6 +1,4 @@
-import Divider from "./Divider";
-
-export default function Footer() {
+export function Footer() {
   return (
     <footer>
       <div className="mt-12 flex flex-col items-center">

@@ -65,7 +65,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       >
         {titleElement}
         <section 
-          className="block pt-[calc(var(--theme-line-height-base)*0.5rem)] px-8 pb-[calc(var(--theme-line-height-base)*1rem)] overflow-x-auto overflow-y-visible scrollbar-none shadow-[inset_2px_0_0_0_var(--theme-text),inset_-2px_0_0_0_var(--theme-text),inset_0_-2px_0_0_var(--theme-text)]"
+          className="block pt-[calc(var(--theme-line-height-base)*0.5rem)] px-8 pb-[calc(var(--theme-line-height-base)*1rem)] overflow-visible shadow-[inset_2px_0_0_0_var(--theme-text),inset_-2px_0_0_0_var(--theme-text),inset_0_-2px_0_0_var(--theme-text)]"
         >
           {children}
         </section>
@@ -121,7 +121,7 @@ const CardContent = React.forwardRef<
   <div 
     ref={ref} 
     className={cn(
-      "block pt-[calc(var(--theme-line-height-base)*0.5rem)] px-8 pb-[calc(var(--theme-line-height-base)*1rem)] overflow-x-auto overflow-y-visible scrollbar-none shadow-[inset_2px_0_0_0_var(--theme-text),inset_-2px_0_0_0_var(--theme-text),inset_0_-2px_0_0_var(--theme-text)]", 
+      "block pt-[calc(var(--theme-line-height-base)*0.5rem)] px-8 pb-[calc(var(--theme-line-height-base)*1rem)] overflow-visible shadow-[inset_2px_0_0_0_var(--theme-text),inset_-2px_0_0_0_var(--theme-text),inset_0_-2px_0_0_var(--theme-text)]", 
       className
     )} 
     {...props} 

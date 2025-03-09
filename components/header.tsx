@@ -1,39 +1,51 @@
 "use client";
 
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList
+} from "./navigation-menu";
+
 import Badge from "./badge";
-import Grid from "./grid";
-import Row from "./row";
 import { useRouter } from "next/navigation";
 
 export function Header() {
   const router = useRouter();
   return (
-    <Grid className="flex flex-col mb-4">
+    <div className="flex flex-col mb-4">
       <div className="flex flex-col gap-y-4">
         <Basketballs />
         <div>
           From??? Basketball Quizzes <Badge>{"0.0.2"}</Badge>
         </div>
-        <Row>
-          <ActionBar
-            items={[
-              {
-                body: "About",
-                onClick: () => router.push("/about"),
-              },
-              {
-                body: "Browse",
-                onClick: () => router.push("/quizzes"),
-              },
-              {
-                body: "Leaderboard",
-                onClick: () => router.push("/leaderboard"),
-              },
-            ]}
-          />
-        </Row>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    onClick={() => router.push("/about")}
+                  >
+                    About
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    onClick={() => router.push("/quizzes")}
+                  >
+                    Browse
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    onClick={() => router.push("/leaderboard")}
+                  >
+                    Leaderboard
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
       </div>
-    </Grid>
+    </div>
   );
 }
 

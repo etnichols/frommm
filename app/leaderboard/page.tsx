@@ -1,5 +1,5 @@
 import { ComboboxItem } from '@components/combo-box'
-import Leaderboard from '@components/leaderboard/leaderboard'
+import Leaderboard from '@components/leaderboard'
 import { Section } from '@components/section'
 
 export default async function Home() {

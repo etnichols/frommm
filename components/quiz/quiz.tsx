@@ -7,8 +7,11 @@ import type { QuizType, QuizQuestion } from "@models/Quiz";
 import { Loader2, Table } from "lucide-react";
 import { Button } from "../button";
 import { SaveResultDialog } from "./save-result-dialog";
-import ActionListItem from "../action-list-item";
 import { TableCaption, TableHeader, TableRow, TableHead, TableBody, TableCell } from "../table";
+import Row from "../row";
+import { Card } from "../card";
+import { AutoComplete } from "../autocomplete";
+import { ComboBoxValues } from "@root/lib/data/combo-box-values";
 
 // Define action types
 enum QuizAction {
@@ -237,14 +240,16 @@ const QuizQuestionComponent = ({
   return (
     <Row>
       <Row>
-        Victor Wembanyama
+        {playerName}
         <span className="ml-3 text-slate-500">{`(${state.index + 1}/${questions.length})`}</span>
       </Row>
       <Row>Team: Spurs</Row>
       <div className="flex flex-col gap-y-4">
-        <AutoCompleteInput
-          inputValue={currentAnswer}
-          setInputValue={(answer) =>
+        <AutoComplete
+          emptyMessage="No results found"
+          value={{value: currentAnswer, label: currentAnswer}}
+          options={ComboBoxValues}
+          onValueChange={(answer) =>
             dispatch({ type: QuizAction.SET_ANSWER, payload: { answer } })
           }
         />
@@ -269,9 +274,10 @@ const QuizNavigationControls = ({
 }) => {
   return (
     <div>
-      <ActionListItem
+      <Button
         disabled={state.index === 0}
-        icon="⭠"
+        // icon="⭠"
+        className="w-20"
         onClick={() => {
           if (state.index > 0) {
             dispatch({ type: QuizAction.PREVIOUS_QUESTION });
@@ -285,10 +291,12 @@ const QuizNavigationControls = ({
           }
         }}
       >
-        Previous Question
-      </ActionListItem>
-      <ActionListItem
-        icon="⭢"
+        Previous
+      </Button>
+      <Button
+        disabled={state.index === questions.length - 1}
+        // icon="⭢"
+        className="w-20"
         onClick={() => dispatch({ type: QuizAction.NEXT_QUESTION })}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
@@ -296,8 +304,8 @@ const QuizNavigationControls = ({
           }
         }}
       >
-        Next Question
-      </ActionListItem>
+        Next
+      </Button>
     </div>
   );
 };

@@ -1,8 +1,7 @@
 import "@root/global.scss";
 import "./globals.css";
 
-import DefaultLayout from "@root/components/page/DefaultLayout";
-import Footer from "@root/components/footer";
+import {Footer} from "@root/components/footer";
 import { Header } from "@root/components/header";
 import type { Metadata } from "next";
 
@@ -17,11 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="theme-light min-h-screen flex flex-col px-4 pt-4">
-          <DefaultLayout previewPixelSRC={"/preview-pixel.png"}>
             <Header />
             <main className="flex-grow min-h-screen">{children}</main>
             <Footer />
-          </DefaultLayout>
       </body>
     </html>
   );
