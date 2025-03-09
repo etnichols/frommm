@@ -18,7 +18,7 @@ export function QuizCard(props: {
         ))}
       </div>
       <br />
-      <Button onClick={() => router.push(slug)}>Take Quiz</Button>
+      <Button className="w-48" onClick={() => router.push(slug)}>Take Quiz</Button>
     </Card>
   );
 }

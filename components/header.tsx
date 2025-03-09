@@ -6,12 +6,19 @@ import {
   NavigationMenuLink,
   NavigationMenuList
 } from "./navigation-menu";
+import { usePathname, useRouter } from "next/navigation";
 
 import Badge from "./badge";
-import { useRouter } from "next/navigation";
+import { cn } from "@root/lib/utils";
 
 export function Header() {
   const router = useRouter();
+  const pathname = usePathname();
+  
+  const isActive = (path: string) => {
+    return pathname === path;
+  };
+
   return (
     <div className="flex flex-col mb-4">
       <div className="flex flex-col gap-y-4">
@@ -19,31 +26,43 @@ export function Header() {
         <div>
           From??? Basketball Quizzes <Badge>{"0.0.2"}</Badge>
         </div>
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    onClick={() => router.push("/about")}
-                  >
-                    About
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    onClick={() => router.push("/quizzes")}
-                  >
-                    Browse
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    onClick={() => router.push("/leaderboard")}
-                  >
-                    Leaderboard
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+        <NavigationMenu>
+          <NavigationMenuList className="cursor-pointer flex flex-row gap-x-4">
+            <NavigationMenuItem>
+              <NavigationMenuLink
+                className={cn(
+                  "cursor-pointer p-1",
+                  isActive("/about") && "underline underline-offset-4"
+                )}
+                onClick={() => router.push("/about")}
+              >
+                About
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink
+                className={cn(
+                  "cursor-pointer p-1",
+                  isActive("/quizzes") && "underline underline-offset-4"
+                )}
+                onClick={() => router.push("/quizzes")}
+              >
+                Browse
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink
+                className={cn(
+                  "cursor-pointer p-1",
+                  isActive("/leaderboard") && "underline underline-offset-4"
+                )}
+                onClick={() => router.push("/leaderboard")}
+              >
+                Leaderboard
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
       </div>
     </div>
   );

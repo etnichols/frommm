@@ -87,7 +87,7 @@ export const AutoComplete = ({
 
   return (
     <CommandPrimitive onKeyDown={handleKeyDown}>
-      <div className="border border-primary">
+      <div>
         <CommandInput
           ref={inputRef}
           value={inputValue}

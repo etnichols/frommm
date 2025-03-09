@@ -243,7 +243,6 @@ const QuizQuestionComponent = ({
         {playerName}
         <span className="ml-3 text-slate-500">{`(${state.index + 1}/${questions.length})`}</span>
       </Row>
-      <Row>Team: Spurs</Row>
       <div className="flex flex-col gap-y-4">
         <AutoComplete
           emptyMessage="No results found"
@@ -273,11 +272,10 @@ const QuizNavigationControls = ({
   questions: any;
 }) => {
   return (
-    <div>
+    <div className="flex gap-x-2">
       <Button
         disabled={state.index === 0}
-        // icon="⭠"
-        className="w-20"
+        className="w-24 h-10"
         onClick={() => {
           if (state.index > 0) {
             dispatch({ type: QuizAction.PREVIOUS_QUESTION });
@@ -295,8 +293,7 @@ const QuizNavigationControls = ({
       </Button>
       <Button
         disabled={state.index === questions.length - 1}
-        // icon="⭢"
-        className="w-20"
+        className="w-24 h-10"
         onClick={() => dispatch({ type: QuizAction.NEXT_QUESTION })}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
