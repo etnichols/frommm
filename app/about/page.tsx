@@ -1,6 +1,6 @@
 "use client";
 
-import { Section } from "@components/ui/section";
+import { Section } from "@components/section";
 import Grid from "@root/components/Grid";
 import Row from "@root/components/Row";
 

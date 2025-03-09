@@ -1,7 +1,7 @@
 "use client";
 
 import { AVAILABLE_QUIZZES } from "@lib/data/quiz-list";
-import { QuizCard } from "@root/components/quiz-card";
+import { QuizCard } from "@root/components/quiz/quiz-card";
 import Row from "@root/components/Row";
 
 export default function Page() {

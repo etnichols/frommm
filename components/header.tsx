@@ -1,9 +1,8 @@
 "use client";
 
-import ActionBar from "./ActionBar";
-import Badge from "./Badge";
-import Grid from "./Grid";
-import Row from "./Row";
+import Badge from "./badge";
+import Grid from "./grid";
+import Row from "./row";
 import { useRouter } from "next/navigation";
 
 export function Header() {

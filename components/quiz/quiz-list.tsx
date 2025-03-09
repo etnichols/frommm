@@ -1,8 +1,8 @@
 'use client'
 
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@components/ui/card'
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@components/card'
 
-import { Button } from '@components/ui/button'
+import { Button } from '@components/button'
 import Link from 'next/link'
 
 interface QuizListProps {

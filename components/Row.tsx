@@ -1,7 +1,5 @@
 'use client';
 
-import styles from '@components/Row.module.scss';
-
 import * as React from 'react';
 
 type RowProps = React.HTMLAttributes<HTMLElement> & {
@@ -10,7 +8,11 @@ type RowProps = React.HTMLAttributes<HTMLElement> & {
 
 const Row = React.forwardRef<HTMLElement, RowProps>(({ children, ...rest }, ref) => {
   return (
-    <section className={styles.row} ref={ref} {...rest}>
+    <section 
+      className="block outline-0 border-0 transition-[background] duration-200 ease-in-out mb-4 focus:bg-[var(--theme-focused-foreground)]" 
+      ref={ref} 
+      {...rest}
+    >
       {children}
     </section>
   );

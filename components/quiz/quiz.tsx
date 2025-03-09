@@ -1,24 +1,14 @@
 "use client";
 
 import { type Dispatch, useEffect, useReducer, useState } from "react";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../ui/table";
+
 
 import type { QuizType, QuizQuestion } from "@models/Quiz";
-import { Loader2 } from "lucide-react";
-import AutoCompleteInput from "../ui/autocomplete-input";
-import { Button } from "../ui/button";
+import { Loader2, Table } from "lucide-react";
+import { Button } from "../button";
 import { SaveResultDialog } from "./save-result-dialog";
-import Row from "../Row";
-import Card from "../Card";
-import ActionListItem from "../ActionListItem";
+import ActionListItem from "../action-list-item";
+import { TableCaption, TableHeader, TableRow, TableHead, TableBody, TableCell } from "../table";
 
 // Define action types
 enum QuizAction {

@@ -1,5 +1,3 @@
-import styles from '@components/Grid.module.scss';
-
 import * as React from 'react';
 
 interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -8,7 +6,10 @@ interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Grid: React.FC<GridProps> = ({ children, ...rest }) => {
   return (
-    <div className={styles.grid} {...rest}>
+    <div 
+      className="block py-[calc(var(--font-size)*var(--theme-line-height-base))] px-[2ch]" 
+      {...rest}
+    >
       {children}
     </div>
   );

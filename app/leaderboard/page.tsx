@@ -1,6 +1,6 @@
-import { ComboboxItem } from '@components/ui/combo-box'
+import { ComboboxItem } from '@components/combo-box'
 import Leaderboard from '@components/leaderboard/leaderboard'
-import { Section } from '@components/ui/section'
+import { Section } from '@components/section'
 
 export default async function Home() {
   const { quizzes } = await fetchQuizzes()

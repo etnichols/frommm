@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Quiz from '@components/quiz/quiz'
-import { Section } from '@components/ui/section'
+import { Section } from '@components/section'
 
 interface PageProps {
   params: {

@@ -6,11 +6,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@components/ui/dialog'
+} from '@components/dialog'
 
-import { Button } from '../ui/button'
-import { Input } from '../ui/input'
-import { Label } from '../ui/label'
+import { Button } from '../button'
+import { Input } from '../input'
+import { Label } from '../label'
 import { useState } from 'react'
 
 const wait = () => new Promise((resolve) => setTimeout(resolve, 2000))

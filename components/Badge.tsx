@@ -1,7 +1,5 @@
 'use client';
 
-import styles from '@components/Badge.module.scss';
-
 import * as React from 'react';
 
 interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -10,7 +8,10 @@ interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 const Badge: React.FC<BadgeProps> = ({ children, ...rest }) => {
   return (
-    <span className={styles.root} {...rest}>
+    <span 
+      className="inline-block align-top text-center font-normal m-0 outline-0 border-0 font-mono min-h-[calc(var(--theme-line-height-base)*var(--font-size))] uppercase transition-all duration-200 ease-in-out bg-[var(--theme-border)] px-[1ch]" 
+      {...rest}
+    >
       {children}
     </span>
   );

@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@components/ui/button";
+import { Button } from "@components/button";
 import { NBA_DRAFT_LOTTERY_PICKS_2023 } from "@lib/data/lottery-picks";
-import { Section } from "@components/ui/section";
+import { Section } from "@components/section";
 import { useState } from "react";
 
 export default function Home() {
