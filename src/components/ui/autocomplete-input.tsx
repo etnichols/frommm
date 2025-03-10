@@ -1,63 +1,146 @@
-import { useEffect, useState } from 'react'
+import { Command as CommandPrimitive } from 'cmdk'
+import { useState, useRef, useCallback, type KeyboardEvent } from 'react'
 
-import { COUNTRIES } from '@/lib/data/countries'
-import { G_LEAGUE_TEAMS } from '@/lib/data/g-league'
-import { Input } from './input'
-import { NCAA_DIV_1_SCHOOLS } from '@/lib/data/ncaa-schools'
+import { Check } from 'lucide-react'
+import { Skeleton } from './skeleton'
+import { cn } from '@/lib/utils'
+import { CommandGroup, CommandInput, CommandItem, CommandList } from './command'
 
-function AutoCompleteInput({
-  inputValue,
-  setInputValue,
-  optionSet = NCAA_DIV_1_SCHOOLS.concat(G_LEAGUE_TEAMS).concat(COUNTRIES),
-}: {
-  inputValue: string
-  setInputValue: (value: string) => void
-  optionSet?: string[]
-}) {
-  const [suggestions, setSuggestions] = useState<string[]>([])
-  const [showSuggestions, setShowSuggestions] = useState<boolean>(false)
+export type Option = Record<'value' | 'label', string> & Record<string, string>
 
-  useEffect(() => {
-    if (inputValue) {
-      const filteredOptions = optionSet.filter((option) =>
-        option.toLowerCase().includes(inputValue.toLowerCase()),
-      )
-      setSuggestions(filteredOptions)
-      setShowSuggestions(true)
-    } else {
-      setShowSuggestions(false)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inputValue])
-
-  return (
-    <div className="relative w-full z-10">
-      <Input
-        type="text"
-        className="flex w-full border border-gray-300 p-2"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
-        onFocus={() => inputValue && setShowSuggestions(true)}
-      />
-      {showSuggestions && (
-        <ul className="absolute border border-gray-300 bg-white w-full max-h-60 overflow-auto">
-          {suggestions.map((suggestion, index) => (
-            <li
-              key={index}
-              className="p-2 hover:bg-gray-100 cursor-pointer"
-              onClick={() => {
-                setInputValue(suggestion)
-                setShowSuggestions(false)
-              }}
-            >
-              {suggestion}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  )
+type AutoCompleteProps = {
+  options: Option[]
+  emptyMessage: string
+  value?: Option
+  onValueChange?: (value: Option) => void
+  isLoading?: boolean
+  disabled?: boolean
+  placeholder?: string
 }
 
-export default AutoCompleteInput
+export const AutoCompleteInput = ({
+  options,
+  placeholder,
+  emptyMessage,
+  value,
+  onValueChange,
+  disabled,
+  isLoading = false,
+}: AutoCompleteProps) => {
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  const [isOpen, setOpen] = useState(false)
+  const [selected, setSelected] = useState<Option>(value as Option)
+  const [inputValue, setInputValue] = useState<string>(value?.label || '')
+
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLDivElement>) => {
+      const input = inputRef.current
+      if (!input) {
+        return
+      }
+
+      // Keep the options displayed when the user is typing
+      if (!isOpen) {
+        setOpen(true)
+      }
+
+      // This is not a default behaviour of the <input /> field
+      if (event.key === 'Enter' && input.value !== '') {
+        const optionToSelect = options.find((option) => option.label === input.value)
+        if (optionToSelect) {
+          setSelected(optionToSelect)
+          onValueChange?.(optionToSelect)
+        }
+      }
+
+      if (event.key === 'Escape') {
+        input.blur()
+      }
+    },
+    [isOpen, options, onValueChange],
+  )
+
+  const handleBlur = useCallback(() => {
+    setOpen(false)
+    setInputValue(selected?.label)
+  }, [selected])
+
+  const handleSelectOption = useCallback(
+    (selectedOption: Option) => {
+      setInputValue(selectedOption.label)
+
+      setSelected(selectedOption)
+      onValueChange?.(selectedOption)
+
+      // This is a hack to prevent the input from being focused after the user selects an option
+      // We can call this hack: "The next tick"
+      setTimeout(() => {
+        inputRef?.current?.blur()
+      }, 0)
+    },
+    [onValueChange],
+  )
+
+  return (
+    <CommandPrimitive onKeyDown={handleKeyDown}>
+      <div>
+        <CommandInput
+          ref={inputRef}
+          value={inputValue}
+          onValueChange={isLoading ? undefined : setInputValue}
+          onBlur={handleBlur}
+          onFocus={() => setOpen(true)}
+          placeholder={placeholder}
+          disabled={disabled}
+          className="text-base border border-gray-300 rounded-md p-2"
+        />
+      </div>
+      <div className="relative mt-1">
+        <div
+          className={cn(
+            'animate-in fade-in-0 zoom-in-95 absolute top-0 z-10 w-full rounded-xl bg-white outline-none',
+            isOpen ? 'block' : 'hidden',
+          )}
+        >
+          <CommandList className="rounded-lg ring-1 ring-slate-200">
+            {isLoading ? (
+              <CommandPrimitive.Loading>
+                <div className="p-1">
+                  <Skeleton className="h-8 w-full" />
+                </div>
+              </CommandPrimitive.Loading>
+            ) : null}
+            {options.length > 0 && !isLoading ? (
+              <CommandGroup>
+                {options.map((option) => {
+                  const isSelected = selected?.value === option.value
+                  return (
+                    <CommandItem
+                      key={option.value}
+                      value={option.label}
+                      onMouseDown={(event) => {
+                        event.preventDefault()
+                        event.stopPropagation()
+                      }}
+                      onSelect={() => handleSelectOption(option)}
+                      className={cn('flex w-full items-center gap-2', !isSelected ? 'pl-8' : null)}
+                    >
+                      {isSelected ? <Check className="w-4" /> : null}
+                      {option.label}
+                    </CommandItem>
+                  )
+                })}
+              </CommandGroup>
+            ) : null}
+            {!isLoading ? (
+              <CommandPrimitive.Empty className="select-none rounded-sm px-2 py-3 text-center text-sm">
+                {emptyMessage}
+              </CommandPrimitive.Empty>
+            ) : null}
+          </CommandList>
+        </div>
+      </div>
+    </CommandPrimitive>
+  )
+}

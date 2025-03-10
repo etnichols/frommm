@@ -1,17 +1,18 @@
 'use client'
 
 import { AVAILABLE_QUIZZES } from '@/lib/data/quiz-list'
-import QuizList from '@/components/quiz/quiz-list'
+import { QuizCard } from '@/components/quiz/quiz-card'
+import Row from '@/components/ui/row'
 
-export default function Home() {
+export default function Page() {
   return (
-    <div className="flex flex-col gap-8 md:items-center w-full">
-      <h1 className="flex text-xl md:text-3xl text-center mx-8 font-semibold tracking-wide mb-8">
-        Quizzes
-      </h1>
-      <div className="flex flex-col justify-center items-center md:w-9/12 w-full">
-        <QuizList quizData={AVAILABLE_QUIZZES} />
-      </div>
+    <div className="flex flex-col gap-y-6">
+      <Row className="tracking-wide font-semibold">All Quizzes</Row>
+      <Row className="flex flex-col gap-y-6">
+        {AVAILABLE_QUIZZES.map((quiz) => (
+          <QuizCard key={quiz.slug} {...quiz} />
+        ))}
+      </Row>
     </div>
   )
 }

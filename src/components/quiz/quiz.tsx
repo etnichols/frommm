@@ -13,9 +13,10 @@ import {
 
 import { QuizType, type QuizQuestion } from '@/models/Quiz'
 import { Loader2 } from 'lucide-react'
-import AutoCompleteInput from '../ui/autocomplete-input'
 import { Button } from '../ui/button'
 import { SaveResultDialog } from './save-result-dialog'
+import { AutoCompleteValues } from '@/lib/data/autocomplete-values'
+import { AutoCompleteInput } from '../ui/autocomplete-input'
 
 // Define action types
 enum QuizAction {
@@ -240,8 +241,10 @@ const QuizQuestion = ({
       <div className="flex text-xl">{playerName}</div>
       <div className="text-xs text-slate-500">{`(${state.index + 1}/${questions.length})`}</div>
       <AutoCompleteInput
-        inputValue={currentAnswer}
-        setInputValue={(answer) => dispatch({ type: QuizAction.SET_ANSWER, payload: { answer } })}
+        emptyMessage="No results found"
+        value={{ value: currentAnswer, label: currentAnswer }}
+        options={AutoCompleteValues}
+        onValueChange={(answer) => dispatch({ type: QuizAction.SET_ANSWER, payload: { answer } })}
       />
     </div>
   )

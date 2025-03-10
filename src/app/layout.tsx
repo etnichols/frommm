@@ -1,14 +1,17 @@
 import './globals.css'
+import './globals.scss'
 
+import { Footer } from '@/components/footer'
+import { Header } from '@/components/header'
 import type { Metadata } from 'next'
 import NavBar from '@/components/nav-bar'
-import { Poppins } from 'next/font/google'
+import { Space_Mono } from 'next/font/google'
 
-const poppins = Poppins({
+const spaceMono = Space_Mono({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-poppins',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-space-mono',
+  weight: ['400', '700'],
 })
 
 export const metadata: Metadata = {
@@ -23,10 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
-        <div className="flex flex-col h-screen">
-          <NavBar />
-          <main className="mt-32 pt-8 flex-1 overflow-y-auto px-2 pb-8 w-full">{children}</main>
+      <body className={spaceMono.className}>
+        <div className="flex flex-col h-screen p-4 max-w-3xl">
+          <Header />
+          <main className="pt-8 flex-1 overflow-y-auto px-2 pb-8 w-full">{children}</main>
+          <Footer />
         </div>
       </body>
     </html>

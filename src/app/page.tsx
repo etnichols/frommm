@@ -1,26 +1,25 @@
 'use client'
 
 import { AVAILABLE_QUIZZES } from '@/lib/data/quiz-list'
-import { Button } from '@/components/ui/button'
-import QuizList from '@/components/quiz/quiz-list'
-import { Section } from '@/components/ui/section'
-import { useRouter } from 'next/navigation'
+import { QuizCard } from '@/components/quiz/quiz-card'
+import Row from '@/components/ui/row'
 
-export default function Home() {
-  const router = useRouter()
-
+export default function Page() {
   return (
-    <Section headline="Create, take and share quizzes on where current and former NBA players went to college.">
-      <QuizList quizData={AVAILABLE_QUIZZES} />
-      <Button
-        onClick={() => {
-          router.push('/quizzes')
-        }}
-        className="my-8 flex w-48"
-        variant="default"
-      >
-        See all quizzes
-      </Button>
-    </Section>
+    <div className="flex flex-col gap-y-6">
+      <Row className="tracking-wide font-semibold">
+        Quizzes on where current and former NBA players went to college.
+      </Row>
+      <Row className="flex flex-col gap-y-6">
+        {AVAILABLE_QUIZZES.map((quiz) => (
+          <QuizCard
+            key={quiz.slug}
+            title={quiz.name}
+            description={quiz.description}
+            slug={quiz.slug}
+          />
+        ))}
+      </Row>
+    </div>
   )
 }
