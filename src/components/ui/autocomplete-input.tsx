@@ -1,5 +1,5 @@
 import { Command as CommandPrimitive } from 'cmdk'
-import { useState, useRef, useCallback, type KeyboardEvent } from 'react'
+import { useState, useRef, useCallback, type KeyboardEvent, useEffect } from 'react'
 
 import { Check } from 'lucide-react'
 import { Skeleton } from './skeleton'
@@ -16,6 +16,7 @@ type AutoCompleteProps = {
   isLoading?: boolean
   disabled?: boolean
   placeholder?: string
+  resetKey?: number | string
 }
 
 export const AutoCompleteInput = ({
@@ -26,12 +27,18 @@ export const AutoCompleteInput = ({
   onValueChange,
   disabled,
   isLoading = false,
+  resetKey = 0,
 }: AutoCompleteProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const [isOpen, setOpen] = useState(false)
   const [selected, setSelected] = useState<Option>(value as Option)
   const [inputValue, setInputValue] = useState<string>(value?.label || '')
+
+  useEffect(() => {
+    setSelected(value as Option)
+    setInputValue(value?.label || '')
+  }, [resetKey, value])
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent<HTMLDivElement>) => {

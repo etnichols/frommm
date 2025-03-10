@@ -26,6 +26,7 @@ enum QuizAction {
   PREVIOUS_QUESTION = 'PREVIOUS_QUESTION',
   GRADE_QUIZ = 'GRADE_QUIZ',
   DISPLAY_RESULTS = 'DISPLAY_RESULTS',
+  SET_INPUT_VALUE = 'SET_INPUT_VALUE',
 }
 
 enum QuizStep {
@@ -47,16 +48,18 @@ function quizReducer(state: QuizState, action: { type: QuizAction; payload?: any
     case QuizAction.SET_ANSWER:
       const updatedAnswers = [...state.answers]
       updatedAnswers[state.index] = action.payload.answer
-      return { ...state, answers: updatedAnswers }
+      return { ...state, answers: updatedAnswers, inputValue: '' }
     case QuizAction.NEXT_QUESTION:
       return {
         ...state,
         index: state.index + 1,
+        inputValue: '',
       }
     case QuizAction.PREVIOUS_QUESTION:
       return {
         ...state,
         index: state.index - 1,
+        inputValue: '',
       }
     case QuizAction.GRADE_QUIZ:
       return {
@@ -67,6 +70,11 @@ function quizReducer(state: QuizState, action: { type: QuizAction; payload?: any
       return {
         ...state,
         step: QuizStep.RESULTS,
+      }
+    case QuizAction.SET_INPUT_VALUE:
+      return {
+        ...state,
+        inputValue: action.payload.inputValue,
       }
     default:
       return state
@@ -86,7 +94,7 @@ export default function QuizComponent({ quiz }: { quiz: QuizType }) {
       // Grade quiz, save results, and display results.
       setTimeout(() => {
         dispatch({ type: QuizAction.DISPLAY_RESULTS })
-      }, 3000)
+      }, 2500)
     }
   }, [state.step])
 
@@ -222,6 +230,7 @@ const QuizResults = ({
   )
 }
 
+const PLACEHOLDER_VALUE = { value: '', label: '' }
 const QuizQuestion = ({
   state,
   dispatch,
@@ -231,17 +240,24 @@ const QuizQuestion = ({
   dispatch: any
   questions: any
 }) => {
-  const playerName = questions[state.index].name
-  const currentAnswer = state.answers[state.index] || ''
+  const { inputValue, index, answers } = state
+
+  const playerName = questions[index].name
+  const currentAnswer = answers[index] || ''
+  const currentValue = currentAnswer || inputValue
 
   return (
     <div className="flex flex-col gap-y-4 w-full">
       <div className="flex text-lg">{playerName}</div>
       <AutoCompleteInput
         emptyMessage="No results found"
-        value={{ value: currentAnswer, label: currentAnswer }}
+        value={currentValue ? { value: currentValue, label: currentValue } : undefined}
         options={AutoCompleteValues}
-        onValueChange={(answer) => dispatch({ type: QuizAction.SET_ANSWER, payload: { answer } })}
+        resetKey={index}
+        onValueChange={(option) => {
+          dispatch({ type: QuizAction.SET_INPUT_VALUE, payload: { inputValue: option.value } })
+          dispatch({ type: QuizAction.SET_ANSWER, payload: { answer: option.value } })
+        }}
       />
     </div>
   )
@@ -259,23 +275,23 @@ const QuizNavigationControls = ({
   return (
     <div className="flex flex-row justify-between items-center w-full px-8 lg:max-w-96">
       <Button
+        variant="outline"
         disabled={state.index === 0}
         onClick={() => dispatch({ type: QuizAction.PREVIOUS_QUESTION })}
         className="min-w-24 flex items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 "
       >
-        <LeftArrow />
-        <div className="pl-2">Previous</div>
+        <div className="pl-2">← Previous</div>
       </Button>
       <div className="text-xs text-slate-500">{`(${state.index + 1}/${questions.length})`}</div>
       <Button
+        variant="outline"
         disabled={state.index === questions.length - 1}
         onClick={() => {
           dispatch({ type: QuizAction.NEXT_QUESTION })
         }}
         className="min-w-24 flex items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 "
       >
-        <div className="pr-2">Next</div>
-        <RightArrow />
+        <div className="pr-2">Next →</div>
       </Button>
     </div>
   )
