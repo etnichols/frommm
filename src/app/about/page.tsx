@@ -1,11 +1,11 @@
 'use client'
 
-import Row from '@/components/ui/row'
+import { PageTitle } from '@/components/ui/common'
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-y-6">
-      <Row className="tracking-wide font-semibold">About</Row>
+      <PageTitle>About</PageTitle>
       <p>
         From??? is a simple game for degenerate NBA fans who want to prove to their friends how much
         they know about NBA players and their alma maters.

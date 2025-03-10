@@ -1,5 +1,6 @@
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+
 import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
 import { useRouter } from 'next/navigation'
 
 export function QuizCard(props: { title: string; description: string[]; slug: string }) {
@@ -7,16 +8,18 @@ export function QuizCard(props: { title: string; description: string[]; slug: st
   const { title, description, slug } = props
 
   return (
-    <Card mode="left" title={title}>
-      <div className="flex flex-col gap-y-3">
+    <Card className="border border-gray-300 border-solid">
+      <CardHeader>
+        <CardTitle className="text-lg">{title}</CardTitle>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-y-2">
         {description.map((desc) => (
           <p key={desc}>{desc}</p>
         ))}
-      </div>
-      <br />
-      <Button className="w-48" onClick={() => router.push(slug)}>
-        Take Quiz
-      </Button>
+        <Button className="mt-4 w-48" onClick={() => router.push(slug)}>
+          Take Quiz →
+        </Button>
+      </CardContent>
     </Card>
   )
 }

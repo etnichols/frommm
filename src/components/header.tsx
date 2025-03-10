@@ -19,48 +19,34 @@ export function Header() {
     return pathname === path
   }
 
+  const navigationItems = [
+    { label: 'About', path: '/about' },
+    { label: 'Browse', path: '/quizzes' },
+    { label: 'Leaderboard', path: '/leaderboard' },
+  ]
+
   return (
     <div className="flex flex-col mb-4">
       <div className="flex flex-col gap-y-4">
         <Basketballs />
-        <div>
-          From??? Basketball Quizzes <Badge>{'0.0.2'}</Badge>
-        </div>
-        <NavigationMenu className="bg-orange-500 p-2 text-white">
-          <NavigationMenuList className="cursor-pointer flex flex-row gap-x-4 text-white">
-            <NavigationMenuItem className="text-white">
-              <NavigationMenuLink
-                className={cn(
-                  'cursor-pointer p-1 text-white',
-                  isActive('/about') && 'underline underline-offset-4',
-                )}
-                onClick={() => router.push('/about')}
+        <div className="text-xl font-bold">From??? Basketball Quizzes</div>
+        <NavigationMenu>
+          <NavigationMenuList className="cursor-pointer flex flex-row gap-x-2">
+            {navigationItems.map((item) => (
+              <NavigationMenuItem
+                key={item.path}
+                className="text-white flex justify-center items-center bg-orange-500 p-2"
               >
-                About
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                className={cn(
-                  'cursor-pointer p-1 text-white',
-                  isActive('/quizzes') && 'underline underline-offset-4',
-                )}
-                onClick={() => router.push('/quizzes')}
-              >
-                Browse
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                className={cn(
-                  'cursor-pointer p-1 text-white',
-                  isActive('/leaderboard') && 'underline underline-offset-4',
-                )}
-                onClick={() => router.push('/leaderboard')}
-              >
-                Leaderboard
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+                <NavigationMenuLink
+                  className={cn('flex text-white', {
+                    'underline underline-offset-4 text-white': isActive(item.path),
+                  })}
+                  onClick={() => router.push(item.path)}
+                >
+                  {item.label}
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
           </NavigationMenuList>
         </NavigationMenu>
       </div>

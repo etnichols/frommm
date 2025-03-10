@@ -17,6 +17,7 @@ import { Button } from '../ui/button'
 import { SaveResultDialog } from './save-result-dialog'
 import { AutoCompleteValues } from '@/lib/data/autocomplete-values'
 import { AutoCompleteInput } from '../ui/autocomplete-input'
+import { PageTitle } from '../ui/common'
 
 // Define action types
 enum QuizAction {
@@ -131,13 +132,13 @@ export default function QuizComponent({ quiz }: { quiz: QuizType }) {
   }
 
   return (
-    <div className="flex flex-col gap-y-16 items-center justify-center">
-      <div className="flex flex-col items-center justify-center gap-y-4">
-        <div className="flex text-2xl font-bold text-center">{quiz.title}</div>
-        {quiz.description && (
-          <div className="md:max-w-1/2 text-sm text-center">{quiz.description}</div>
-        )}
-      </div>
+    <div className="flex flex-col gap-y-6">
+      <PageTitle>{quiz.title}</PageTitle>
+      {quiz.description && (
+        <div className="text-sm">
+          <span className="font-bold">Note:</span> {quiz.description}
+        </div>
+      )}
       {content}
     </div>
   )
@@ -217,9 +218,6 @@ const QuizResults = ({
           })}
         </TableBody>
       </Table>
-      {/* <div className="cursor-pointer hover:underline text-xs font-bold tracking-wide text-slate-500">
-        Share this result
-      </div> */}
     </div>
   )
 }
@@ -237,9 +235,8 @@ const QuizQuestion = ({
   const currentAnswer = state.answers[state.index] || ''
 
   return (
-    <div className="flex flex-col gap-y-4 items-center justify-center w-full md:w-9/12 lg:w-6/12">
-      <div className="flex text-xl">{playerName}</div>
-      <div className="text-xs text-slate-500">{`(${state.index + 1}/${questions.length})`}</div>
+    <div className="flex flex-col gap-y-4 w-full">
+      <div className="flex text-lg">{playerName}</div>
       <AutoCompleteInput
         emptyMessage="No results found"
         value={{ value: currentAnswer, label: currentAnswer }}
@@ -260,7 +257,7 @@ const QuizNavigationControls = ({
   questions: any
 }) => {
   return (
-    <div className="flex flex-row justify-between w-full px-8 lg:max-w-96">
+    <div className="flex flex-row justify-between items-center w-full px-8 lg:max-w-96">
       <Button
         disabled={state.index === 0}
         onClick={() => dispatch({ type: QuizAction.PREVIOUS_QUESTION })}
@@ -269,6 +266,7 @@ const QuizNavigationControls = ({
         <LeftArrow />
         <div className="pl-2">Previous</div>
       </Button>
+      <div className="text-xs text-slate-500">{`(${state.index + 1}/${questions.length})`}</div>
       <Button
         disabled={state.index === questions.length - 1}
         onClick={() => {

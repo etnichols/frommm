@@ -27,10 +27,10 @@ interface LeaderboardProps {
 export default function Leaderboard({ items }: LeaderboardProps) {
   const [selectedQuiz, setSelectedQuiz] = useState<ComboboxItem | undefined>(items[0])
   return (
-    <div className="flex flex-col justify-center items-center gap-y-8">
+    <>
       <Combobox selected={selectedQuiz} items={items} onChange={setSelectedQuiz} />
       <LeaderboardTable selectedQuiz={selectedQuiz} />
-    </div>
+    </>
   )
 }
 
@@ -66,11 +66,11 @@ function LeaderboardTable({ selectedQuiz }: { selectedQuiz?: ComboboxItem }) {
   }, [selectedQuiz])
 
   if (!selectedQuiz) {
-    return <div className="p-8 flex text-center">No quiz selected</div>
+    return <div className="flex text-center">No quiz selected</div>
   }
 
   return (
-    <Table className="mt-8">
+    <Table>
       <TableCaption>{`${selectedQuiz.label} Leaderboard`}</TableCaption>
       <TableHeader>
         <TableRow>

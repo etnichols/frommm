@@ -1,6 +1,6 @@
 import { ComboboxItem } from '@/components/ui/combo-box'
 import Leaderboard from '@/components/leaderboard/leaderboard'
-import { Section } from '@/components/ui/section'
+import { PageTitle } from '@/components/ui/common'
 
 export default async function Home() {
   const { quizzes } = await fetchQuizzes()
@@ -12,9 +12,10 @@ export default async function Home() {
   }))
 
   return (
-    <Section headline="Leaderboard">
+    <div className="flex flex-col gap-y-6">
+      <PageTitle>Leaderboard</PageTitle>
       <Leaderboard items={comboxBoxItems} />
-    </Section>
+    </div>
   )
 }
 
