@@ -37,7 +37,7 @@ enum QuizStep {
 interface QuizState {
   index: number
   inputValue: string
-  answers: string[]
+  answers: Number[]
   step: QuizStep
 }
 
@@ -46,7 +46,7 @@ function quizReducer(state: QuizState, action: { type: QuizAction; payload?: any
   switch (action.type) {
     case QuizAction.SET_ANSWER:
       const updatedAnswers = [...state.answers]
-      updatedAnswers[state.index] = action.payload.answer
+      updatedAnswers[state.index] = new Number(action.payload.answer.id)
       return { ...state, answers: updatedAnswers, inputValue: '' }
     case QuizAction.NEXT_QUESTION:
       return {
@@ -109,8 +109,13 @@ export default function QuizComponent({
 
   let content = (
     <div className="flex flex-col gap-y-6 h-full">
-      <QuizQuestion state={state} questions={questions} dispatch={dispatch} origins={origins} />
-      <QuizNavigationControls state={state} questions={questions} dispatch={dispatch} />
+      <QuizQuestion
+        state={state}
+        questions={questions.slice(0, 5)}
+        dispatch={dispatch}
+        origins={origins}
+      />
+      <QuizNavigationControls state={state} questions={questions.slice(0, 5)} dispatch={dispatch} />
       {isFinalQuestion && (
         <Button
           onClick={() => dispatch({ type: QuizAction.GRADE_QUIZ })}
@@ -251,9 +256,15 @@ const QuizQuestion = ({
   const currentQuestion = questions[index]
 
   const playerName = currentQuestion.players.name
-  const currentTeam = currentQuestion.players.team.team
+  const currentTeam = currentQuestion.players.team?.team || 'Unsigned/Retired'
   const currentAnswer = answers[index] || ''
   const currentValue = currentAnswer || inputValue
+
+  const originOptions = origins.map((origin) => ({
+    label: origin.name,
+    value: origin.name,
+    id: origin.id.toString(),
+  }))
 
   return (
     <div className="flex flex-col gap-y-4 w-full h-[400px]">
@@ -261,12 +272,11 @@ const QuizQuestion = ({
       <div className="flex text-sm">{currentTeam}</div>
       <AutoCompleteInput
         emptyMessage="No results found"
-        value={currentValue ? { value: currentValue, label: currentValue } : undefined}
-        options={origins.map((origin) => ({ value: origin.id, label: origin.name, id: origin.id }))}
+        options={originOptions}
         resetKey={index}
         onValueChange={(option) => {
           dispatch({ type: QuizAction.SET_INPUT_VALUE, payload: { inputValue: option.value } })
-          dispatch({ type: QuizAction.SET_ANSWER, payload: { answer: option.value } })
+          dispatch({ type: QuizAction.SET_ANSWER, payload: { answer: option } })
         }}
       />
     </div>
