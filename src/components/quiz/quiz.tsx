@@ -15,7 +15,6 @@ import { QuizType, type QuizQuestion } from '@/models/Quiz'
 import { Loader2 } from 'lucide-react'
 import { Button } from '../ui/button'
 import { SaveResultDialog } from './save-result-dialog'
-import { AutoCompleteValues } from '@/lib/data/autocomplete-values'
 import { AutoCompleteInput } from '../ui/autocomplete-input'
 import { PageTitle } from '../ui/common'
 
@@ -81,7 +80,15 @@ function quizReducer(state: QuizState, action: { type: QuizAction; payload?: any
   }
 }
 
-export default function QuizComponent({ quiz }: { quiz: QuizType }) {
+export default function QuizComponent({
+  quiz,
+  origins,
+  questions,
+}: {
+  quiz: any
+  questions: any[]
+  origins: any[]
+}) {
   const [state, dispatch] = useReducer(quizReducer, {
     index: 0,
     inputValue: '',
@@ -98,14 +105,11 @@ export default function QuizComponent({ quiz }: { quiz: QuizType }) {
     }
   }, [state.step])
 
-  const { questions: rawQuestions, slug } = quiz
-  const questions = rawQuestions
-
   const isFinalQuestion = state.index === questions.length - 1
 
   let content = (
-    <>
-      <QuizQuestion state={state} questions={questions} dispatch={dispatch} />
+    <div className="flex flex-col gap-y-6 h-full">
+      <QuizQuestion state={state} questions={questions} dispatch={dispatch} origins={origins} />
       <QuizNavigationControls state={state} questions={questions} dispatch={dispatch} />
       {isFinalQuestion && (
         <Button
@@ -115,7 +119,7 @@ export default function QuizComponent({ quiz }: { quiz: QuizType }) {
           Grade Quiz
         </Button>
       )}
-    </>
+    </div>
   )
   if (state.step === QuizStep.RESULTS) {
     content = (
@@ -125,7 +129,7 @@ export default function QuizComponent({ quiz }: { quiz: QuizType }) {
         questions={questions}
         answers={state.answers}
         quizId={quiz._id}
-        slug={slug}
+        slug={quiz.slug}
       />
     )
   }
@@ -235,24 +239,30 @@ const QuizQuestion = ({
   state,
   dispatch,
   questions,
+  origins,
 }: {
   state: QuizState
   dispatch: any
   questions: any
+  origins: any[]
 }) => {
   const { inputValue, index, answers } = state
 
-  const playerName = questions[index].name
+  const currentQuestion = questions[index]
+
+  const playerName = currentQuestion.players.name
+  const currentTeam = currentQuestion.players.team.team
   const currentAnswer = answers[index] || ''
   const currentValue = currentAnswer || inputValue
 
   return (
-    <div className="flex flex-col gap-y-4 w-full">
+    <div className="flex flex-col gap-y-4 w-full h-[400px]">
       <div className="flex text-lg">{playerName}</div>
+      <div className="flex text-sm">{currentTeam}</div>
       <AutoCompleteInput
         emptyMessage="No results found"
         value={currentValue ? { value: currentValue, label: currentValue } : undefined}
-        options={AutoCompleteValues}
+        options={origins.map((origin) => ({ value: origin.id, label: origin.name, id: origin.id }))}
         resetKey={index}
         onValueChange={(option) => {
           dispatch({ type: QuizAction.SET_INPUT_VALUE, payload: { inputValue: option.value } })

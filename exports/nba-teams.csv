@@ -1,0 +1,31 @@
+conference,division,team,location,abbreviation
+0,0,Boston Celtics,Boston,BOS
+0,0,Brooklyn Nets,Brooklyn,BKN
+0,0,New York Knicks,New York,NYK
+0,0,Philadelphia 76ers,Philadelphia,PHI
+0,0,Toronto Raptors,Toronto,TOR
+0,1,Chicago Bulls,Chicago,CHI
+0,1,Cleveland Cavaliers,Cleveland,CLE
+0,1,Detroit Pistons,Detroit,DET
+0,1,Indiana Pacers,Indianapolis,IND
+0,1,Milwaukee Bucks,Milwaukee,MIL
+0,2,Atlanta Hawks,Atlanta,ATL
+0,2,Charlotte Hornets,Charlotte,CHA
+0,2,Miami Heat,Miami,MIA
+0,2,Orlando Magic,Orlando,ORL
+0,2,Washington Wizards,Washington,WAS
+1,3,Denver Nuggets,Denver,DEN
+1,3,Minnesota Timberwolves,Minneapolis,MIN
+1,3,Oklahoma City Thunder,Oklahoma City,OKC
+1,3,Portland Trail Blazers,Portland,POR
+1,3,Utah Jazz,Salt Lake City,UTA
+1,4,Golden State Warriors,San Francisco,GSW
+1,4,Los Angeles Clippers,Los Angeles,LAC
+1,4,Los Angeles Lakers,Los Angeles,LAL
+1,4,Phoenix Suns,Phoenix,PHX
+1,4,Sacramento Kings,Sacramento,SAC
+1,5,Dallas Mavericks,Dallas,DAL
+1,5,Houston Rockets,Houston,HOU
+1,5,Memphis Grizzlies,Memphis,MEM
+1,5,New Orleans Pelicans,New Orleans,NOP
+1,5,San Antonio Spurs,San Antonio,SAS

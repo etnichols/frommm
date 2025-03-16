@@ -1,12 +1,11 @@
 export const TEST_QUIZ = {
-  title: 'Test Quiz',
+  title: 'Test',
   slug: 'test-quiz',
   author: 'E. Nichols',
   questions: [
-    { name: 'Xavier Tillman (Grizzlies)', college: 'Michigan State University (MSU)' },
-    { name: 'Lamar Stevens (Cavs)', college: 'The Pennsylvania State University (Penn State)' },
-    { name: 'Alex Len (Kings)', college: 'University of Maryland' },
-    { name: 'Malik Beasley (Lakers)', college: 'Florida State University (FSU)' },
-    { name: 'Danny Green (Cavs)', college: 'University of North Carolina (UNC)' },
+    { name: 1, team: 23, answer: 546 },
+    { name: 3, team: 23, answer: 523 },
+    { name: 5, team: 23, answer: 187 },
+    { name: 7, team: 23, answer: 146 },
   ],
 }
