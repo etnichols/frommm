@@ -1,8 +1,11 @@
 export interface Quiz {
   id: number
-  slug: string
+  created_at: string
   title: string
+  slug: string
   description: string
+  difficulty: number
+  is_published: boolean
 }
 
 export interface Player {

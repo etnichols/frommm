@@ -9,7 +9,7 @@ import { QuizStep } from '@/lib/hooks/use-quiz'
 import { useQuiz } from '@/lib/hooks/use-quiz'
 
 export function Quiz({ quiz, questions }: QuizData) {
-  const quizQuestions = questions.slice(0, 10)
+  const quizQuestions = questions.slice()
   const { state, dispatch } = useQuiz(quizQuestions)
 
   let content = null
