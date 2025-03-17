@@ -1,5 +1,5 @@
 import { ComboboxItem } from '@/components/ui/combo-box'
-import Leaderboard from '@/components/leaderboard/leaderboard'
+import Leaderboard from '@/components/leaderboard'
 import { PageTitle } from '@/components/ui/common'
 import { getAvailableQuizzes } from '@/lib/server/quizzes'
 
