@@ -8,7 +8,6 @@ import {
 } from '@/components/ui/navigation-menu'
 import { usePathname, useRouter } from 'next/navigation'
 
-import Badge from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 
 export function Header() {
@@ -26,10 +25,20 @@ export function Header() {
   ]
 
   return (
-    <div className="flex flex-col mb-4">
-      <div className="flex flex-col gap-y-4">
+    <div className="flex flex-col mb-4 items-center">
+      <div className="flex flex-col gap-y-4 items-center">
         <Basketballs />
-        <div className="text-xl font-bold">From??? Basketball Quizzes</div>
+        <div
+          className="text-2xl font-bold cursor-pointer"
+          onClick={() => router.push('/')}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              router.push('/')
+            }
+          }}
+        >
+          From??? Basketball Quizzes
+        </div>
         <NavigationMenu>
           <NavigationMenuList className="cursor-pointer flex flex-row gap-x-2">
             {navigationItems.map((item) => (
@@ -66,7 +75,7 @@ function Basketballs() {
       }}
       className="flex flex-row gap-x-4 items-center cursor-pointer"
     >
-      {new Array(4).fill(0).map((_, index) => (
+      {new Array(5).fill(0).map((_, index) => (
         // biome-ignore lint/suspicious/noArrayIndexKey: decoration
         <div key={`basketball-${index}`} className="flex flex-row gap-x-4">
           <div className="bg-orange-500 size-6 rounded-full" />

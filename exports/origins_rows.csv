@@ -1,0 +1,822 @@
+id,created_at,name,type
+1,2025-03-15 23:33:25.701075+00,Austin Spurs,2
+2,2025-03-15 23:33:25.701075+00,Birmingham Squadron,2
+3,2025-03-15 23:33:25.701075+00,Capital City Go-Go,2
+4,2025-03-15 23:33:25.701075+00,Capitanes de Ciudad de México,2
+5,2025-03-15 23:33:25.701075+00,Cleveland Charge,2
+6,2025-03-15 23:33:25.701075+00,College Park Skyhawks,2
+7,2025-03-15 23:33:25.701075+00,Delaware Blue Coats,2
+8,2025-03-15 23:33:25.701075+00,G League Ignite,2
+9,2025-03-15 23:33:25.701075+00,Grand Rapids Gold,2
+10,2025-03-15 23:33:25.701075+00,Greensboro Swarm,2
+11,2025-03-15 23:33:25.701075+00,Indiana Mad Ants,2
+12,2025-03-15 23:33:25.701075+00,Iowa Wolves,2
+13,2025-03-15 23:33:25.701075+00,Long Island Nets,2
+14,2025-03-15 23:33:25.701075+00,Maine Celtics,2
+15,2025-03-15 23:33:25.701075+00,Memphis Hustle,2
+16,2025-03-15 23:33:25.701075+00,Motor City Cruise,2
+17,2025-03-15 23:33:25.701075+00,Oklahoma City Blue,2
+18,2025-03-15 23:33:25.701075+00,Ontario Clippers,2
+19,2025-03-15 23:33:25.701075+00,Osceola Magic,2
+20,2025-03-15 23:33:25.701075+00,Overtime Elite (OTE),2
+21,2025-03-15 23:33:25.701075+00,Raptors 905,2
+22,2025-03-15 23:33:25.701075+00,Rio Grande Valley Vipers,2
+23,2025-03-15 23:33:25.701075+00,Rip City Remix,2
+24,2025-03-15 23:33:25.701075+00,Salt Lake City Stars,2
+25,2025-03-15 23:33:25.701075+00,Santa Cruz Warriors,2
+26,2025-03-15 23:33:25.701075+00,Sioux Falls Skyforce,2
+27,2025-03-15 23:33:25.701075+00,South Bay Lakers,2
+28,2025-03-15 23:33:25.701075+00,Stockton Kings,2
+29,2025-03-15 23:33:25.701075+00,Texas Legends,2
+30,2025-03-15 23:33:25.701075+00,Westchester Knicks,2
+31,2025-03-15 23:33:25.701075+00,Windy City Bulls,2
+32,2025-03-15 23:33:25.701075+00,Wisconsin Herd,2
+33,2025-03-15 23:33:25.701075+00,Abilene Christian University,1
+34,2025-03-15 23:33:25.701075+00,Adelphi University,1
+35,2025-03-15 23:33:25.701075+00,Adrian College,1
+36,2025-03-15 23:33:25.701075+00,Alabama Agricultural and Mechanical University,1
+37,2025-03-15 23:33:25.701075+00,Alabama State University,1
+38,2025-03-15 23:33:25.701075+00,Alcorn State University,1
+39,2025-03-15 23:33:25.701075+00,Alma College,1
+40,2025-03-15 23:33:25.701075+00,American International College,1
+41,2025-03-15 23:33:25.701075+00,American University,1
+42,2025-03-15 23:33:25.701075+00,Appalachian State University,1
+43,2025-03-15 23:33:25.701075+00,Arizona State University (ASU),1
+44,2025-03-15 23:33:25.701075+00,Arkansas State University,1
+45,2025-03-15 23:33:25.701075+00,Armstrong State University,1
+46,2025-03-15 23:33:25.701075+00,Assumption University,1
+47,2025-03-15 23:33:25.701075+00,Auburn University,1
+48,2025-03-15 23:33:25.701075+00,Augusta University,1
+49,2025-03-15 23:33:25.701075+00,Augustana College,1
+50,2025-03-15 23:33:25.701075+00,Augustana University,1
+51,2025-03-15 23:33:25.701075+00,Aurora University,1
+52,2025-03-15 23:33:25.701075+00,Austin College,1
+53,2025-03-15 23:33:25.701075+00,Austin Peay State University,1
+54,2025-03-15 23:33:25.701075+00,Azusa Pacific University,1
+55,2025-03-15 23:33:25.701075+00,Babson College,1
+56,2025-03-15 23:33:25.701075+00,Ball State University,1
+57,2025-03-15 23:33:25.701075+00,Barton College,1
+58,2025-03-15 23:33:25.701075+00,Bates College,1
+59,2025-03-15 23:33:25.701075+00,Baylor University,1
+60,2025-03-15 23:33:25.701075+00,Bellarmine University,1
+61,2025-03-15 23:33:25.701075+00,Belmont Abbey College,1
+62,2025-03-15 23:33:25.701075+00,Belmont University,1
+63,2025-03-15 23:33:25.701075+00,Bemidji State University,1
+64,2025-03-15 23:33:25.701075+00,Benedict College,1
+65,2025-03-15 23:33:25.701075+00,Bentley University,1
+66,2025-03-15 23:33:25.701075+00,Bethune–Cookman University,1
+67,2025-03-15 23:33:25.701075+00,Biola University,1
+68,2025-03-15 23:33:25.701075+00,Birmingham-Southern College,1
+69,2025-03-15 23:33:25.701075+00,Bloomfield College,1
+70,2025-03-15 23:33:25.701075+00,Bloomsburg University of Pennsylvania,1
+71,2025-03-15 23:33:25.701075+00,Boise State University,1
+72,2025-03-15 23:33:25.701075+00,Boston College,1
+73,2025-03-15 23:33:25.701075+00,Boston University,1
+74,2025-03-15 23:33:25.701075+00,Bowdoin College,1
+75,2025-03-15 23:33:25.701075+00,Bowie State University,1
+76,2025-03-15 23:33:25.701075+00,Bowling Green State University,1
+77,2025-03-15 23:33:25.701075+00,Bradley University,1
+78,2025-03-15 23:33:25.701075+00,Brandeis University,1
+79,2025-03-15 23:33:25.701075+00,Brigham Young University (BYU),1
+80,2025-03-15 23:33:25.701075+00,Brooklyn College,1
+81,2025-03-15 23:33:25.701075+00,Brown University,1
+82,2025-03-15 23:33:25.701075+00,Bryant University,1
+83,2025-03-15 23:33:25.701075+00,Bucknell University,1
+84,2025-03-15 23:33:25.701075+00,Butler University,1
+85,2025-03-15 23:33:25.701075+00,Caldwell University,1
+86,2025-03-15 23:33:25.701075+00,California Baptist University,1
+87,2025-03-15 23:33:25.701075+00,California Institute of Technology,1
+88,2025-03-15 23:33:25.701075+00,California Lutheran University,1
+89,2025-03-15 23:33:25.701075+00,California Polytechnic State University,1
+90,2025-03-15 23:33:25.701075+00,"California State University, Bakersfield",1
+91,2025-03-15 23:33:25.701075+00,"California State University, East Bay",1
+92,2025-03-15 23:33:25.701075+00,"California State University, Fresno (Fresno State)",1
+93,2025-03-15 23:33:25.701075+00,"California State University, Fullerton",1
+94,2025-03-15 23:33:25.701075+00,"California State University, Long Beach",1
+95,2025-03-15 23:33:25.701075+00,"California State University, Los Angeles (UCLA)",1
+96,2025-03-15 23:33:25.701075+00,"California State University, Monterey Bay",1
+97,2025-03-15 23:33:25.701075+00,"California State University, Northridge",1
+98,2025-03-15 23:33:25.701075+00,"California State University, Sacramento",1
+99,2025-03-15 23:33:25.701075+00,Campbell University,1
+100,2025-03-15 23:33:25.701075+00,Canisius University,1
+101,2025-03-15 23:33:25.701075+00,Carson–Newman University,1
+102,2025-03-15 23:33:25.701075+00,Carthage College,1
+103,2025-03-15 23:33:25.701075+00,Catawba College,1
+104,2025-03-15 23:33:25.701075+00,Catholic University of America,1
+105,2025-03-15 23:33:25.701075+00,Centenary College of Louisiana,1
+106,2025-03-15 23:33:25.701075+00,Central Connecticut State University,1
+107,2025-03-15 23:33:25.701075+00,Central Michigan University,1
+108,2025-03-15 23:33:25.701075+00,Central State University,1
+109,2025-03-15 23:33:25.701075+00,Chapman University,1
+110,2025-03-15 23:33:25.701075+00,Charleston Southern University,1
+111,2025-03-15 23:33:25.701075+00,Chestnut Hill College,1
+112,2025-03-15 23:33:25.701075+00,Chicago State University,1
+113,2025-03-15 23:33:25.701075+00,Chowan University,1
+114,2025-03-15 23:33:25.701075+00,City College of the City University of New York,1
+115,2025-03-15 23:33:25.701075+00,Claremont McKenna College,1
+116,2025-03-15 23:33:25.701075+00,Clarkson University,1
+117,2025-03-15 23:33:25.701075+00,Clemson University,1
+118,2025-03-15 23:33:25.701075+00,Cleveland State University,1
+119,2025-03-15 23:33:25.701075+00,Coastal Carolina University,1
+120,2025-03-15 23:33:25.701075+00,Coker University,1
+121,2025-03-15 23:33:25.701075+00,Colby College,1
+122,2025-03-15 23:33:25.701075+00,Colby–Sawyer College,1
+123,2025-03-15 23:33:25.701075+00,Colgate University,1
+124,2025-03-15 23:33:25.701075+00,College of Charleston,1
+125,2025-03-15 23:33:25.701075+00,College of the Holy Cross,1
+126,2025-03-15 23:33:25.701075+00,Colorado College,1
+127,2025-03-15 23:33:25.701075+00,Colorado Mesa University,1
+128,2025-03-15 23:33:25.701075+00,Colorado State University,1
+129,2025-03-15 23:33:25.701075+00,Columbia University in the City of New York,1
+130,2025-03-15 23:33:25.701075+00,Concordia University Irvine,1
+131,2025-03-15 23:33:25.701075+00,Connecticut College,1
+132,2025-03-15 23:33:25.701075+00,Coppin State University,1
+133,2025-03-15 23:33:25.701075+00,Cornell University,1
+134,2025-03-15 23:33:25.701075+00,Creighton University,1
+135,2025-03-15 23:33:25.701075+00,Daemen University,1
+136,2025-03-15 23:33:25.701075+00,Dallas Baptist University,1
+137,2025-03-15 23:33:25.701075+00,Dartmouth College,1
+138,2025-03-15 23:33:25.701075+00,Davidson College,1
+139,2025-03-15 23:33:25.701075+00,Delaware State University,1
+140,2025-03-15 23:33:25.701075+00,Delaware Valley University,1
+141,2025-03-15 23:33:25.701075+00,DePaul University,1
+142,2025-03-15 23:33:25.701075+00,Drake University,1
+143,2025-03-15 23:33:25.701075+00,Drew University,1
+144,2025-03-15 23:33:25.701075+00,Drexel University,1
+145,2025-03-15 23:33:25.701075+00,Drury University,1
+146,2025-03-15 23:33:25.701075+00,Duke University,1
+147,2025-03-15 23:33:25.701075+00,Duquesne University of the Holy Spirit,1
+148,2025-03-15 23:33:25.701075+00,East Carolina University,1
+149,2025-03-15 23:33:25.701075+00,East Tennessee State University,1
+150,2025-03-15 23:33:25.701075+00,Eastern Illinois University,1
+151,2025-03-15 23:33:25.701075+00,Eastern Kentucky University,1
+152,2025-03-15 23:33:25.701075+00,Eastern Michigan University,1
+153,2025-03-15 23:33:25.701075+00,Eastern Washington University,1
+154,2025-03-15 23:33:25.701075+00,Eckerd College,1
+155,2025-03-15 23:33:25.701075+00,Edward Waters University,1
+156,2025-03-15 23:33:25.701075+00,Elizabeth City State University,1
+157,2025-03-15 23:33:25.701075+00,Elmhurst University,1
+158,2025-03-15 23:33:25.701075+00,Elon University,1
+159,2025-03-15 23:33:25.701075+00,Emmanuel University,1
+160,2025-03-15 23:33:25.701075+00,Erskine College,1
+161,2025-03-15 23:33:25.701075+00,Fairfield University,1
+162,2025-03-15 23:33:25.701075+00,Fairleigh Dickinson University,1
+163,2025-03-15 23:33:25.701075+00,Fayetteville State University,1
+164,2025-03-15 23:33:25.701075+00,Felician University,1
+165,2025-03-15 23:33:25.701075+00,Ferris State University,1
+166,2025-03-15 23:33:25.701075+00,Florida Agricultural and Mechanical University,1
+167,2025-03-15 23:33:25.701075+00,Florida Atlantic University,1
+168,2025-03-15 23:33:25.701075+00,Florida Gulf Coast University,1
+169,2025-03-15 23:33:25.701075+00,Florida International University,1
+170,2025-03-15 23:33:25.701075+00,Florida Southern College,1
+171,2025-03-15 23:33:25.701075+00,Florida State University (FSU),1
+172,2025-03-15 23:33:25.701075+00,Fordham University,1
+173,2025-03-15 23:33:25.701075+00,Fort Valley State University,1
+174,2025-03-15 23:33:25.701075+00,Francis Marion University,1
+175,2025-03-15 23:33:25.701075+00,Franklin & Marshall College,1
+176,2025-03-15 23:33:25.701075+00,Franklin Pierce University,1
+177,2025-03-15 23:33:25.701075+00,Fresno Pacific University,1
+178,2025-03-15 23:33:25.701075+00,Furman University,1
+179,2025-03-15 23:33:25.701075+00,Gannon University,1
+180,2025-03-15 23:33:25.701075+00,Gardner–Webb University,1
+181,2025-03-15 23:33:25.701075+00,George Mason University,1
+182,2025-03-15 23:33:25.701075+00,Georgetown University,1
+183,2025-03-15 23:33:25.701075+00,Georgia Institute of Technology,1
+184,2025-03-15 23:33:25.701075+00,Georgia Southern University,1
+185,2025-03-15 23:33:25.701075+00,Georgia State University,1
+186,2025-03-15 23:33:25.701075+00,Gettysburg College,1
+187,2025-03-15 23:33:25.701075+00,Gonzaga University,1
+188,2025-03-15 23:33:25.701075+00,Grambling State University,1
+189,2025-03-15 23:33:25.701075+00,Grand Canyon University,1
+190,2025-03-15 23:33:25.701075+00,Grove City College,1
+191,2025-03-15 23:33:25.701075+00,Gustavus Adolphus College,1
+192,2025-03-15 23:33:25.701075+00,Hamline University,1
+193,2025-03-15 23:33:25.701075+00,Hampton University,1
+194,2025-03-15 23:33:25.701075+00,Hardin–Simmons University,1
+195,2025-03-15 23:33:25.701075+00,Harvard University,1
+196,2025-03-15 23:33:25.701075+00,Harvey Mudd College,1
+197,2025-03-15 23:33:25.701075+00,Haverford College,1
+198,2025-03-15 23:33:25.701075+00,High Point University,1
+199,2025-03-15 23:33:25.701075+00,Hilbert College,1
+200,2025-03-15 23:33:25.701075+00,Hobart and William Smith Colleges,1
+201,2025-03-15 23:33:25.701075+00,Hofstra University,1
+202,2025-03-15 23:33:25.701075+00,Houston Christian University,1
+203,2025-03-15 23:33:25.701075+00,Howard University,1
+204,2025-03-15 23:33:25.701075+00,Hunter College,1
+205,2025-03-15 23:33:25.701075+00,Huntingdon College,1
+206,2025-03-15 23:33:25.701075+00,Idaho State University,1
+207,2025-03-15 23:33:25.701075+00,Illinois State University,1
+208,2025-03-15 23:33:25.701075+00,Illinois Wesleyan University,1
+209,2025-03-15 23:33:25.701075+00,Indiana State University,1
+210,2025-03-15 23:33:25.701075+00,Indiana University Bloomington,1
+211,2025-03-15 23:33:25.701075+00,Indiana University–Purdue University Indianapolis,1
+212,2025-03-15 23:33:25.701075+00,Iona University,1
+213,2025-03-15 23:33:25.701075+00,Iowa State University of Science and Technology,1
+214,2025-03-15 23:33:25.701075+00,Ithaca College,1
+215,2025-03-15 23:33:25.701075+00,Jackson State University,1
+216,2025-03-15 23:33:25.701075+00,Jacksonville State University,1
+217,2025-03-15 23:33:25.701075+00,Jacksonville University,1
+218,2025-03-15 23:33:25.701075+00,James Madison University,1
+219,2025-03-15 23:33:25.701075+00,John Jay College of Criminal Justice,1
+220,2025-03-15 23:33:25.701075+00,Johns Hopkins University,1
+221,2025-03-15 23:33:25.701075+00,Johnson C. Smith University,1
+222,2025-03-15 23:33:25.701075+00,Kansas State University (KSU),1
+223,2025-03-15 23:33:25.701075+00,Kennesaw State University,1
+224,2025-03-15 23:33:25.701075+00,Kent State University,1
+225,2025-03-15 23:33:25.701075+00,Kentucky State University,1
+226,2025-03-15 23:33:25.701075+00,Kentucky Wesleyan College,1
+227,2025-03-15 23:33:25.701075+00,King University,1
+228,2025-03-15 23:33:25.701075+00,Kutztown University of Pennsylvania,1
+229,2025-03-15 23:33:25.701075+00,La Salle University,1
+230,2025-03-15 23:33:25.701075+00,Lafayette College,1
+231,2025-03-15 23:33:25.701075+00,Lake Superior State University,1
+232,2025-03-15 23:33:25.701075+00,Lakeland University,1
+233,2025-03-15 23:33:25.701075+00,Lamar University,1
+234,2025-03-15 23:33:25.701075+00,Lawrence University,1
+235,2025-03-15 23:33:25.701075+00,Le Moyne College,1
+236,2025-03-15 23:33:25.701075+00,Lees–McRae College,1
+237,2025-03-15 23:33:25.701075+00,Lehigh University,1
+238,2025-03-15 23:33:25.701075+00,Leland Stanford Junior University,1
+239,2025-03-15 23:33:25.701075+00,Lewis University,1
+240,2025-03-15 23:33:25.701075+00,Liberty University,1
+241,2025-03-15 23:33:25.701075+00,Limestone University,1
+242,2025-03-15 23:33:25.701075+00,Lincoln Memorial University,1
+243,2025-03-15 23:33:25.701075+00,Lindenwood University,1
+244,2025-03-15 23:33:25.701075+00,Lipscomb University,1
+245,2025-03-15 23:33:25.701075+00,Livingstone College,1
+246,2025-03-15 23:33:25.701075+00,Lock Haven University of Pennsylvania,1
+247,2025-03-15 23:33:25.701075+00,Long Island University Brooklyn,1
+248,2025-03-15 23:33:25.701075+00,Long Island University,1
+249,2025-03-15 23:33:25.701075+00,Longwood University,1
+250,2025-03-15 23:33:25.701075+00,Louisiana State University (LSU),1
+251,2025-03-15 23:33:25.701075+00,Louisiana Tech University,1
+252,2025-03-15 23:33:25.701075+00,Loyola Marymount University,1
+253,2025-03-15 23:33:25.701075+00,Loyola University Chicago,1
+254,2025-03-15 23:33:25.701075+00,Loyola University Maryland,1
+255,2025-03-15 23:33:25.701075+00,Loyola University New Orleans,1
+256,2025-03-15 23:33:25.701075+00,Macalester College,1
+257,2025-03-15 23:33:25.701075+00,Manhattan College,1
+258,2025-03-15 23:33:25.701075+00,Marian University,1
+259,2025-03-15 23:33:25.701075+00,Marist College,1
+260,2025-03-15 23:33:25.701075+00,Marquette University,1
+261,2025-03-15 23:33:25.701075+00,Marshall University,1
+262,2025-03-15 23:33:25.701075+00,Maryville University of Saint Louis,1
+263,2025-03-15 23:33:25.701075+00,Massachusetts Institute of Technology,1
+264,2025-03-15 23:33:25.701075+00,Massachusetts Maritime Academy,1
+265,2025-03-15 23:33:25.701075+00,McKendree University,1
+266,2025-03-15 23:33:25.701075+00,McNeese State University,1
+267,2025-03-15 23:33:25.701075+00,Medaille College,1
+268,2025-03-15 23:33:25.701075+00,Menlo College,1
+269,2025-03-15 23:33:25.701075+00,Mercer University,1
+270,2025-03-15 23:33:25.701075+00,Mercyhurst University,1
+271,2025-03-15 23:33:25.701075+00,Merrimack College,1
+272,2025-03-15 23:33:25.701075+00,Miami University,1
+273,2025-03-15 23:33:25.701075+00,Michigan State University (MSU),1
+274,2025-03-15 23:33:25.701075+00,Michigan Technological University,1
+275,2025-03-15 23:33:25.701075+00,Middle Tennessee State University,1
+276,2025-03-15 23:33:25.701075+00,Middlebury College,1
+277,2025-03-15 23:33:25.701075+00,"Minnesota State University, Mankato",1
+278,2025-03-15 23:33:25.701075+00,Mississippi State University for Agriculture and Applied Science,1
+279,2025-03-15 23:33:25.701075+00,Mississippi Valley State University,1
+280,2025-03-15 23:33:25.701075+00,Missouri State University,1
+281,2025-03-15 23:33:25.701075+00,Missouri University of Science and Technology,1
+282,2025-03-15 23:33:25.701075+00,Molloy University,1
+283,2025-03-15 23:33:25.701075+00,Monmouth University,1
+284,2025-03-15 23:33:25.701075+00,Montana State University,1
+285,2025-03-15 23:33:25.701075+00,Morehead State University,1
+286,2025-03-15 23:33:25.701075+00,Morehouse College,1
+287,2025-03-15 23:33:25.701075+00,Morgan State University,1
+288,2025-03-15 23:33:25.701075+00,Morris Brown College,1
+289,2025-03-15 23:33:25.701075+00,Mount Aloysius College,1
+290,2025-03-15 23:33:25.701075+00,Mount Saint Mary’s University,1
+291,2025-03-15 23:33:25.701075+00,Muhlenberg College,1
+292,2025-03-15 23:33:25.701075+00,Murray State University,1
+293,2025-03-15 23:33:25.701075+00,New Jersey City University,1
+294,2025-03-15 23:33:25.701075+00,New Jersey Institute of Technology,1
+295,2025-03-15 23:33:25.701075+00,New Mexico State University (NMSU),1
+296,2025-03-15 23:33:25.701075+00,New York University (NYU),1
+297,2025-03-15 23:33:25.701075+00,Niagara University,1
+298,2025-03-15 23:33:25.701075+00,Nicholls State University,1
+299,2025-03-15 23:33:25.701075+00,Norfolk State University,1
+300,2025-03-15 23:33:25.701075+00,North Carolina Agricultural and Technical State University,1
+301,2025-03-15 23:33:25.701075+00,North Carolina Central University,1
+302,2025-03-15 23:33:25.701075+00,North Carolina State University,1
+303,2025-03-15 23:33:25.701075+00,North Central College,1
+304,2025-03-15 23:33:25.701075+00,North Dakota State University of Agriculture and Applied Sciences,1
+305,2025-03-15 23:33:25.701075+00,North Greenville University,1
+306,2025-03-15 23:33:25.701075+00,Northeastern Illinois University,1
+307,2025-03-15 23:33:25.701075+00,Northeastern University,1
+308,2025-03-15 23:33:25.701075+00,Northern Arizona University,1
+309,2025-03-15 23:33:25.701075+00,Northern Illinois University,1
+310,2025-03-15 23:33:25.701075+00,Northern Kentucky University,1
+311,2025-03-15 23:33:25.701075+00,Northern Michigan University,1
+312,2025-03-15 23:33:25.701075+00,Northwestern State University of Louisiana,1
+313,2025-03-15 23:33:25.701075+00,Northwestern University,1
+314,2025-03-15 23:33:25.701075+00,Oakland University,1
+315,2025-03-15 23:33:25.701075+00,Occidental College,1
+316,2025-03-15 23:33:25.701075+00,Oklahoma Christian University,1
+317,2025-03-15 23:33:25.701075+00,Oklahoma City University,1
+318,2025-03-15 23:33:25.701075+00,Oklahoma State University–Stillwater,1
+319,2025-03-15 23:33:25.701075+00,Old Dominion University,1
+320,2025-03-15 23:33:25.701075+00,Oral Roberts University,1
+321,2025-03-15 23:33:25.701075+00,Oregon State University,1
+322,2025-03-15 23:33:25.701075+00,Palm Beach Atlantic University,1
+323,2025-03-15 23:33:25.701075+00,Pennsylvania State University Altoona,1
+324,2025-03-15 23:33:25.701075+00,"Pennsylvania State University Erie, The Behrend College",1
+325,2025-03-15 23:33:25.701075+00,Pennsylvania Western University Clarion,1
+326,2025-03-15 23:33:25.701075+00,Pennsylvania Western University Edinboro,1
+327,2025-03-15 23:33:25.701075+00,Pepperdine University,1
+328,2025-03-15 23:33:25.701075+00,Pitzer College,1
+329,2025-03-15 23:33:25.701075+00,Plymouth State University,1
+330,2025-03-15 23:33:25.701075+00,Pomona College,1
+331,2025-03-15 23:33:25.701075+00,Portland State University,1
+332,2025-03-15 23:33:25.701075+00,Post University,1
+333,2025-03-15 23:33:25.701075+00,Prairie View A&M University,1
+334,2025-03-15 23:33:25.701075+00,Presbyterian College,1
+335,2025-03-15 23:33:25.701075+00,Princeton University,1
+336,2025-03-15 23:33:25.701075+00,Principia College,1
+337,2025-03-15 23:33:25.701075+00,Providence College,1
+338,2025-03-15 23:33:25.701075+00,Purdue University Fort Wayne,1
+339,2025-03-15 23:33:25.701075+00,Purdue University,1
+340,2025-03-15 23:33:25.701075+00,"Queens College, City University of New York",1
+341,2025-03-15 23:33:25.701075+00,Queens University of Charlotte,1
+342,2025-03-15 23:33:25.701075+00,Quincy University,1
+343,2025-03-15 23:33:25.701075+00,Quinnipiac University,1
+344,2025-03-15 23:33:25.701075+00,Radford University,1
+345,2025-03-15 23:33:25.701075+00,Regis University,1
+346,2025-03-15 23:33:25.701075+00,Rensselaer Polytechnic Institute,1
+347,2025-03-15 23:33:25.701075+00,Rhode Island College,1
+348,2025-03-15 23:33:25.701075+00,Rider University,1
+349,2025-03-15 23:33:25.701075+00,Robert Morris University,1
+350,2025-03-15 23:33:25.701075+00,Roberts Wesleyan University,1
+351,2025-03-15 23:33:25.701075+00,Rochester Institute of Technology,1
+352,2025-03-15 23:33:25.701075+00,Rockhurst University,1
+353,2025-03-15 23:33:25.701075+00,Rose–Hulman Institute of Technology,1
+354,2025-03-15 23:33:25.701075+00,Rutgers University–New Brunswick,1
+355,2025-03-15 23:33:25.701075+00,Sacred Heart University,1
+356,2025-03-15 23:33:25.701075+00,Saint Anselm College,1
+357,2025-03-15 23:33:25.701075+00,Saint Augustine’s University,1
+358,2025-03-15 23:33:25.701075+00,Saint Bonaventure University,1
+359,2025-03-15 23:33:25.701075+00,Saint Cloud State University,1
+360,2025-03-15 23:33:25.701075+00,Saint Francis College,1
+361,2025-03-15 23:33:25.701075+00,Saint Francis University,1
+362,2025-03-15 23:33:25.701075+00,Saint John’s University,1
+363,2025-03-15 23:33:25.701075+00,Saint Joseph’s University,1
+364,2025-03-15 23:33:25.701075+00,Saint Lawrence University,1
+365,2025-03-15 23:33:25.701075+00,Saint Leo University,1
+366,2025-03-15 23:33:25.701075+00,Saint Louis University,1
+367,2025-03-15 23:33:25.701075+00,Saint Mary’s College of California,1
+368,2025-03-15 23:33:25.701075+00,Saint Michael’s College,1
+369,2025-03-15 23:33:25.701075+00,Saint Olaf College,1
+370,2025-03-15 23:33:25.701075+00,Saint Peter’s University,1
+371,2025-03-15 23:33:25.701075+00,Saint Thomas Aquinas College,1
+372,2025-03-15 23:33:25.701075+00,Saint Vincent College,1
+373,2025-03-15 23:33:25.701075+00,Salem University,1
+374,2025-03-15 23:33:25.701075+00,Sam Houston State University,1
+375,2025-03-15 23:33:25.701075+00,Samford University,1
+376,2025-03-15 23:33:25.701075+00,San Diego State University (SDSU),1
+377,2025-03-15 23:33:25.701075+00,San Jose State University,1
+378,2025-03-15 23:33:25.701075+00,Santa Clara University,1
+379,2025-03-15 23:33:25.701075+00,Savannah State University,1
+380,2025-03-15 23:33:25.701075+00,Scripps College,1
+381,2025-03-15 23:33:25.701075+00,Seattle University,1
+382,2025-03-15 23:33:25.701075+00,Seton Hall University,1
+383,2025-03-15 23:33:25.701075+00,Shaw University,1
+384,2025-03-15 23:33:25.701075+00,Siena College,1
+385,2025-03-15 23:33:25.701075+00,Simpson College,1
+386,2025-03-15 23:33:25.701075+00,Smith College,1
+387,2025-03-15 23:33:25.701075+00,South Carolina State University,1
+388,2025-03-15 23:33:25.701075+00,South Dakota State University,1
+389,2025-03-15 23:33:25.701075+00,Southeast Missouri State University,1
+390,2025-03-15 23:33:25.701075+00,Southeastern Louisiana University,1
+391,2025-03-15 23:33:25.701075+00,Southern Connecticut State University,1
+392,2025-03-15 23:33:25.701075+00,Southern Illinois University Carbondale,1
+393,2025-03-15 23:33:25.701075+00,Southern Illinois University Edwardsville,1
+394,2025-03-15 23:33:25.701075+00,Southern Methodist University,1
+395,2025-03-15 23:33:25.701075+00,Southern New Hampshire University,1
+396,2025-03-15 23:33:25.701075+00,Southern University and A&M College,1
+397,2025-03-15 23:33:25.701075+00,Southern Utah University,1
+398,2025-03-15 23:33:25.701075+00,Spring Hill College,1
+399,2025-03-15 23:33:25.701075+00,Springfield College,1
+400,2025-03-15 23:33:25.701075+00,Stanford University,1
+401,2025-03-15 23:33:25.701075+00,State University of New York at Albany,1
+402,2025-03-15 23:33:25.701075+00,State University of New York at Binghamton,1
+403,2025-03-15 23:33:25.701075+00,State University of New York at Buffalo,1
+404,2025-03-15 23:33:25.701075+00,State University of New York at Stony Brook,1
+405,2025-03-15 23:33:25.701075+00,State University of New York College at Brockport,1
+406,2025-03-15 23:33:25.701075+00,State University of New York College at Cortland,1
+407,2025-03-15 23:33:25.701075+00,State University of New York Maritime College,1
+408,2025-03-15 23:33:25.701075+00,Stephen F. Austin State University,1
+409,2025-03-15 23:33:25.701075+00,Stetson University,1
+410,2025-03-15 23:33:25.701075+00,Stevens Institute of Technology,1
+411,2025-03-15 23:33:25.701075+00,Stevenson University,1
+412,2025-03-15 23:33:25.701075+00,Stonehill College,1
+413,2025-03-15 23:33:25.701075+00,Syracuse University,1
+414,2025-03-15 23:33:25.701075+00,Tarleton State University,1
+415,2025-03-15 23:33:25.701075+00,Temple University,1
+416,2025-03-15 23:33:25.701075+00,Tennessee State University,1
+417,2025-03-15 23:33:25.701075+00,Tennessee Technological University,1
+418,2025-03-15 23:33:25.701075+00,Texas A&M University–Commerce,1
+419,2025-03-15 23:33:25.701075+00,Texas A&M University–Corpus Christi,1
+420,2025-03-15 23:33:25.701075+00,Texas A&M University–Kingsville,1
+421,2025-03-15 23:33:25.701075+00,Texas A&M University,1
+422,2025-03-15 23:33:25.701075+00,Texas Christian University,1
+423,2025-03-15 23:33:25.701075+00,Texas Southern University,1
+424,2025-03-15 23:33:25.701075+00,Texas State University,1
+425,2025-03-15 23:33:25.701075+00,Texas Tech University,1
+426,2025-03-15 23:33:25.701075+00,"The Citadel, The Military College of South Carolina",1
+427,2025-03-15 23:33:25.701075+00,The College of Saint Scholastica,1
+428,2025-03-15 23:33:25.701075+00,The College of William and Mary in Virginia,1
+429,2025-03-15 23:33:25.701075+00,The George Washington University,1
+430,2025-03-15 23:33:25.701075+00,The Ohio State University,1
+431,2025-03-15 23:33:25.701075+00,The Ohio University,1
+432,2025-03-15 23:33:25.701075+00,The Pennsylvania State University (Penn State),1
+433,2025-03-15 23:33:25.701075+00,Thomas More University,1
+434,2025-03-15 23:33:25.701075+00,Towson University,1
+435,2025-03-15 23:33:25.701075+00,Trinity University,1
+436,2025-03-15 23:33:25.701075+00,Troy University,1
+437,2025-03-15 23:33:25.701075+00,Tufts University,1
+438,2025-03-15 23:33:25.701075+00,Tulane University of Louisiana,1
+439,2025-03-15 23:33:25.701075+00,Tusculum University,1
+440,2025-03-15 23:33:25.701075+00,Union College,1
+441,2025-03-15 23:33:25.701075+00,United States Air Force Academy,1
+442,2025-03-15 23:33:25.701075+00,United States Coast Guard Academy,1
+443,2025-03-15 23:33:25.701075+00,United States International University,1
+444,2025-03-15 23:33:25.701075+00,United States Military Academy,1
+445,2025-03-15 23:33:25.701075+00,United States Naval Academy,1
+446,2025-03-15 23:33:25.701075+00,University of Akron,1
+447,2025-03-15 23:33:25.701075+00,University of Alabama at Birmingham,1
+448,2025-03-15 23:33:25.701075+00,University of Alabama,1
+449,2025-03-15 23:33:25.701075+00,University of Alaska Anchorage,1
+450,2025-03-15 23:33:25.701075+00,University of Alaska Fairbanks,1
+451,2025-03-15 23:33:25.701075+00,University of Arizona,1
+452,2025-03-15 23:33:25.701075+00,University of Arkansas,1
+453,2025-03-15 23:33:25.701075+00,University of Arkansas at Little Rock (UALR),1
+454,2025-03-15 23:33:25.701075+00,University of Baltimore,1
+455,2025-03-15 23:33:25.701075+00,University of Bridgeport,1
+456,2025-03-15 23:33:25.701075+00,"University of California, Berkeley (Cal)",1
+457,2025-03-15 23:33:25.701075+00,"University of California, Davis",1
+458,2025-03-15 23:33:25.701075+00,"University of California, Irvine",1
+459,2025-03-15 23:33:25.701075+00,"University of California, Los Angeles",1
+460,2025-03-15 23:33:25.701075+00,"University of California, Merced",1
+461,2025-03-15 23:33:25.701075+00,"University of California, Riverside",1
+462,2025-03-15 23:33:25.701075+00,"University of California, San Diego",1
+463,2025-03-15 23:33:25.701075+00,"University of California, Santa Barbara",1
+464,2025-03-15 23:33:25.701075+00,University of Central Arkansas,1
+465,2025-03-15 23:33:25.701075+00,University of Central Florida (UCF),1
+466,2025-03-15 23:33:25.701075+00,University of Central Missouri,1
+467,2025-03-15 23:33:25.701075+00,University of Charleston,1
+468,2025-03-15 23:33:25.701075+00,University of Cincinnati,1
+469,2025-03-15 23:33:25.701075+00,University of Colorado Boulder,1
+470,2025-03-15 23:33:25.701075+00,University of Connecticut (UConn),1
+471,2025-03-15 23:33:25.701075+00,University of Dayton,1
+472,2025-03-15 23:33:25.701075+00,University of Delaware,1
+473,2025-03-15 23:33:25.701075+00,University of Denver,1
+474,2025-03-15 23:33:25.701075+00,University of Detroit Mercy,1
+475,2025-03-15 23:33:25.701075+00,University of Evansville,1
+476,2025-03-15 23:33:25.701075+00,University of Florida,1
+477,2025-03-15 23:33:25.701075+00,University of Georgia,1
+478,2025-03-15 23:33:25.701075+00,University of Hartford,1
+479,2025-03-15 23:33:25.701075+00,University of Hawaiʻi at Mānoa,1
+480,2025-03-15 23:33:25.701075+00,University of Houston,1
+481,2025-03-15 23:33:25.701075+00,University of Idaho,1
+482,2025-03-15 23:33:25.701075+00,University of Illinois Chicago,1
+483,2025-03-15 23:33:25.701075+00,University of Illinois Urbana-Champaign (UIUC),1
+484,2025-03-15 23:33:25.701075+00,University of Iowa (UIowa),1
+485,2025-03-15 23:33:25.701075+00,University of Jamestown,1
+486,2025-03-15 23:33:25.701075+00,University of Kansas (KU),1
+487,2025-03-15 23:33:25.701075+00,University of Kentucky (UK),1
+488,2025-03-15 23:33:25.701075+00,University of La Verne,1
+489,2025-03-15 23:33:25.701075+00,University of Louisiana at Lafayette,1
+490,2025-03-15 23:33:25.701075+00,University of Louisiana at Monroe,1
+491,2025-03-15 23:33:25.701075+00,University of Louisville,1
+492,2025-03-15 23:33:25.701075+00,University of Maine at Presque Isle,1
+493,2025-03-15 23:33:25.701075+00,University of Maine,1
+494,2025-03-15 23:33:25.701075+00,University of Maryland,1
+495,2025-03-15 23:33:25.701075+00,University of Massachusetts Amherst (UMass),1
+496,2025-03-15 23:33:25.701075+00,University of Massachusetts Lowell,1
+497,2025-03-15 23:33:25.701075+00,University of Memphis,1
+498,2025-03-15 23:33:25.701075+00,University of Miami,1
+499,2025-03-15 23:33:25.701075+00,University of Michigan,1
+500,2025-03-15 23:33:25.701075+00,University of Minnesota Duluth,1
+501,2025-03-15 23:33:25.701075+00,University of Minnesota,1
+502,2025-03-15 23:33:25.701075+00,University of Mississippi,1
+503,2025-03-15 23:33:25.701075+00,University of Missouri–Columbia (Mizzou),1
+504,2025-03-15 23:33:25.701075+00,University of Missouri–Kansas City (UMKC),1
+505,2025-03-15 23:33:25.701075+00,University of Montana,1
+506,2025-03-15 23:33:25.701075+00,University of Mount Olive,1
+507,2025-03-15 23:33:25.701075+00,University of Nebraska Omaha,1
+508,2025-03-15 23:33:25.701075+00,University of Nebraska–Lincoln (UNL),1
+509,2025-03-15 23:33:25.701075+00,"University of Nevada, Las Vegas (UNLV)",1
+510,2025-03-15 23:33:25.701075+00,"University of Nevada, Reno",1
+511,2025-03-15 23:33:25.701075+00,University of New Hampshire,1
+512,2025-03-15 23:33:25.701075+00,University of New Mexico,1
+513,2025-03-15 23:33:25.701075+00,University of New Orleans,1
+514,2025-03-15 23:33:25.701075+00,University of North Alabama,1
+515,2025-03-15 23:33:25.701075+00,University of North Carolina at Chapel Hill (UNC),1
+516,2025-03-15 23:33:25.701075+00,University of North Dakota,1
+517,2025-03-15 23:33:25.701075+00,University of North Florida,1
+518,2025-03-15 23:33:25.701075+00,University of North Georgia,1
+519,2025-03-15 23:33:25.701075+00,University of North Texas,1
+520,2025-03-15 23:33:25.701075+00,University of Northern Colorado,1
+521,2025-03-15 23:33:25.701075+00,University of Northern Iowa,1
+522,2025-03-15 23:33:25.701075+00,University of Notre Dame du Lac,1
+523,2025-03-15 23:33:25.701075+00,University of Oklahoma (OU),1
+524,2025-03-15 23:33:25.701075+00,University of Oregon (UO),1
+525,2025-03-15 23:33:25.701075+00,University of Pennsylvania (Penn),1
+526,2025-03-15 23:33:25.701075+00,University of Pittsburgh (Pitt),1
+527,2025-03-15 23:33:25.701075+00,University of Pittsburgh at Bradford,1
+528,2025-03-15 23:33:25.701075+00,University of Portland,1
+529,2025-03-15 23:33:25.701075+00,University of Redlands,1
+530,2025-03-15 23:33:25.701075+00,University of Rhode Island,1
+531,2025-03-15 23:33:25.701075+00,University of Richmond,1
+532,2025-03-15 23:33:25.701075+00,University of Saint Thomas,1
+533,2025-03-15 23:33:25.701075+00,University of San Diego,1
+534,2025-03-15 23:33:25.701075+00,University of San Francisco,1
+535,2025-03-15 23:33:25.701075+00,University of South Alabama,1
+536,2025-03-15 23:33:25.701075+00,University of South Carolina Upstate,1
+537,2025-03-15 23:33:25.701075+00,University of South Carolina,1
+538,2025-03-15 23:33:25.701075+00,University of South Dakota,1
+539,2025-03-15 23:33:25.701075+00,University of South Florida,1
+540,2025-03-15 23:33:25.701075+00,University of Southern California (USC),1
+541,2025-03-15 23:33:25.701075+00,University of Southern Indiana,1
+542,2025-03-15 23:33:25.701075+00,University of Southern Mississippi,1
+543,2025-03-15 23:33:25.701075+00,University of Tampa,1
+544,2025-03-15 23:33:25.701075+00,University of Tennessee at Chattanooga,1
+545,2025-03-15 23:33:25.701075+00,University of Tennessee at Martin,1
+546,2025-03-15 23:33:25.701075+00,University of Tennessee,1
+547,2025-03-15 23:33:25.701075+00,University of Texas at Arlington,1
+548,2025-03-15 23:33:25.701075+00,University of Texas at Austin (UT),1
+549,2025-03-15 23:33:25.701075+00,University of Texas at El Paso (UTEP),1
+550,2025-03-15 23:33:25.701075+00,University of Texas at San Antonio,1
+551,2025-03-15 23:33:25.701075+00,University of Texas Rio Grande Valley,1
+552,2025-03-15 23:33:25.701075+00,University of Texas–Pan American,1
+553,2025-03-15 23:33:25.701075+00,University of the Incarnate Word,1
+554,2025-03-15 23:33:25.701075+00,University of the Pacific,1
+555,2025-03-15 23:33:25.701075+00,University of Toledo,1
+556,2025-03-15 23:33:25.701075+00,University of Tulsa,1
+557,2025-03-15 23:33:25.701075+00,University of Utah,1
+558,2025-03-15 23:33:25.701075+00,University of Vermont and State Agricultural College,1
+559,2025-03-15 23:33:25.701075+00,University of Virginia,1
+560,2025-03-15 23:33:25.701075+00,University of Washington (UW),1
+561,2025-03-15 23:33:25.701075+00,University of West Georgia,1
+562,2025-03-15 23:33:25.701075+00,University of Wisconsin–Eau Claire,1
+563,2025-03-15 23:33:25.701075+00,University of Wisconsin–Green Bay,1
+564,2025-03-15 23:33:25.701075+00,University of Wisconsin–La Crosse,1
+565,2025-03-15 23:33:25.701075+00,University of Wisconsin–Madison (UW),1
+566,2025-03-15 23:33:25.701075+00,University of Wisconsin–Milwaukee,1
+567,2025-03-15 23:33:25.701075+00,University of Wisconsin–Oshkosh,1
+568,2025-03-15 23:33:25.701075+00,University of Wisconsin–Stout,1
+569,2025-03-15 23:33:25.701075+00,University of Wisconsin–Whitewater,1
+570,2025-03-15 23:33:25.701075+00,University of Wyoming,1
+571,2025-03-15 23:33:25.701075+00,Upper Iowa University,1
+572,2025-03-15 23:33:25.701075+00,Ursinus College,1
+573,2025-03-15 23:33:25.701075+00,Ursuline College,1
+574,2025-03-15 23:33:25.701075+00,Utah State University,1
+575,2025-03-15 23:33:25.701075+00,Utah Tech University,1
+576,2025-03-15 23:33:25.701075+00,Utah Valley University,1
+577,2025-03-15 23:33:25.701075+00,Utica University,1
+578,2025-03-15 23:33:25.701075+00,Valparaiso University,1
+579,2025-03-15 23:33:25.701075+00,Vanderbilt University,1
+580,2025-03-15 23:33:25.701075+00,Vanguard University,1
+581,2025-03-15 23:33:25.701075+00,Vassar College,1
+582,2025-03-15 23:33:25.701075+00,Vermont State University,1
+583,2025-03-15 23:33:25.701075+00,Villanova University,1
+584,2025-03-15 23:33:25.701075+00,Virginia Commonwealth University,1
+585,2025-03-15 23:33:25.701075+00,Virginia Military Institute,1
+586,2025-03-15 23:33:25.701075+00,Virginia Polytechnic Institute and State University,1
+587,2025-03-15 23:33:25.701075+00,Virginia State University,1
+588,2025-03-15 23:33:25.701075+00,Virginia Union University,1
+589,2025-03-15 23:33:25.701075+00,Wagner College,1
+590,2025-03-15 23:33:25.701075+00,Wake Forest University,1
+591,2025-03-15 23:33:25.701075+00,Walsh University,1
+592,2025-03-15 23:33:25.701075+00,Washington & Jefferson College,1
+593,2025-03-15 23:33:25.701075+00,Washington and Lee University,1
+594,2025-03-15 23:33:25.701075+00,Washington State University (WSU),1
+595,2025-03-15 23:33:25.701075+00,Washington University in St. Louis,1
+596,2025-03-15 23:33:25.701075+00,Wayne State College,1
+597,2025-03-15 23:33:25.701075+00,Wayne State University,1
+598,2025-03-15 23:33:25.701075+00,Weber State University,1
+599,2025-03-15 23:33:25.701075+00,Wellesley College,1
+600,2025-03-15 23:33:25.701075+00,West Chester University of Pennsylvania,1
+601,2025-03-15 23:33:25.701075+00,West Chester University,1
+602,2025-03-15 23:33:25.701075+00,West Texas A&M University,1
+603,2025-03-15 23:33:25.701075+00,West Virginia University,1
+604,2025-03-15 23:33:25.701075+00,Western Carolina University,1
+605,2025-03-15 23:33:25.701075+00,Western Illinois University,1
+606,2025-03-15 23:33:25.701075+00,Western Kentucky University,1
+607,2025-03-15 23:33:25.701075+00,Western Michigan University,1
+608,2025-03-15 23:33:25.701075+00,Westminster University,1
+609,2025-03-15 23:33:25.701075+00,Whittier College,1
+610,2025-03-15 23:33:25.701075+00,Wichita State University (WSU),1
+611,2025-03-15 23:33:25.701075+00,William Marsh Rice University,1
+612,2025-03-15 23:33:25.701075+00,Williams College,1
+613,2025-03-15 23:33:25.701075+00,Wilmington University,1
+614,2025-03-15 23:33:25.701075+00,Wilson College,1
+615,2025-03-15 23:33:25.701075+00,Winona State University,1
+616,2025-03-15 23:33:25.701075+00,Winthrop University,1
+617,2025-03-15 23:33:25.701075+00,Wittenberg University,1
+618,2025-03-15 23:33:25.701075+00,Wofford College,1
+619,2025-03-15 23:33:25.701075+00,Wright State University,1
+620,2025-03-15 23:33:25.701075+00,Xavier University,1
+621,2025-03-15 23:33:25.701075+00,Yale University,1
+622,2025-03-15 23:33:25.701075+00,Yeshiva University,1
+623,2025-03-15 23:33:25.701075+00,Youngstown State University,1
+624,2025-03-15 23:33:25.701075+00,D'Youville University,1
+625,2025-03-15 23:33:25.701075+00,Afghanistan,3
+626,2025-03-15 23:33:25.701075+00,Albania,3
+627,2025-03-15 23:33:25.701075+00,Algeria,3
+628,2025-03-15 23:33:25.701075+00,Andorra,3
+629,2025-03-15 23:33:25.701075+00,Angola,3
+630,2025-03-15 23:33:25.701075+00,Antigua and Barbuda,3
+631,2025-03-15 23:33:25.701075+00,Argentina,3
+632,2025-03-15 23:33:25.701075+00,Armenia,3
+633,2025-03-15 23:33:25.701075+00,Australia,3
+634,2025-03-15 23:33:25.701075+00,Austria,3
+635,2025-03-15 23:33:25.701075+00,Azerbaijan,3
+636,2025-03-15 23:33:25.701075+00,Bahamas,3
+637,2025-03-15 23:33:25.701075+00,Bahrain,3
+638,2025-03-15 23:33:25.701075+00,Bangladesh,3
+639,2025-03-15 23:33:25.701075+00,Barbados,3
+640,2025-03-15 23:33:25.701075+00,Belarus,3
+641,2025-03-15 23:33:25.701075+00,Belgium,3
+642,2025-03-15 23:33:25.701075+00,Belize,3
+643,2025-03-15 23:33:25.701075+00,Benin,3
+644,2025-03-15 23:33:25.701075+00,Bhutan,3
+645,2025-03-15 23:33:25.701075+00,Bolivia,3
+646,2025-03-15 23:33:25.701075+00,Bosnia and Herzegovina,3
+647,2025-03-15 23:33:25.701075+00,Botswana,3
+648,2025-03-15 23:33:25.701075+00,Brazil,3
+649,2025-03-15 23:33:25.701075+00,Brunei,3
+650,2025-03-15 23:33:25.701075+00,Bulgaria,3
+651,2025-03-15 23:33:25.701075+00,Burkina Faso,3
+652,2025-03-15 23:33:25.701075+00,Burundi,3
+653,2025-03-15 23:33:25.701075+00,Cabo Verde,3
+654,2025-03-15 23:33:25.701075+00,Cambodia,3
+655,2025-03-15 23:33:25.701075+00,Cameroon,3
+656,2025-03-15 23:33:25.701075+00,Canada,3
+657,2025-03-15 23:33:25.701075+00,Central African Republic,3
+658,2025-03-15 23:33:25.701075+00,Chad,3
+659,2025-03-15 23:33:25.701075+00,Chile,3
+660,2025-03-15 23:33:25.701075+00,China,3
+661,2025-03-15 23:33:25.701075+00,Colombia,3
+662,2025-03-15 23:33:25.701075+00,Comoros,3
+663,2025-03-15 23:33:25.701075+00,Congo,3
+664,2025-03-15 23:33:25.701075+00,Costa Rica,3
+665,2025-03-15 23:33:25.701075+00,Croatia,3
+666,2025-03-15 23:33:25.701075+00,Cuba,3
+667,2025-03-15 23:33:25.701075+00,Cyprus,3
+668,2025-03-15 23:33:25.701075+00,Czech Republic,3
+669,2025-03-15 23:33:25.701075+00,Democratic Republic of the Congo,3
+670,2025-03-15 23:33:25.701075+00,Denmark,3
+671,2025-03-15 23:33:25.701075+00,Djibouti,3
+672,2025-03-15 23:33:25.701075+00,Dominica,3
+673,2025-03-15 23:33:25.701075+00,Dominican Republic,3
+674,2025-03-15 23:33:25.701075+00,East Timor,3
+675,2025-03-15 23:33:25.701075+00,Ecuador,3
+676,2025-03-15 23:33:25.701075+00,Egypt,3
+677,2025-03-15 23:33:25.701075+00,El Salvador,3
+678,2025-03-15 23:33:25.701075+00,Equatorial Guinea,3
+679,2025-03-15 23:33:25.701075+00,Eritrea,3
+680,2025-03-15 23:33:25.701075+00,Estonia,3
+681,2025-03-15 23:33:25.701075+00,Eswatini,3
+682,2025-03-15 23:33:25.701075+00,Ethiopia,3
+683,2025-03-15 23:33:25.701075+00,Fiji,3
+684,2025-03-15 23:33:25.701075+00,Finland,3
+685,2025-03-15 23:33:25.701075+00,France,3
+686,2025-03-15 23:33:25.701075+00,Gabon,3
+687,2025-03-15 23:33:25.701075+00,Gambia,3
+688,2025-03-15 23:33:25.701075+00,Georgia,3
+689,2025-03-15 23:33:25.701075+00,Germany,3
+690,2025-03-15 23:33:25.701075+00,Ghana,3
+691,2025-03-15 23:33:25.701075+00,Greece,3
+692,2025-03-15 23:33:25.701075+00,Grenada,3
+693,2025-03-15 23:33:25.701075+00,Guatemala,3
+694,2025-03-15 23:33:25.701075+00,Guinea,3
+695,2025-03-15 23:33:25.701075+00,Guinea-Bissau,3
+696,2025-03-15 23:33:25.701075+00,Guyana,3
+697,2025-03-15 23:33:25.701075+00,Haiti,3
+698,2025-03-15 23:33:25.701075+00,Honduras,3
+699,2025-03-15 23:33:25.701075+00,Hungary,3
+700,2025-03-15 23:33:25.701075+00,Iceland,3
+701,2025-03-15 23:33:25.701075+00,India,3
+702,2025-03-15 23:33:25.701075+00,Indonesia,3
+703,2025-03-15 23:33:25.701075+00,Iran,3
+704,2025-03-15 23:33:25.701075+00,Iraq,3
+705,2025-03-15 23:33:25.701075+00,Ireland,3
+706,2025-03-15 23:33:25.701075+00,Israel,3
+707,2025-03-15 23:33:25.701075+00,Italy,3
+708,2025-03-15 23:33:25.701075+00,Ivory Coast,3
+709,2025-03-15 23:33:25.701075+00,Jamaica,3
+710,2025-03-15 23:33:25.701075+00,Japan,3
+711,2025-03-15 23:33:25.701075+00,Jordan,3
+712,2025-03-15 23:33:25.701075+00,Kazakhstan,3
+713,2025-03-15 23:33:25.701075+00,Kenya,3
+714,2025-03-15 23:33:25.701075+00,Kiribati,3
+715,2025-03-15 23:33:25.701075+00,Kosovo,3
+716,2025-03-15 23:33:25.701075+00,Kuwait,3
+717,2025-03-15 23:33:25.701075+00,Kyrgyzstan,3
+718,2025-03-15 23:33:25.701075+00,Laos,3
+719,2025-03-15 23:33:25.701075+00,Latvia,3
+720,2025-03-15 23:33:25.701075+00,Lebanon,3
+721,2025-03-15 23:33:25.701075+00,Lesotho,3
+722,2025-03-15 23:33:25.701075+00,Liberia,3
+723,2025-03-15 23:33:25.701075+00,Libya,3
+724,2025-03-15 23:33:25.701075+00,Liechtenstein,3
+725,2025-03-15 23:33:25.701075+00,Lithuania,3
+726,2025-03-15 23:33:25.701075+00,Luxembourg,3
+727,2025-03-15 23:33:25.701075+00,Madagascar,3
+728,2025-03-15 23:33:25.701075+00,Malawi,3
+729,2025-03-15 23:33:25.701075+00,Malaysia,3
+730,2025-03-15 23:33:25.701075+00,Maldives,3
+731,2025-03-15 23:33:25.701075+00,Mali,3
+732,2025-03-15 23:33:25.701075+00,Malta,3
+733,2025-03-15 23:33:25.701075+00,Marshall Islands,3
+734,2025-03-15 23:33:25.701075+00,Mauritania,3
+735,2025-03-15 23:33:25.701075+00,Mauritius,3
+736,2025-03-15 23:33:25.701075+00,Mexico,3
+737,2025-03-15 23:33:25.701075+00,Micronesia,3
+738,2025-03-15 23:33:25.701075+00,Moldova,3
+739,2025-03-15 23:33:25.701075+00,Monaco,3
+740,2025-03-15 23:33:25.701075+00,Mongolia,3
+741,2025-03-15 23:33:25.701075+00,Montenegro,3
+742,2025-03-15 23:33:25.701075+00,Morocco,3
+743,2025-03-15 23:33:25.701075+00,Mozambique,3
+744,2025-03-15 23:33:25.701075+00,Myanmar,3
+745,2025-03-15 23:33:25.701075+00,Namibia,3
+746,2025-03-15 23:33:25.701075+00,Nauru,3
+747,2025-03-15 23:33:25.701075+00,Nepal,3
+748,2025-03-15 23:33:25.701075+00,Netherlands,3
+749,2025-03-15 23:33:25.701075+00,New Zealand,3
+750,2025-03-15 23:33:25.701075+00,Nicaragua,3
+751,2025-03-15 23:33:25.701075+00,Niger,3
+752,2025-03-15 23:33:25.701075+00,Nigeria,3
+753,2025-03-15 23:33:25.701075+00,North Korea,3
+754,2025-03-15 23:33:25.701075+00,North Macedonia,3
+755,2025-03-15 23:33:25.701075+00,Norway,3
+756,2025-03-15 23:33:25.701075+00,Oman,3
+757,2025-03-15 23:33:25.701075+00,Pakistan,3
+758,2025-03-15 23:33:25.701075+00,Palau,3
+759,2025-03-15 23:33:25.701075+00,Palestine,3
+760,2025-03-15 23:33:25.701075+00,Panama,3
+761,2025-03-15 23:33:25.701075+00,Papua New Guinea,3
+762,2025-03-15 23:33:25.701075+00,Paraguay,3
+763,2025-03-15 23:33:25.701075+00,Peru,3
+764,2025-03-15 23:33:25.701075+00,Philippines,3
+765,2025-03-15 23:33:25.701075+00,Poland,3
+766,2025-03-15 23:33:25.701075+00,Portugal,3
+767,2025-03-15 23:33:25.701075+00,Qatar,3
+768,2025-03-15 23:33:25.701075+00,Romania,3
+769,2025-03-15 23:33:25.701075+00,Russia,3
+770,2025-03-15 23:33:25.701075+00,Rwanda,3
+771,2025-03-15 23:33:25.701075+00,Saint Kitts and Nevis,3
+772,2025-03-15 23:33:25.701075+00,Saint Lucia,3
+773,2025-03-15 23:33:25.701075+00,Saint Vincent and the Grenadines,3
+774,2025-03-15 23:33:25.701075+00,Samoa,3
+775,2025-03-15 23:33:25.701075+00,San Marino,3
+776,2025-03-15 23:33:25.701075+00,Sao Tome and Principe,3
+777,2025-03-15 23:33:25.701075+00,Saudi Arabia,3
+778,2025-03-15 23:33:25.701075+00,Senegal,3
+779,2025-03-15 23:33:25.701075+00,Serbia,3
+780,2025-03-15 23:33:25.701075+00,Seychelles,3
+781,2025-03-15 23:33:25.701075+00,Sierra Leone,3
+782,2025-03-15 23:33:25.701075+00,Singapore,3
+783,2025-03-15 23:33:25.701075+00,Slovakia,3
+784,2025-03-15 23:33:25.701075+00,Slovenia,3
+785,2025-03-15 23:33:25.701075+00,Solomon Islands,3
+786,2025-03-15 23:33:25.701075+00,Somalia,3
+787,2025-03-15 23:33:25.701075+00,South Africa,3
+788,2025-03-15 23:33:25.701075+00,South Korea,3
+789,2025-03-15 23:33:25.701075+00,South Sudan,3
+790,2025-03-15 23:33:25.701075+00,Spain,3
+791,2025-03-15 23:33:25.701075+00,Sri Lanka,3
+792,2025-03-15 23:33:25.701075+00,Sudan,3
+793,2025-03-15 23:33:25.701075+00,Suriname,3
+794,2025-03-15 23:33:25.701075+00,Sweden,3
+795,2025-03-15 23:33:25.701075+00,Switzerland,3
+796,2025-03-15 23:33:25.701075+00,Syria,3
+797,2025-03-15 23:33:25.701075+00,Taiwan,3
+798,2025-03-15 23:33:25.701075+00,Tajikistan,3
+799,2025-03-15 23:33:25.701075+00,Tanzania,3
+800,2025-03-15 23:33:25.701075+00,Thailand,3
+801,2025-03-15 23:33:25.701075+00,Togo,3
+802,2025-03-15 23:33:25.701075+00,Tonga,3
+803,2025-03-15 23:33:25.701075+00,Trinidad and Tobago,3
+804,2025-03-15 23:33:25.701075+00,Tunisia,3
+805,2025-03-15 23:33:25.701075+00,Turkey,3
+806,2025-03-15 23:33:25.701075+00,Turkmenistan,3
+807,2025-03-15 23:33:25.701075+00,Tuvalu,3
+808,2025-03-15 23:33:25.701075+00,Uganda,3
+809,2025-03-15 23:33:25.701075+00,Ukraine,3
+810,2025-03-15 23:33:25.701075+00,United Arab Emirates,3
+811,2025-03-15 23:33:25.701075+00,United Kingdom,3
+812,2025-03-15 23:33:25.701075+00,United States,3
+813,2025-03-15 23:33:25.701075+00,Uruguay,3
+814,2025-03-15 23:33:25.701075+00,Uzbekistan,3
+815,2025-03-15 23:33:25.701075+00,Vanuatu,3
+816,2025-03-15 23:33:25.701075+00,Vatican City,3
+817,2025-03-15 23:33:25.701075+00,Venezuela,3
+818,2025-03-15 23:33:25.701075+00,Vietnam,3
+819,2025-03-15 23:33:25.701075+00,Yemen,3
+820,2025-03-15 23:33:25.701075+00,Zambia,3
+821,2025-03-15 23:33:25.701075+00,Zimbabwe,3

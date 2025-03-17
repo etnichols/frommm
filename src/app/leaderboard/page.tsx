@@ -12,7 +12,7 @@ export default async function Home() {
   }))
 
   return (
-    <div className="flex flex-col gap-y-6">
+    <div className="flex flex-col gap-y-6 items-center">
       <PageTitle>Leaderboard</PageTitle>
       <Leaderboard items={comboxBoxItems} />
     </div>

@@ -1,6 +1,9 @@
+import { QuizData, QuizQuestion, Quiz as QuizType } from '@/types/quiz'
+
 import Link from 'next/link'
-import Quiz from '@/components/quiz/quiz'
+import { Quiz } from '@/components/quiz/quiz'
 import { Section } from '@/components/ui/section'
+import { createClient } from '@/lib/supabase/server'
 
 interface PageProps {
   params: {
@@ -9,37 +12,68 @@ interface PageProps {
 }
 
 export default async function Page({ params }: PageProps) {
-  const quiz = await getQuiz(params.slug)
+  const pageData = await getQuizData(params.slug)
 
-  if (!quiz) {
-    return (
-      <Section headline="Quiz not found, sorry">
-        Check the URL and try again.{' '}
-        <Link className="hover:underline" href="/quizzes">
-          Return to Quizzes Page
-        </Link>
-      </Section>
-    )
+  if (!pageData) {
+    return <NotFound />
   }
 
-  return <Quiz quiz={quiz} />
+  return <Quiz {...pageData} />
 }
 
-async function getQuiz(slug: string) {
-  try {
-    const apiResponse = await fetch(`${process.env.BASE_URL}/api/quiz/${slug}`, {
-      cache: 'no-cache',
-    })
+async function getQuizData(slug: string): Promise<QuizData | null> {
+  const supabase = await createClient()
 
-    if (!apiResponse.ok) {
-      console.log('Error fetching quiz', apiResponse)
-      return null
-    }
+  const { data: quiz, error: quizzesError } = await supabase
+    .from('quizzes')
+    .select('*')
+    .eq('slug', slug)
+    .single()
 
-    const quizJson = apiResponse.json()
-    return quizJson
-  } catch (e) {
-    console.log('Error fetching quiz', e)
+  if (!quiz || quizzesError) {
     return null
   }
+
+  const { data: questions, error: questionsError } = (await supabase
+    .from('quiz_questions')
+    .select(
+      `
+        id,
+        player_id,
+        order_index,
+        players (
+          id,
+          name,
+          origin:origin_id (
+            id,
+            name
+          ),
+          team:team_id (
+            id,
+            team,
+            location,
+            abbreviation
+          )
+        )
+        `,
+    )
+    .eq('quiz_id', quiz?.id)
+    .order('order_index', { ascending: true })) as { data: QuizQuestion[] | null; error: any }
+
+  if (!questions || !questions.length || questionsError) {
+    return null
+  }
+
+  return {
+    quiz: quiz as QuizType,
+    questions: questions as QuizQuestion[],
+  }
+}
+
+function NotFound() {
+  return (
+    <Section headline="Quiz not found, sorry">
+      <Link href="/quizzes">Return to Quizzes Page</Link>
+    </Section>
+  )
 }
