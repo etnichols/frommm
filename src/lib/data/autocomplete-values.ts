@@ -1,4 +1,4 @@
-const AutoCompleteValues = [
+export const AutoCompleteValues = [
   {
     id: 1,
     created_at: '2025-03-15T23:33:25.701075+00:00',
