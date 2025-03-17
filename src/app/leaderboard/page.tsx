@@ -1,9 +1,10 @@
 import { ComboboxItem } from '@/components/ui/combo-box'
 import Leaderboard from '@/components/leaderboard/leaderboard'
 import { PageTitle } from '@/components/ui/common'
+import { getAvailableQuizzes } from '@/lib/server/quizzes'
 
 export default async function Home() {
-  const { quizzes } = await fetchQuizzes()
+  const quizzes = await getAvailableQuizzes()
 
   const comboxBoxItems: ComboboxItem[] = quizzes.map((quiz: any) => ({
     _id: quiz._id,
@@ -17,23 +18,4 @@ export default async function Home() {
       <Leaderboard items={comboxBoxItems} />
     </div>
   )
-}
-
-async function fetchQuizzes() {
-  try {
-    const apiResponse = await fetch(`${process.env.BASE_URL}/api/quizzes`, {
-      cache: 'no-cache',
-    })
-
-    if (!apiResponse.ok) {
-      console.log('Error fetching quizzes', apiResponse)
-      return { quizzes: [] }
-    }
-
-    const quizJson = apiResponse.json()
-    return quizJson
-  } catch (e) {
-    console.log('Error fetching quiz', e)
-    return { quizzes: [] }
-  }
 }

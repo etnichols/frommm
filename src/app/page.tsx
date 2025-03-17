@@ -1,6 +1,6 @@
 import { PageTitle } from '@/components/ui/common'
 import { QuizCard } from '@/components/quiz/quiz-card'
-import { createClient } from '@/lib/supabase/server'
+import { getAvailableQuizzes } from '@/lib/server/quizzes'
 
 export default async function Page() {
   const quizzes = await getAvailableQuizzes()
@@ -13,21 +13,4 @@ export default async function Page() {
       ))}
     </div>
   )
-}
-
-async function getAvailableQuizzes() {
-  const supabase = await createClient()
-
-  const { data: quizzes, error: quizzesError } = await supabase
-    .from('quizzes')
-    .select('*')
-    .order('created_at', { ascending: true })
-
-  if (quizzesError) {
-    throw new Error(quizzesError.message)
-  }
-
-  console.log(quizzes)
-
-  return quizzes
 }
