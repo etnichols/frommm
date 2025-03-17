@@ -9,7 +9,7 @@ import { QuizStep } from '@/lib/hooks/use-quiz'
 import { useQuiz } from '@/lib/hooks/use-quiz'
 
 export function Quiz({ quiz, questions }: QuizData) {
-  const quizQuestions = questions.slice(0, 5)
+  const quizQuestions = questions.slice(0, 10)
   const { state, dispatch } = useQuiz(quizQuestions)
 
   let content = null
@@ -19,9 +19,7 @@ export function Quiz({ quiz, questions }: QuizData) {
       content = <QuizQuestion state={state} questions={quizQuestions} dispatch={dispatch} />
       break
     case QuizStep.RESULTS:
-      content = (
-        <QuizResults state={state} questions={questions} quizId={quiz.id} slug={quiz.slug} />
-      )
+      content = <QuizResults state={state} questions={quizQuestions} />
       break
     case QuizStep.GRADING:
       content = (
@@ -38,11 +36,7 @@ export function Quiz({ quiz, questions }: QuizData) {
   return (
     <div className="mt-4 flex flex-col gap-y-6 flex-grow">
       <PageTitle>{quiz.title}</PageTitle>
-      {quiz.description && (
-        <div className="text-sm">
-          <span className="font-bold">Note:</span> {quiz.description}
-        </div>
-      )}
+      {quiz.description && <div className="text-sm px-4 text-center">{quiz.description}</div>}
       {content}
     </div>
   )

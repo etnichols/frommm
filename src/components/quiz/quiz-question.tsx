@@ -16,32 +16,29 @@ export function QuizQuestion({
   dispatch: any
   questions: QuizQuestionType[]
 }) {
-  const { inputValue, index, answers } = state
+  const { index, answers } = state
 
-  const currentQuestion = questions[index]
-  const isFinalQuestion = state.index === questions.length - 1
+  const currentQuestion: QuizQuestionType = questions[index]
 
   const playerName = currentQuestion.players.name
-  const currentTeam = currentQuestion.players.team?.team || 'Unsigned/Retired'
-  const currentAnswer = answers[index] || ''
-  const currentValueAsOption = currentAnswer
-    ? AutoCompleteValues.find((option) => option.id === currentAnswer.toString())
-    : undefined
+  const team = currentQuestion.players.team?.team || 'Unsigned/Retired'
+  const currentAnswer = answers[index] || undefined
+
+  const isFinalQuestion = state.index === questions.length - 1
 
   return (
     <div className="flex flex-col gap-y-8 w-full">
       <div className="flex flex-col gap-y-2 items-center">
         <div className="flex text-lg">{playerName}</div>
-        <div className="flex text-sm">{currentTeam}</div>
+        <div className="flex text-sm">{team}</div>
       </div>
       <AutoCompleteInput
-        value={currentValueAsOption || undefined}
+        value={currentAnswer}
         emptyMessage="No results found"
         options={AutoCompleteValues}
         resetKey={index}
         onValueChange={(option) => {
-          dispatch({ type: QuizAction.SET_INPUT_VALUE, payload: { inputValue: option.value } })
-          dispatch({ type: QuizAction.SET_ANSWER, payload: { answer: option } })
+          dispatch({ type: QuizAction.SET_ANSWER, payload: option })
         }}
       />
       <div className="flex flex-row justify-between items-center w-full px-8 lg:max-w-96">
@@ -51,7 +48,7 @@ export function QuizQuestion({
           onClick={() => dispatch({ type: QuizAction.PREVIOUS_QUESTION })}
           className="min-w-24 flex items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 "
         >
-          <div className="pl-2">← Previous</div>
+          <div className="pl-2">← Prev</div>
         </Button>
         <div className="text-xs text-slate-500">{`(${state.index + 1}/${questions.length})`}</div>
         <Button
@@ -65,14 +62,16 @@ export function QuizQuestion({
           <div className="pr-2">Next →</div>
         </Button>
       </div>
-      {isFinalQuestion && (
-        <Button
-          onClick={() => dispatch({ type: QuizAction.GRADE_QUIZ })}
-          className="w-48 flex items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 bg-emerald-500 hover:bg-emerald-600"
-        >
-          Grade Quiz
-        </Button>
-      )}
+      <div className="flex flex-col gap-y-2 items-center">
+        {isFinalQuestion && (
+          <Button
+            onClick={() => dispatch({ type: QuizAction.GRADE_QUIZ })}
+            className="w-48 flex items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 bg-emerald-500 hover:bg-emerald-600"
+          >
+            Grade Quiz
+          </Button>
+        )}
+      </div>
     </div>
   )
 }

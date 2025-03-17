@@ -1,5 +1,6 @@
 import { useEffect, useReducer } from 'react'
 
+import { Option } from '@/components/ui/autocomplete-input'
 import { QuizQuestion } from '@/types/quiz'
 
 export enum QuizAction {
@@ -20,7 +21,7 @@ export enum QuizStep {
 export interface QuizState {
   index: number
   inputValue: string
-  answers: number[]
+  answers: Option[]
   step: QuizStep
   questions: QuizQuestion[]
 }
@@ -29,7 +30,7 @@ function quizReducer(state: QuizState, action: { type: QuizAction; payload?: any
   switch (action.type) {
     case QuizAction.SET_ANSWER:
       const updatedAnswers = [...state.answers]
-      updatedAnswers[state.index] = Number(action.payload.answer.id)
+      updatedAnswers[state.index] = action.payload
       return { ...state, answers: updatedAnswers, inputValue: '' }
     case QuizAction.NEXT_QUESTION:
       return {
@@ -77,7 +78,7 @@ export function useQuiz(questions: any[]) {
       // Grade quiz, save results, and display results.
       setTimeout(() => {
         dispatch({ type: QuizAction.DISPLAY_RESULTS })
-      }, 2500)
+      }, 2000)
     }
   }, [state.step, dispatch])
 

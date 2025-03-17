@@ -4,7 +4,6 @@ import './globals.scss'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import type { Metadata } from 'next'
-import NavBar from '@/components/nav-bar'
 import { Space_Mono } from 'next/font/google'
 import { cn } from '@/lib/utils'
 
@@ -28,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className={cn(spaceMono.className, 'h-full')}>
-        <div className="flex flex-col px-2 py-4 max-w-3xl h-full flex-grow">
+        <div className="flex flex-col px-2 pt-4 max-w-3xl flex-grow pb-4 overflow-y-auto">
           <Header />
           <main className="flex-1 overflow-y-auto pb-8 w-full">{children}</main>
           <Footer />
