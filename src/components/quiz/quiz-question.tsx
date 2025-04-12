@@ -1,5 +1,6 @@
 'use client'
 
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion'
 import { QuizAction, QuizState } from '@/lib/hooks/use-quiz'
 
 import { AutoCompleteInput } from '../ui/autocomplete-input'
@@ -80,20 +81,24 @@ export function QuizQuestion({
           )}
         </div>
       </div>
-      <div className="text-sm px-4">
-        <div className="text-base mb-4 text-center">Notes</div>
-        <ul className="flex flex-col gap-y-2 text-sm">
-          <li>For international players, enter their country of origin</li>
-          <li>
-            For players who have played for multiple teams, enter the team they played for most
-            recently
-          </li>
-          <li>
-            You can search for colleges by common acronyms if applicable. E.g. Texas Christian
-            University {`->`} TCU
-          </li>
-        </ul>
-      </div>
+      <Accordion type="single" collapsible className="w-full p-4">
+        <AccordionItem value="notes">
+          <AccordionTrigger className="text-base">Hints/Notes</AccordionTrigger>
+          <AccordionContent>
+            <ul className="flex flex-col gap-y-2 text-sm">
+              <li>For international players, enter their country of origin</li>
+              <li>
+                For players who have played for multiple teams, enter the team they played for most
+                recently
+              </li>
+              <li>
+                You can search for colleges by common acronyms if applicable. E.g. Texas Christian
+                University {`->`} TCU
+              </li>
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </div>
   )
 }

@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className={cn(spaceMono.className, 'h-full')}>
         <div className="flex flex-col px-2 pt-4 max-w-3xl flex-grow pb-4">
           <Header />
-          <main className="flex-1 pb-8 w-full h-full">{children}</main>
+          <main className="flex-1 pb-16 w-full h-full">{children}</main>
           <Footer />
         </div>
       </body>
