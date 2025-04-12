@@ -203,6 +203,11 @@ export function AddPlayerForm() {
             teamId: prev.teamId,
             players: [{ name: '', originId: null }],
           }))
+          setTimeout(() => {
+            setLastAddedIndex(null)
+            setSuccess(null)
+            setError(null)
+          }, 2000)
         }
       } catch (error) {
         setError('Unknown error adding players: ' + JSON.stringify(error, null, 2))

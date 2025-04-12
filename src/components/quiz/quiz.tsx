@@ -36,7 +36,6 @@ export function Quiz({ quiz, questions }: QuizData) {
   return (
     <div className="mt-4 flex flex-col gap-y-6 flex-grow">
       <PageTitle>{quiz.title}</PageTitle>
-      {quiz.description && <div className="text-sm px-4 text-center">{quiz.description}</div>}
       {content}
     </div>
   )

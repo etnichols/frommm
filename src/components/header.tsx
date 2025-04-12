@@ -48,11 +48,11 @@ export function Header() {
               >
                 <NavigationMenuLink
                   className={cn('flex text-white', {
-                    'underline underline-offset-4 text-white': isActive(item.path),
+                    'underline underline-offset-4 text-white decoration-white': isActive(item.path),
                   })}
                   onClick={() => router.push(item.path)}
                 >
-                  {item.label}
+                  <span className="text-white">{item.label}</span>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             ))}

@@ -2,8 +2,10 @@
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table'
 
+import { Button } from '../ui/button'
 import { QuizQuestion as QuizQuestionType } from '@/types/quiz'
 import { QuizState } from '@/lib/hooks/use-quiz'
+import { useRouter } from 'next/navigation'
 
 export function QuizResults({
   state,
@@ -12,6 +14,7 @@ export function QuizResults({
   state: QuizState
   questions: QuizQuestionType[]
 }) {
+  const router = useRouter()
   const correctAnswerCount = questions
     .map((question, index) => {
       return question.players.origin.id === Number(state.answers[index].id)
@@ -20,32 +23,11 @@ export function QuizResults({
 
   const percentage = Math.floor((correctAnswerCount / questions.length) * 100)
 
-  // const saveQuizResult = async (initials: string) => {
-  //   const quizResult = {
-  //     answers: state.answers,
-  //     score: correctAnswerCount,
-  //     initials,
-  //   }
-
-  //   const saveQuizResultResponse = await fetch(`/api/quiz/${slug}`, {
-  //     method: 'POST',
-  //     body: JSON.stringify(quizResult),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   })
-
-  //   const saveQuizResultJson = await saveQuizResultResponse.json()
-
-  //   return saveQuizResultJson
-  // }
-
   return (
-    <div className="flex flex-col justify-center items-center gap-y-8">
+    <div className="flex flex-col justify-center items-center gap-y-8 mb-4">
       <div className="text-lg font-bold tracking-wider">
-        Result: {correctAnswerCount}/{questions.length} ({percentage}%)
+        Your Score: {correctAnswerCount}/{questions.length} ({percentage}%)
       </div>
-      {/* <SaveResultDialog saveResultFn={saveQuizResult} /> */}
       <Table className="text-xs">
         <TableHeader>
           <TableRow>
@@ -69,6 +51,14 @@ export function QuizResults({
           })}
         </TableBody>
       </Table>
+      <Button
+        variant="outline"
+        onClick={() => {
+          router.push('/browser')
+        }}
+      >
+        Play Again
+      </Button>
     </div>
   )
 }
