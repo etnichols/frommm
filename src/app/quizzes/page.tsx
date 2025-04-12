@@ -1,15 +1,15 @@
-'use client'
-
-import { AVAILABLE_QUIZZES } from '@/lib/data/quiz-list'
 import { PageTitle } from '@/components/ui/common'
 import { QuizCard } from '@/components/quiz/quiz-card'
+import { getAvailableQuizzes } from '@/lib/server/quizzes'
 
-export default function Page() {
+export default async function Page() {
+  const quizzes = await getAvailableQuizzes()
+
   return (
     <div className="flex flex-col gap-y-6">
       <PageTitle>Browse Quizzes</PageTitle>
-      {AVAILABLE_QUIZZES.map((quiz) => (
-        <QuizCard key={quiz.slug} {...quiz} />
+      {quizzes.map((quiz) => (
+        <QuizCard key={quiz.slug} quiz={quiz} />
       ))}
     </div>
   )

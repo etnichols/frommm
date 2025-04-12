@@ -9,10 +9,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '../ui/table'
+} from '@/components/ui/table'
 import { useEffect, useState } from 'react'
-
-import { QuizResult } from '@/models/QuizResult'
 
 interface QuizItem {
   _id: string
@@ -36,7 +34,7 @@ export default function Leaderboard({ items }: LeaderboardProps) {
 
 // TODO: Add loading indicator.
 function LeaderboardTable({ selectedQuiz }: { selectedQuiz?: ComboboxItem }) {
-  const [leaderboardData, setLeaderboardData] = useState<Partial<QuizResult>[]>([])
+  const [leaderboardData, setLeaderboardData] = useState<Partial<any>[]>([])
 
   useEffect(() => {
     async function fetchLeaderboard(quizId: string) {
@@ -53,7 +51,7 @@ function LeaderboardTable({ selectedQuiz }: { selectedQuiz?: ComboboxItem }) {
         const leaderboardJson = await apiResponse.json()
 
         console.dir(leaderboardJson)
-        setLeaderboardData(leaderboardJson as Partial<QuizResult>[])
+        setLeaderboardData(leaderboardJson as Partial<any>[])
       } catch (e) {
         console.log('Error fetching leaderboard', e)
         return { leaderboard: [] }

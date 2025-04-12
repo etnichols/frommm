@@ -4,8 +4,8 @@ import './globals.scss'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import type { Metadata } from 'next'
-import NavBar from '@/components/nav-bar'
 import { Space_Mono } from 'next/font/google'
+import { cn } from '@/lib/utils'
 
 const spaceMono = Space_Mono({
   subsets: ['latin'],
@@ -25,11 +25,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={spaceMono.className}>
-        <div className="flex flex-col h-screen px-2 py-4 max-w-3xl">
+    <html lang="en" className="h-full">
+      <body className={cn(spaceMono.className, 'h-full')}>
+        <div className="flex flex-col px-2 pt-4 max-w-3xl flex-grow pb-4">
           <Header />
-          <main className="flex-1 overflow-y-auto px-2 pb-8 w-full">{children}</main>
+          <main className="flex-1 pb-8 w-full h-full">{children}</main>
           <Footer />
         </div>
       </body>

@@ -1,3 +1,9 @@
-export const PageTitle = ({ children }: { children: React.ReactNode }) => {
-  return <h1 className="text-lg font-bold">{children}</h1>
+export const PageTitle = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode
+  className?: string
+}) => {
+  return <h1 className={`text-lg font-bold text-center ${className}`}>{children}</h1>
 }
