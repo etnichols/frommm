@@ -1,6 +1,6 @@
 import { Command as CommandPrimitive } from 'cmdk'
-import { useState, useRef, useCallback, type KeyboardEvent, useEffect } from 'react'
-
+import { useState, useRef, useCallback, type KeyboardEvent, useEffect, useMemo } from 'react'
+import * as Fuse from 'fuse.js'
 import { Check } from 'lucide-react'
 import { Skeleton } from './skeleton'
 import { cn } from '@/lib/utils'
@@ -30,10 +30,33 @@ export const AutoCompleteInput = ({
   resetKey = 0,
 }: AutoCompleteProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
-
   const [isOpen, setOpen] = useState(false)
   const [selected, setSelected] = useState<Option>(value as Option)
   const [inputValue, setInputValue] = useState<string>(value?.label || '')
+  const [searchResults, setSearchResults] = useState<Fuse.FuseResult<Option>[]>([])
+
+  // Initialize Fuse instance with options
+  const fuse = useMemo(
+    () =>
+      new Fuse.default(options, {
+        keys: ['label'],
+        threshold: 0.3, // Lower threshold means more strict matching
+        distance: 100, // How far to extend the matching
+        minMatchCharLength: 1,
+        ignoreLocation: true, // Ignore where in the string the match occurs
+      }),
+    [options],
+  )
+
+  // Update search results when input changes
+  useEffect(() => {
+    if (!inputValue.trim()) {
+      setSearchResults(options.map((item) => ({ item, score: 1, refIndex: -1 })))
+    } else {
+      const results = fuse.search(inputValue)
+      setSearchResults(results)
+    }
+  }, [inputValue, fuse, options])
 
   useEffect(() => {
     setSelected(value as Option)
@@ -43,18 +66,12 @@ export const AutoCompleteInput = ({
   const handleKeyDown = useCallback(
     (event: KeyboardEvent<HTMLDivElement>) => {
       const input = inputRef.current
-      if (!input) {
-        return
-      }
+      if (!input) return
 
-      // Keep the options displayed when the user is typing
-      if (!isOpen) {
-        setOpen(true)
-      }
+      if (!isOpen) setOpen(true)
 
-      // This is not a default behaviour of the <input /> field
       if (event.key === 'Enter' && input.value !== '') {
-        const optionToSelect = options.find((option) => option.label === input.value)
+        const optionToSelect = searchResults[0]?.item
         if (optionToSelect) {
           setSelected(optionToSelect)
           onValueChange?.(optionToSelect)
@@ -65,23 +82,20 @@ export const AutoCompleteInput = ({
         input.blur()
       }
     },
-    [isOpen, options, onValueChange],
+    [isOpen, searchResults, onValueChange],
   )
 
   const handleBlur = useCallback(() => {
     setOpen(false)
-    setInputValue(selected?.label)
+    setInputValue(selected?.label || '')
   }, [selected])
 
   const handleSelectOption = useCallback(
     (selectedOption: Option) => {
       setInputValue(selectedOption.label)
-
       setSelected(selectedOption)
       onValueChange?.(selectedOption)
 
-      // This is a hack to prevent the input from being focused after the user selects an option
-      // We can call this hack: "The next tick"
       setTimeout(() => {
         inputRef?.current?.blur()
       }, 0)
@@ -118,9 +132,9 @@ export const AutoCompleteInput = ({
                 </div>
               </CommandPrimitive.Loading>
             ) : null}
-            {options.length > 0 && !isLoading ? (
+            {searchResults.length > 0 && !isLoading ? (
               <CommandGroup>
-                {options.map((option) => {
+                {searchResults.map(({ item: option }) => {
                   const isSelected = selected?.value === option.value
                   return (
                     <CommandItem
@@ -140,7 +154,7 @@ export const AutoCompleteInput = ({
                 })}
               </CommandGroup>
             ) : null}
-            {!isLoading ? (
+            {!isLoading && searchResults.length === 0 ? (
               <CommandPrimitive.Empty className="select-none rounded-sm px-2 py-3 text-center text-sm">
                 {emptyMessage}
               </CommandPrimitive.Empty>
