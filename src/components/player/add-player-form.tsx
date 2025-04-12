@@ -1,7 +1,7 @@
 'use client'
 
 import { AutoCompleteInput, Option } from '@/components/ui/autocomplete-input'
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -31,6 +31,7 @@ const PlayerEntry = React.memo(
     onUpdate,
     onRemove,
     isRemovable,
+    shouldFocus,
   }: {
     player: PlayerEntry
     index: number
@@ -38,6 +39,7 @@ const PlayerEntry = React.memo(
     onUpdate: (index: number, field: keyof PlayerEntry, value: string | number | null) => void
     onRemove: (index: number) => void
     isRemovable: boolean
+    shouldFocus?: boolean
   }) => {
     const handleNameChange = useCallback(
       (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,6 +80,7 @@ const PlayerEntry = React.memo(
             onChange={handleNameChange}
             placeholder="Enter player name"
             required
+            autoFocus={shouldFocus}
           />
         </div>
 
@@ -107,11 +110,23 @@ export function AddPlayerForm() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState<string | null>(null)
+  const [lastAddedIndex, setLastAddedIndex] = useState<number | null>(null)
 
   const supabase = createClient()
 
   // Memoize the origins data to prevent unnecessary re-renders
   const memoizedOrigins = useMemo(() => origins, [origins])
+
+  const addPlayerEntry = useCallback(() => {
+    setFormData((prev) => {
+      const newIndex = prev.players.length
+      setLastAddedIndex(newIndex)
+      return {
+        ...prev,
+        players: [...prev.players, { name: '', originId: null }],
+      }
+    })
+  }, [])
 
   // Fetch teams and origins on component mount
   useEffect(() => {
@@ -198,13 +213,6 @@ export function AddPlayerForm() {
     [formData],
   )
 
-  const addPlayerEntry = useCallback(() => {
-    setFormData((prev) => ({
-      ...prev,
-      players: [...prev.players, { name: '', originId: null }],
-    }))
-  }, [])
-
   const removePlayerEntry = useCallback((index: number) => {
     setFormData((prev) => ({
       ...prev,
@@ -248,6 +256,7 @@ export function AddPlayerForm() {
             onUpdate={updatePlayerEntry}
             onRemove={removePlayerEntry}
             isRemovable={index > 0}
+            shouldFocus={index === lastAddedIndex}
           />
         ))}
 
