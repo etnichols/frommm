@@ -27,9 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className={cn(spaceMono.className, 'h-full')}>
-        <div className="flex flex-col px-2 pt-4 max-w-3xl flex-grow pb-4 overflow-y-auto">
+        <div className="flex flex-col px-2 pt-4 max-w-3xl flex-grow pb-4">
           <Header />
-          <main className="flex-1 overflow-y-auto pb-8 w-full">{children}</main>
+          <main className="flex-1 pb-8 w-full h-full">{children}</main>
           <Footer />
         </div>
       </body>
