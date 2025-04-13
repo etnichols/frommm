@@ -127,7 +127,7 @@ export const AutoCompleteInput = forwardRef<HTMLInputElement, AutoCompleteProps>
     }, [ref])
 
     return (
-      <CommandPrimitive onKeyDown={handleKeyDown}>
+      <CommandPrimitive onKeyDown={handleKeyDown} className="w-full">
         <div>
           <CommandInput
             ref={internalInputRef}

@@ -7,6 +7,7 @@ import { AutoCompleteInput } from '../ui/autocomplete-input'
 import { AutoCompleteValues } from '@/lib/data/autocomplete-values'
 import { Button } from '../ui/button'
 import { QuizQuestion as QuizQuestionType } from '@/types/quiz'
+import { TeamIcon } from '../logos/team-icon'
 import { useRef } from 'react'
 
 export function QuizQuestion({
@@ -24,17 +25,20 @@ export function QuizQuestion({
   const currentQuestion: QuizQuestionType = questions[index]
 
   const playerName = currentQuestion.players.name
-  const team = currentQuestion.players.team?.team || 'Unsigned/Retired'
+  const team = currentQuestion.players.team || 'Unsigned/Retired'
   const currentAnswer = answers[index] || undefined
 
   const isFinalQuestion = state.index === questions.length - 1
 
+  const IconComponent = TeamIcon.get(team.id)
+
   return (
     <div>
-      <div className="flex flex-col gap-y-8 w-full">
+      <div className="flex flex-col gap-y-8 w-full items-center">
         <div className="flex flex-col gap-y-2 items-center">
           <div className="flex text-lg">{playerName}</div>
-          <div className="flex text-sm">{team}</div>
+          {IconComponent && <IconComponent size={60} />}
+          <div className="flex text-sm">{team.team}</div>
         </div>
         <AutoCompleteInput
           ref={inputRef}
@@ -81,7 +85,7 @@ export function QuizQuestion({
           )}
         </div>
       </div>
-      <Accordion type="single" collapsible className="w-full p-4">
+      <Accordion type="single" collapsible className="p-4">
         <AccordionItem value="notes">
           <AccordionTrigger className="text-base">Hints/Notes</AccordionTrigger>
           <AccordionContent>

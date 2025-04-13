@@ -29,7 +29,7 @@ export function Header() {
       <div className="flex flex-col gap-y-4 items-center">
         <Basketballs />
         <div
-          className="text-2xl font-bold cursor-pointer"
+          className="text-xl md:text-2xl font-bold cursor-pointer"
           onClick={() => router.push('/')}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
