@@ -20,7 +20,7 @@ export function Header() {
 
   const navigationItems = [
     { label: 'About', path: '/about' },
-    { label: 'Browse', path: '/quizzes' },
+    { label: 'Quizzes', path: '/quizzes' },
     { label: 'Leaderboard', path: '/leaderboard' },
   ]
 
@@ -76,7 +76,6 @@ function Basketballs() {
       className="flex flex-row gap-x-4 items-center cursor-pointer"
     >
       {new Array(5).fill(0).map((_, index) => (
-        // biome-ignore lint/suspicious/noArrayIndexKey: decoration
         <div key={`basketball-${index}`} className="flex flex-row gap-x-4">
           <div className="bg-orange-500 size-6 rounded-full" />
           <div className="rotate-45 bg-black size-5 text-white">

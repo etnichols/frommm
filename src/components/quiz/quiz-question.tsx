@@ -3,9 +3,8 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion'
 import { QuizAction, QuizState } from '@/lib/hooks/use-quiz'
 
-import { AutoCompleteInput } from '../ui/autocomplete-input'
-import { AutoCompleteValues } from '@/lib/data/autocomplete-values'
 import { Button } from '../ui/button'
+import { OriginsAutocomplete } from '../ui/origins-autocomplete'
 import { QuizQuestion as QuizQuestionType } from '@/types/quiz'
 import { TeamIcon } from '../logos/team-icon'
 import { useRef } from 'react'
@@ -41,12 +40,12 @@ export function QuizQuestion({
           {IconComponent && <IconComponent size={60} />}
           <div className="flex text-sm">{team.team}</div>
         </div>
-        <AutoCompleteInput
+        <OriginsAutocomplete
           ref={inputRef}
           value={currentAnswer}
           emptyMessage="No results found"
-          options={AutoCompleteValues}
           resetKey={index}
+          placeholder="Search for origin..."
           onValueChange={(option) => {
             dispatch({ type: QuizAction.SET_ANSWER, payload: option })
           }}

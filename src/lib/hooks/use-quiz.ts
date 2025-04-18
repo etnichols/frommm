@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from 'react'
 
-import { Option } from '@/components/ui/autocomplete-input'
+import { Origin } from '@/lib/server/origins'
 import { QuizQuestion } from '@/types/quiz'
 
 export enum QuizAction {
@@ -21,7 +21,7 @@ export enum QuizStep {
 export interface QuizState {
   index: number
   inputValue: string
-  answers: Option[]
+  answers: Origin[]
   step: QuizStep
   questions: QuizQuestion[]
 }

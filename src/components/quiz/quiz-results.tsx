@@ -43,7 +43,7 @@ export function QuizResults({
             return (
               <TableRow key={index}>
                 <TableCell className="font-medium">{question.players.name}</TableCell>
-                <TableCell>{state.answers[index].label || 'No answer'}</TableCell>
+                <TableCell>{state.answers[index].name || 'No answer'}</TableCell>
                 <TableCell>{question.players.origin.name}</TableCell>
                 <TableCell className="text-right">{isCorrect ? '✅' : '❌'}</TableCell>
               </TableRow>
@@ -54,7 +54,7 @@ export function QuizResults({
       <Button
         variant="outline"
         onClick={() => {
-          router.push('/browser')
+          router.push('/quizzes')
         }}
       >
         Play Again
