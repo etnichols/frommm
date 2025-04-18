@@ -1,8 +1,8 @@
 'use client'
 
 import { AddPlayerForm } from '@/components/player/add-player-form'
-import { AddQuizForm } from '@/components/quiz/add-quiz-form'
 import { Button } from '@/components/ui/button'
+import { QuizForm } from '@/components/quiz/quiz-form'
 import { useState } from 'react'
 
 export default function CreatePage() {
@@ -37,9 +37,7 @@ export default function CreatePage() {
         </Button>
       </div>
 
-      {formType === 'player' ? <AddPlayerForm /> : <AddQuizForm />}
+      {formType === 'player' ? <AddPlayerForm /> : <QuizForm />}
     </div>
   )
 }
-
-function CreateQuizForm() {}
