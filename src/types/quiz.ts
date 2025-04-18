@@ -31,6 +31,7 @@ export interface QuizQuestion {
   id: number
   player_id: number
   order_index: number
+  hint?: string
   players: Player & {
     origin: Origin
     team: Team
