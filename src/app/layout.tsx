@@ -1,6 +1,7 @@
 import './globals.css'
 import './globals.scss'
 
+import { Analytics } from '@vercel/analytics/react'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import type { Metadata } from 'next'
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body className={cn(spaceMono.className, 'h-full')}>
         <div className="flex flex-col px-2 pt-4 max-w-3xl flex-grow pb-4">
+          <Analytics />
           <Header />
           <main className="flex-1 pb-16 w-full h-full">{children}</main>
           <Footer />
