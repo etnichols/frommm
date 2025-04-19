@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const ORL = (props) => {
-  const { size } = props;
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const ORL = (props) => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Orlando Magic</title>
       <defs>
@@ -56,15 +56,11 @@ const ORL = (props) => {
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
 ORL.propTypes = {
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
+}
 
-ORL.defaultProps = {
-  size: '100',
-};
-
-export default ORL;
+export default ORL

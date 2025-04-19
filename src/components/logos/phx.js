@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
-const PHX = props => {
-  const { size } = props;
+const PHX = (props) => {
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const PHX = props => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Phoenix Suns</title>
       <path
@@ -37,15 +37,11 @@ const PHX = props => {
         fill="#051821"
       />
     </svg>
-  );
-};
+  )
+}
 
 PHX.propTypes = {
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
 
-PHX.defaultProps = {
-  size: '100'
-};
-
-export default PHX;
+export default PHX

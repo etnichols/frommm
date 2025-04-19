@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
-const DAL = props => {
-  const { size } = props;
+const DAL = (props) => {
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const DAL = props => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Dallas Mavericks</title>
       <path
@@ -57,15 +57,11 @@ const DAL = props => {
         <path d="M70.253 98.798c-.016-.26-.297-2.087-.597-3.38-.24-1.04-.55-2.084-.938-2.873-.384-.787-.857-1.35-1.473-1.357-.776.014-1.58.884-2.545 3.052-.06.157-.046.178-.046.376l1.454 3.206s.838-8.585 4.123 1.735c.003.022.003.038.005.043v-.03c.01-.15.046-.34.016-.77" />
       </g>
     </svg>
-  );
-};
+  )
+}
 
 DAL.propTypes = {
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
 
-DAL.defaultProps = {
-  size: '100'
-};
-
-export default DAL;
+export default DAL

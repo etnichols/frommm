@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
-const MEM = props => {
-  const { size } = props;
+const MEM = (props) => {
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const MEM = props => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Memphis Grizzlies</title>
       <path
@@ -33,15 +33,11 @@ const MEM = props => {
         fill="#fb2"
       />
     </svg>
-  );
-};
+  )
+}
 
 MEM.propTypes = {
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
 
-MEM.defaultProps = {
-  size: '100'
-};
-
-export default MEM;
+export default MEM

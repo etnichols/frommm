@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const SAC = (props) => {
-  const { size } = props;
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const SAC = (props) => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Sacramento Kings</title>
       <defs>
@@ -47,15 +47,11 @@ const SAC = (props) => {
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
 SAC.propTypes = {
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
+}
 
-SAC.defaultProps = {
-  size: '100',
-};
-
-export default SAC;
+export default SAC

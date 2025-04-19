@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
-const MIL = props => {
-  const { size } = props;
+const MIL = (props) => {
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const MIL = props => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Milwaukee Bucks</title>
       <path
@@ -29,15 +29,11 @@ const MIL = props => {
         fill="#fefefe"
       />
     </svg>
-  );
-};
+  )
+}
 
 MIL.propTypes = {
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
 
-MIL.defaultProps = {
-  size: '100'
-};
-
-export default MIL;
+export default MIL

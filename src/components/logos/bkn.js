@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
-const BKN = props => {
-  const { size } = props;
+const BKN = (props) => {
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ const BKN = props => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Brooklyn Nets</title>
       <path
@@ -32,15 +32,11 @@ const BKN = props => {
         fill="#2d2925"
       />
     </svg>
-  );
-};
+  )
+}
 
 BKN.propTypes = {
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
 
-BKN.defaultProps = {
-  size: '100'
-};
-
-export default BKN;
+export default BKN

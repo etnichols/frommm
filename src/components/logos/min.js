@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
-const MIN = props => {
-  const { size } = props;
+const MIN = (props) => {
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const MIN = props => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Minnesota Timberwolves</title>
       <path
@@ -41,24 +41,17 @@ const MIN = props => {
         d="M53.675 89.547c-3.234 1.322-10.887-.48-10.887-.48 7.73-.445 15.293-5.984 15.293-5.984-.006.013-.013.027-.017.04-2.267 3.477-5.39 5.488-5.39 5.488.344.44.69.733 1.002.937"
         fill="#c4cdd3"
       />
-      <path
-        d="M92.224 43.42s-1.9-1.5-4.058.82c2.31-4.212 3.646-1.797 4.058-.82"
-        fill="#7ac142"
-      />
+      <path d="M92.224 43.42s-1.9-1.5-4.058.82c2.31-4.212 3.646-1.797 4.058-.82" fill="#7ac142" />
       <path
         d="M99.73 63.847l-.24-.158c-1.206-.642-3.368 1.232-4.78 2.01s-3.465 2.432-4.47.152 1.304-5.846 2.104-8.1c1.764-4.96 1.828-7.882 1.456-9.46 1.63 1.84 2.143 5.37 2.143 5.37s.606-6.628-2.635-8.374c.075.235-.01 1.06-.076 1.712-1.52.262-4.85-.116-5.93-.682-4.093 4.4-8.555 10.5-11.914 16.11-1.457 2.967-2.883 6.447-3.24 9.276 0 0-.464-1.28-.574-2.985-1.858.717-8.176 3.822-9.527 13.342 0 0 4.015-4.143 8.454-5.757 0 0-2.81 7.362 2.555 20.412 0 0 2.172-8.002 6.716-10.02 2.75 13.664 10.816 13.888 13.168 23.185 0 0 2.465-4.816-.502-13.002 0 0 1.023.286 1.89 1.308 0 0-.135-2.395-2.373-7.56-1.458-2.765-1.915-6.497-1.915-6.497-1.3 1.187-1.646 5.196-1.646 5.196-4.004-10.863 7.36-21.63 9.436-23.216 1.012-.777 1.636-.8 2.014-.604.4-.81.355-1.326-.115-1.664"
         fill="#c4cdd3"
       />
     </svg>
-  );
-};
+  )
+}
 
 MIN.propTypes = {
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
 
-MIN.defaultProps = {
-  size: '100'
-};
-
-export default MIN;
+export default MIN

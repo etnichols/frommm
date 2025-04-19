@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
-const WAS = props => {
-  const { size } = props;
+const WAS = (props) => {
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ const WAS = props => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Washington Wizards</title>
       <path
@@ -40,15 +40,11 @@ const WAS = props => {
         <path d="M74.812 49.662v.028l7.168 5.292-2.286-8.31 1.682-.906 5.445-2.938a55.84 55.84 0 0 0-8.391-1.183l-1.386-.088-.057-.113-.56-1.133-.035-.072-1.603-3.262-1.55 3.155h-.003l-.088.18-.553 1.133-.057.113-1.386.088c-2.836.182-5.643.58-8.39 1.183l5.445 2.938 1.685.906-.512 1.844-.26.956-1.515 5.51L74.77 49.7v-.028l.02.016.022-.016z" />
       </g>
     </svg>
-  );
-};
+  )
+}
 
 WAS.propTypes = {
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
 
-WAS.defaultProps = {
-  size: '100'
-};
-
-export default WAS;
+export default WAS

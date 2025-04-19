@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const GSW = (props) => {
-  const { size } = props;
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const GSW = (props) => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Golden State Warriors</title>
       <defs>
@@ -44,15 +44,11 @@ const GSW = (props) => {
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
 GSW.propTypes = {
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
+}
 
-GSW.defaultProps = {
-  size: '100',
-};
-
-export default GSW;
+export default GSW

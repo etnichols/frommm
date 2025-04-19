@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
-const HOU = props => {
-  const { size } = props;
+const HOU = (props) => {
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const HOU = props => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Houston Rockets</title>
       <path
@@ -31,15 +31,11 @@ const HOU = props => {
         <path d="M90.53 90.252l-1.142 48.918-.774-28.807c-.04-2.044-1.745-2.14-1.817 0l-.938 21.73-.923-25.158c.003-2.023-1.542-2.143-1.554.144l-.92 17.94-1.115-35.43.242-25.694c.203-6.872-19.96-6.777-19.96-6.777s24 .497 22.044-14.13c-1.434-10.662-40.94-7.073-40.94-7.073s11.17-3.667 25.176-5.026c15.706-1.527 25.18 2.254 25.693 9.845.902 13.42-16.447 15.376-16.447 15.376s13.69-2.667 13.713 5.66l-.338 28.48z" />
       </g>
     </svg>
-  );
-};
+  )
+}
 
 HOU.propTypes = {
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
 
-HOU.defaultProps = {
-  size: '100'
-};
-
-export default HOU;
+export default HOU

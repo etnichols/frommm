@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const UTA = (props) => {
-  const { size } = props;
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const UTA = (props) => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Utah Jazz</title>
       <defs>
@@ -58,21 +58,14 @@ const UTA = (props) => {
           d="M78.527 35.69L58.755 81.038a22.43 22.43 0 0 0-4.619-6.483c-4.23 3.724-6.975 9.103-7.223 15.12H60.9l14.297-32.81h41.77l9.23-21.177h-47.66z"
           fill="#0b223e"
         />
-        <path
-          fill="#2b5134"
-          d="M123.964 56.864l9.233-21.177h-3.937l-9.23 21.177z"
-        />
+        <path fill="#2b5134" d="M123.964 56.864l9.233-21.177h-3.937l-9.23 21.177z" />
       </g>
     </svg>
-  );
-};
+  )
+}
 
 UTA.propTypes = {
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
+}
 
-UTA.defaultProps = {
-  size: '100',
-};
-
-export default UTA;
+export default UTA

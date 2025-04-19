@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const IND = (props) => {
-  const { size } = props;
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const IND = (props) => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Indiana Pacers</title>
       <defs>
@@ -44,15 +44,11 @@ const IND = (props) => {
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
 IND.propTypes = {
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
+}
 
-IND.defaultProps = {
-  size: '100',
-};
-
-export default IND;
+export default IND

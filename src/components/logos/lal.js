@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const LAL = (props) => {
-  const { size } = props;
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const LAL = (props) => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Los Angeles Lakers</title>
       <defs>
@@ -25,10 +25,7 @@ const LAL = (props) => {
           d="M15.755 33.948c4.104-6.443 6.486-14.125 6.486-22.374 0-4-.56-7.865-1.605-11.52H.055v33.895h15.7z"
           id="B_LAL"
         />
-        <path
-          d="M4.97 6.077A41.33 41.33 0 0 0 1.891.03H.052v6.046h4.92z"
-          id="C_LAL"
-        />
+        <path d="M4.97 6.077A41.33 41.33 0 0 0 1.891.03H.052v6.046h4.92z" id="C_LAL" />
         <path
           d="M65.16 16.466C57.77 6.49 46.025.038 32.796.038 19.327.038 7.393 6.73.03 17.024v.4h65.13v-.96z"
           id="D_LAL"
@@ -158,15 +155,11 @@ const LAL = (props) => {
         </g>
       </g>
     </svg>
-  );
-};
+  )
+}
 
 LAL.propTypes = {
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
+}
 
-LAL.defaultProps = {
-  size: '100',
-};
-
-export default LAL;
+export default LAL

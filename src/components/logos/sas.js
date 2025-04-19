@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
-const SAS = props => {
-  const { size } = props;
+const SAS = (props) => {
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const SAS = props => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">San Antonio Spurs</title>
       <g fillRule="evenodd">
@@ -32,15 +32,11 @@ const SAS = props => {
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
 SAS.propTypes = {
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
 
-SAS.defaultProps = {
-  size: '100'
-};
-
-export default SAS;
+export default SAS

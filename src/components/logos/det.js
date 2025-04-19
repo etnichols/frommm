@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const DET = (props) => {
-  const { size } = props;
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const DET = (props) => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Detroit Pistons</title>
       <defs>
@@ -43,15 +43,7 @@ const DET = (props) => {
         </g>
       </g>
     </svg>
-  );
-};
+  )
+}
 
-DET.propTypes = {
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
-
-DET.defaultProps = {
-  size: '100',
-};
-
-export default DET;
+export default DET

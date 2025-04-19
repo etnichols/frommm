@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const CHA = (props) => {
-  const { size } = props;
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const CHA = (props) => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Charlotte Hornets</title>
       <defs>
@@ -63,15 +63,11 @@ const CHA = (props) => {
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
 CHA.propTypes = {
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
+}
 
-CHA.defaultProps = {
-  size: '100',
-};
-
-export default CHA;
+export default CHA

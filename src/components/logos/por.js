@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
-const POR = props => {
-  const { size } = props;
+const POR = (props) => {
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const POR = props => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Portland Trail Blazers</title>
       <g fill="none" fillRule="evenodd">
@@ -35,15 +35,11 @@ const POR = props => {
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
 POR.propTypes = {
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
 
-POR.defaultProps = {
-  size: '100'
-};
-
-export default POR;
+export default POR

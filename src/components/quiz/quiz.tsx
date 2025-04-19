@@ -23,9 +23,9 @@ export function Quiz({ quiz, questions }: QuizData) {
       break
     case QuizStep.GRADING:
       content = (
-        <div className="flex flex-col justify-center items-center gap-y-8">
-          <div className="text-lg">Grading your quiz...</div>
-          <Loader2 className="h-8 w-8 animate-spin"></Loader2>
+        <div className="flex flex-col justify-center items-center gap-y-6 mt-8">
+          <Loader2 className="size-6 text-orange-500 animate-spin"></Loader2>
+          <div className="text-sm">Grading your quiz...</div>
         </div>
       )
       break

@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const CHI = (props) => {
-  const { size } = props;
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const CHI = (props) => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Chicago Bulls</title>
       <defs>
@@ -48,15 +48,11 @@ const CHI = (props) => {
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
 CHI.propTypes = {
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
+}
 
-CHI.defaultProps = {
-  size: '100',
-};
-
-export default CHI;
+export default CHI

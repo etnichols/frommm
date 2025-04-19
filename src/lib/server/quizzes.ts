@@ -150,10 +150,8 @@ export async function updateQuiz(
   const supabase = await createClient()
 
   try {
-    // Only keep valid questions (with playerId and hint)
-    const validQuestions = formData.questions.filter(
-      (question) => question.playerId !== null && question.hint.trim(),
-    )
+    // Only keep valid questions (with playerId)
+    const validQuestions = formData.questions.filter((question) => question.playerId !== null)
 
     if (validQuestions.length === 0) {
       return { success: false, error: 'Please add at least one valid question' }
@@ -185,18 +183,28 @@ export async function updateQuiz(
     const quizQuestions = validQuestions.map((question, index) => ({
       quiz_id: quizId,
       player_id: question.playerId,
-      order_index: question.orderIndex || index,
+      order_index: question.orderIndex ?? index,
       hint: question.hint.trim(),
       difficulty: question.difficulty,
       points: question.points,
     }))
 
-    const { error: questionsError } = await supabase.from('quiz_questions').insert(quizQuestions)
+    // Debug: Log quiz questions before inserting
+    console.log('Quiz questions to insert:', JSON.stringify(quizQuestions, null, 2))
+
+    const { data: insertedData, error: questionsError } = await supabase
+      .from('quiz_questions')
+      .insert(quizQuestions)
+      .select()
 
     if (questionsError) throw questionsError
 
+    // Debug: Log inserted data
+    console.log('Inserted data:', JSON.stringify(insertedData, null, 2))
+
     return { success: true, error: '', quizId }
   } catch (error) {
+    console.error('Update quiz error:', error)
     return { success: false, error: 'Failed to update quiz: ' + JSON.stringify(error, null, 2) }
   }
 }

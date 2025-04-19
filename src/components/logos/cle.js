@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
-const CLE = props => {
-  const { size } = props;
+const CLE = (props) => {
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@ const CLE = props => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Cleveland Cavaliers</title>
       <path
@@ -30,15 +30,11 @@ const CLE = props => {
         fill="#690031"
       />
     </svg>
-  );
-};
+  )
+}
 
 CLE.propTypes = {
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
 
-CLE.defaultProps = {
-  size: '100'
-};
-
-export default CLE;
+export default CLE

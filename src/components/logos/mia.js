@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
-const MIA = props => {
-  const { size } = props;
+const MIA = (props) => {
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const MIA = props => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Miami Heat</title>
       <path
@@ -37,15 +37,11 @@ const MIA = props => {
         fill="#fefefe"
       />
     </svg>
-  );
-};
+  )
+}
 
 MIA.propTypes = {
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
 
-MIA.defaultProps = {
-  size: '100'
-};
-
-export default MIA;
+export default MIA

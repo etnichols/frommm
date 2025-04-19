@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const OKC = (props) => {
-  const { size } = props;
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const OKC = (props) => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Oklahoma City Thunder</title>
       <defs>
@@ -38,10 +38,7 @@ const OKC = (props) => {
           d="M148.435 50.694a705.7 705.7 0 0 0-27.38 4.448 137.47 137.47 0 0 0 1.461-4.866"
           fill="#ef5133"
         />
-        <path
-          d="M122.516 50.276c8.923-.377 17.593-.23 25.92.418"
-          fill="#ed2a37"
-        />
+        <path d="M122.516 50.276c8.923-.377 17.593-.23 25.92.418" fill="#ed2a37" />
         <path
           d="M1.554 87.414c10.02-6.387 21.12-12.204 33.104-17.257l1.228 2.394-1.918 3.968C22.826 79.966 12 83.604 1.554 87.414"
           fill="#ef5133"
@@ -72,15 +69,11 @@ const OKC = (props) => {
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
 OKC.propTypes = {
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
+}
 
-OKC.defaultProps = {
-  size: '100',
-};
-
-export default OKC;
+export default OKC

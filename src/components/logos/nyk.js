@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
-const NYK = props => {
-  const { size } = props;
+const NYK = (props) => {
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const NYK = props => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">New York Knicks</title>
       <path
@@ -46,15 +46,11 @@ const NYK = props => {
         fill="#0f4b90"
       />
     </svg>
-  );
-};
+  )
+}
 
 NYK.propTypes = {
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-};
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+}
 
-NYK.defaultProps = {
-  size: '100'
-};
-
-export default NYK;
+export default NYK

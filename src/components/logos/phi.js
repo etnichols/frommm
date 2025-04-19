@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const PHI = (props) => {
-  const { size } = props;
+  const { size } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const PHI = (props) => {
       fill="none"
       fillRule="evenodd"
       role="img"
-      aria-describedby='title'
+      aria-describedby="title"
     >
       <title id="title">Philadelphia 76ers</title>
       <defs>
@@ -51,15 +51,11 @@ const PHI = (props) => {
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
 PHI.propTypes = {
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
+}
 
-PHI.defaultProps = {
-  size: '100',
-};
-
-export default PHI;
+export default PHI

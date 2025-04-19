@@ -17,7 +17,7 @@ export function QuizResults({
   const router = useRouter()
   const correctAnswerCount = questions
     .map((question, index) => {
-      return question.players.origin.id === Number(state.answers[index].id)
+      return question?.players?.origin?.id === Number(state.answers[index]?.id)
     })
     .filter(Boolean).length
 
@@ -39,12 +39,12 @@ export function QuizResults({
         </TableHeader>
         <TableBody>
           {questions.map((question, index) => {
-            const isCorrect = question.players.origin.id === Number(state.answers[index].id)
+            const isCorrect = question?.players?.origin?.id === Number(state.answers[index]?.id)
             return (
               <TableRow key={index}>
                 <TableCell className="font-medium">{question.players.name}</TableCell>
-                <TableCell>{state.answers[index].name || 'No answer'}</TableCell>
-                <TableCell>{question.players.origin.name}</TableCell>
+                <TableCell>{state.answers[index]?.name || 'No answer'}</TableCell>
+                <TableCell>{question.players?.origin?.name}</TableCell>
                 <TableCell className="text-right">{isCorrect ? '✅' : '❌'}</TableCell>
               </TableRow>
             )
