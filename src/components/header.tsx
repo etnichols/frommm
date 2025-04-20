@@ -22,6 +22,7 @@ export function Header() {
     { label: 'About', path: '/about' },
     { label: 'Quizzes', path: '/quizzes' },
     { label: 'Leaderboard', path: '/leaderboard' },
+    { label: 'Player Search', path: '/search' },
   ]
 
   return (
@@ -40,7 +41,7 @@ export function Header() {
           From??? Basketball Quizzes
         </div>
         <NavigationMenu>
-          <NavigationMenuList className="cursor-pointer flex flex-row gap-x-2">
+          <NavigationMenuList className="text-xs md:text-sm cursor-pointer flex flex-row gap-x-2">
             {navigationItems.map((item) => (
               <NavigationMenuItem
                 key={item.path}
