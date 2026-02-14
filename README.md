@@ -109,3 +109,25 @@ SELECT * FROM sync_log ORDER BY id DESC LIMIT 10;
 - **Edge Function secret**: `BALLDONTLIE_API_KEY` -- set in Supabase Dashboard > Edge Functions > Secrets
 - **Cron schedule**: `0 9 * * *` (4 AM EST) -- managed via `pg_cron` extension
 - **API tier**: BallDontLie All-Star ($9.99/mo) -- required for the `/players/active` endpoint
+
+### Deploying from source
+
+The Edge Function source lives in `supabase/functions/update-nba-rosters/index.ts` and can be deployed via the Supabase CLI:
+
+```bash
+# Install the CLI (if not already)
+npm install -g supabase
+
+# Link to the project (one-time setup)
+supabase login
+supabase link --project-ref gecdensakhrfjswvzspp
+
+# Deploy the function
+supabase functions deploy update-nba-rosters
+```
+
+After deploying, ensure the `BALLDONTLIE_API_KEY` secret is set:
+
+```bash
+supabase secrets set BALLDONTLIE_API_KEY=your-key-here
+```
