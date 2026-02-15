@@ -3,14 +3,21 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table'
 
 import { Button } from '../ui/button'
+import Link from 'next/link'
 import { QuizQuestion as QuizQuestionType } from '@/types/quiz'
 import { QuizState } from '@/lib/hooks/use-quiz'
+import { SaveResultDialog } from './save-result-dialog'
+import { saveQuizResult } from '@/lib/server/quiz-results'
 import { useRouter } from 'next/navigation'
 
 export function QuizResults({
+  quizId,
+  quizSlug,
   state,
   questions,
 }: {
+  quizId: number
+  quizSlug: string
   state: QuizState
   questions: QuizQuestionType[]
 }) {
@@ -22,6 +29,10 @@ export function QuizResults({
     .filter(Boolean).length
 
   const percentage = Math.floor((correctAnswerCount / questions.length) * 100)
+
+  const handleSaveResult = async (firstName: string, lastName: string, email: string) => {
+    await saveQuizResult(quizId, firstName, lastName, email, correctAnswerCount, questions.length)
+  }
 
   return (
     <div className="flex flex-col justify-center items-center gap-y-8 mb-4">
@@ -51,14 +62,23 @@ export function QuizResults({
           })}
         </TableBody>
       </Table>
-      <Button
-        variant="outline"
-        onClick={() => {
-          router.push('/quizzes')
-        }}
+      <div className="flex flex-row gap-x-4">
+        <SaveResultDialog saveResultFn={handleSaveResult} />
+        <Button
+          variant="outline"
+          onClick={() => {
+            router.push('/quizzes')
+          }}
+        >
+          Play Again
+        </Button>
+      </div>
+      <Link
+        href={`/quiz/${quizSlug}/leaderboard`}
+        className="text-sm text-orange-500 hover:underline underline-offset-4"
       >
-        Play Again
-      </Button>
+        View Leaderboard
+      </Link>
     </div>
   )
 }

@@ -22,7 +22,7 @@ export function Header() {
     { label: 'About', path: '/about' },
     { label: 'Quizzes', path: '/quizzes' },
     { label: 'Random', path: '/random' },
-    // { label: 'Leaderboard', path: '/leaderboard' },
+    { label: 'Leaderboards', path: '/leaderboard' },
     { label: 'Player Search', path: '/search' },
   ]
 

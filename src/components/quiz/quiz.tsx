@@ -19,7 +19,14 @@ export function Quiz({ quiz, questions }: QuizData) {
       content = <QuizQuestion state={state} questions={quizQuestions} dispatch={dispatch} />
       break
     case QuizStep.RESULTS:
-      content = <QuizResults state={state} questions={quizQuestions} />
+      content = (
+        <QuizResults
+          quizId={quiz.id}
+          quizSlug={quiz.slug}
+          state={state}
+          questions={quizQuestions}
+        />
+      )
       break
     case QuizStep.GRADING:
       content = (

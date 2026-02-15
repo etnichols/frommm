@@ -1,13 +1,9 @@
-'use client'
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-
-import { Button } from '@/components/ui/button'
-import { Quiz } from '@/types/quiz'
-import { useRouter } from 'next/navigation'
+import type { Quiz } from '@/types/quiz'
+import { ArrowRight, Trophy } from 'lucide-react'
+import Link from 'next/link'
 
 export function QuizCard({ quiz }: { quiz: Quiz }) {
-  const router = useRouter()
   const { title, description, slug } = quiz
 
   return (
@@ -17,9 +13,22 @@ export function QuizCard({ quiz }: { quiz: Quiz }) {
       </CardHeader>
       <CardContent className="flex flex-col gap-y-2">
         <p>{description}</p>
-        <Button className="mt-4 w-48" onClick={() => router.push(`/quiz/${slug}`)}>
-          Take Quiz →
-        </Button>
+        <div className="mt-4 flex items-center gap-x-3">
+          <Link
+            href={`/quiz/${slug}`}
+            className="group flex items-center gap-x-1 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Take Quiz
+            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+          <Link
+            href={`/quiz/${slug}/leaderboard`}
+            className="flex items-center gap-x-1 rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100"
+          >
+            <Trophy className="size-4" />
+            Leaderboard
+          </Link>
+        </div>
       </CardContent>
     </Card>
   )
