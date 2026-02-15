@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { Loader2 } from 'lucide-react'
 
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { OriginsAutocomplete } from '@/components/ui/origins-autocomplete'
 import { PageTitle } from '@/components/ui/common'
@@ -202,7 +203,31 @@ export default function RandomQuizPage() {
           </Button>
         </div>
       </div>
+      <HowToAnswer />
     </div>
+  )
+}
+
+function HowToAnswer() {
+  return (
+    <Accordion type="single" collapsible className="p-4">
+      <AccordionItem value="notes">
+        <AccordionTrigger className="text-base">How to answer</AccordionTrigger>
+        <AccordionContent>
+          <ul className="flex flex-col gap-y-2 text-sm">
+            <li>For international players, enter their country of origin</li>
+            <li>
+              For players who have played for multiple college teams, enter the team they played
+              for most recently before turning pro
+            </li>
+            <li>
+              You can search for colleges by common acronyms, e.g. Texas Christian University{' '}
+              {'-> TCU'}
+            </li>
+          </ul>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
   )
 }
 
