@@ -21,7 +21,8 @@ export function Header() {
   const navigationItems = [
     { label: 'About', path: '/about' },
     { label: 'Quizzes', path: '/quizzes' },
-    { label: 'Leaderboard', path: '/leaderboard' },
+    { label: 'Random', path: '/random' },
+    // { label: 'Leaderboard', path: '/leaderboard' },
     { label: 'Player Search', path: '/search' },
   ]
 

@@ -11,14 +11,14 @@ export default function Home() {
         they know about NBA players and their alma maters.
       </p>
       <p>
-        If you&apos;re here, you&apos;re probably one of them, and you&apos;ve probably played this
-        game while sitting on the couch with your buddies. Jalen Brunson pops up on the TV, you
-        point wildly and ask:
+        You&apos;ve probably played this game while sitting on the couch with your buddies. You're
+        watching the Knicks and Jalen Brunson nails a three. You point wildly at the TV and ask:
       </p>
-      <p className="text-center">&quot;From???&quot;</p>
+      <p className="text-center">&quot;Jalen Brunson. From???&quot;</p>
       <p>
-        They pause, respond with &quot;...Xavier?&quot; At which point you groan and shame them for
-        their absolute miss (Answer: Villanova. That&apos;s an easy one).
+        Your friend pauses, wracks his brain, and responds with &quot;...Xavier?&quot; At which
+        point you groan and shame them for their absolute miss (Answer: Villanova. That&apos;s an
+        easy one).
       </p>
       <p>
         The quizzes here are an online version of that experience. Take a quiz and add your score to

@@ -74,3 +74,58 @@ export async function getPlayer(playerId: number) {
     }
   }
 }
+
+export interface RandomPlayer {
+  id: number
+  name: string
+  origin: { id: number; name: string }
+  team: { id: number; team: string; location: string; abbreviation: string }
+}
+
+export async function getRandomPlayers(count = 10): Promise<{
+  success: boolean
+  players: RandomPlayer[]
+  error: string
+}> {
+  const supabase = await createClient()
+
+  try {
+    const { data, error } = await supabase.rpc('get_random_players', {
+      count_limit: count,
+    })
+
+    if (error) throw error
+
+    // Transform flat RPC result into nested object shape
+    const players: RandomPlayer[] = (data || []).map(
+      (row: {
+        id: number
+        name: string
+        origin_id: number
+        origin_name: string
+        team_id: number
+        team_name: string
+        team_location: string
+        team_abbreviation: string
+      }) => ({
+        id: row.id,
+        name: row.name,
+        origin: { id: row.origin_id, name: row.origin_name },
+        team: {
+          id: row.team_id,
+          team: row.team_name,
+          location: row.team_location,
+          abbreviation: row.team_abbreviation,
+        },
+      }),
+    )
+
+    return { success: true, players, error: '' }
+  } catch (error) {
+    return {
+      success: false,
+      players: [],
+      error: `Failed to get random players: ${JSON.stringify(error, null, 2)}`,
+    }
+  }
+}
