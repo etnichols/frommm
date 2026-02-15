@@ -69,14 +69,16 @@ Tracks every run of the nightly roster sync.
 | `errors` | jsonb | Array of error objects (empty on success) |
 | `status` | text | `running`, `completed`, `completed_with_errors`, or `failed` |
 
-## Nightly Roster Sync
+## Weekly Roster Sync
 
 Player rosters are kept up to date automatically via a Supabase Edge Function triggered by `pg_cron`.
+
+The source of truth for the Edge Function is [`src/lib/supabase/update-nba-rosters.ts`](src/lib/supabase/update-nba-rosters.ts).
 
 ### How it works
 
 ```
-pg_cron (daily at 4 AM EST / 9 AM UTC)
+pg_cron (weekly on Mondays at 4 AM EST / 9 AM UTC)
   -> pg_net HTTP POST
     -> Edge Function: update-nba-rosters
       -> BallDontLie API: GET /nba/v1/players/active (paginated)
@@ -85,15 +87,16 @@ pg_cron (daily at 4 AM EST / 9 AM UTC)
 
 1. **Fetch**: The Edge Function pages through BallDontLie's `/nba/v1/players/active` endpoint (100 per page, ~517 active players).
 2. **Match**: Each BDL player is matched to an existing DB row by `bdl_id` (fast path) or by normalized name (fallback).
-3. **Update**: If a player's team changed (trade/free agency), `team_id` is updated. New players are inserted with college/origin resolved via fuzzy ILIKE matching.
+3. **Update**: If a player's team changed (trade/free agency), `team_id` is updated. New players are inserted with college/origin resolved via scored fuzzy matching. **`origin_id` is never updated for existing players**, so manual corrections are always preserved.
 4. **Deactivate**: Any DB player with a `bdl_id` that no longer appears in the active response is marked `is_active = false`.
-5. **Log**: Results are written to `sync_log` for observability.
+5. **Log**: Results (including any ambiguous origin matches) are written to `sync_log` for observability.
 
 ### Key design decisions
 
 - **Soft deletes**: Inactive players are marked `is_active = false` rather than deleted, preserving existing quiz question references.
 - **`bdl_id` for stable matching**: After initial name-based reconciliation, all future syncs use the BallDontLie player ID for reliable matching across name changes.
-- **College name resolution**: BDL uses short names ("Kentucky") while the DB uses full names ("University of Kentucky"). The Edge Function resolves this with a fuzzy ILIKE chain and caches mappings in-memory per run.
+- **College name resolution**: BDL uses short names ("Kentucky") while the DB uses full names ("University of Kentucky"). The Edge Function resolves this with a scored fuzzy matching system (exact > "University of X" pattern > prefix match > word boundary > contains) and caches mappings in-memory per run. Ambiguous matches (multiple candidates) are flagged in the sync response for manual review.
+- **Manual corrections are safe**: The sync only updates `team_id`, `bdl_id`, and `is_active` for existing players. It never overwrites `origin_id`, so any manual corrections to a player's school/origin will persist across all future syncs.
 - **Idempotency**: The function is safe to run multiple times. Re-running produces zero changes if the data hasn't changed.
 
 ### Monitoring
@@ -107,5 +110,5 @@ SELECT * FROM sync_log ORDER BY id DESC LIMIT 10;
 ### Configuration
 
 - **Edge Function secret**: `BALLDONTLIE_API_KEY` -- set in Supabase Dashboard > Edge Functions > Secrets
-- **Cron schedule**: `0 9 * * *` (4 AM EST) -- managed via `pg_cron` extension
+- **Cron schedule**: `0 9 * * 1` (Mondays at 4 AM EST) -- managed via `pg_cron` extension
 - **API tier**: BallDontLie All-Star ($9.99/mo) -- required for the `/players/active` endpoint

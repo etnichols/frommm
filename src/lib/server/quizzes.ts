@@ -85,9 +85,9 @@ export async function createQuiz(formData: {
   const supabase = await createClient()
 
   try {
-    // Only keep valid questions (with playerId and hint)
+    // Only keep valid questions (with playerId)
     const validQuestions = formData.questions.filter(
-      (question) => question.playerId !== null && question.hint.trim(),
+      (question) => question.playerId !== null,
     )
 
     if (validQuestions.length === 0) {

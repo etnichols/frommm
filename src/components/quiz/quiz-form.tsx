@@ -313,7 +313,7 @@ export function QuizForm({ initialData, onSuccess }: QuizFormProps) {
 
         // Filter and prepare valid questions
         const validQuestions = formData.questions
-          .filter((question) => question.playerId !== null && question.hint.trim())
+          .filter((question) => question.playerId !== null)
           .map((question) => ({
             id: question.id,
             playerId: question.playerId,
