@@ -36,7 +36,7 @@ export default function Home() {
         >
           here
         </a>
-        , and it's leaderboard is{' '}
+        , and it&apos;s leaderboard is{' '}
         <a
           className="font-bold underline text-orange-500"
           href="https://from-game.com/the-original/leaderboard"
@@ -45,7 +45,7 @@ export default function Home() {
         >
           here
         </a>
-        . (To Jeff D: you're an absolute degen and the only one to get a perfect score. Bravo.)
+        . (To Jeff D: you&apos;re an absolute degen and the only one to get a perfect score. Bravo.)
       </p>
       <p>Have fun and happy From????ing!</p>
       <div className="rounded-md border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-600">
@@ -61,7 +61,7 @@ export default function Home() {
         .
       </div>
       <div className="italic text-gray-600 font-bold text-sm">
-        To Andrew L. , James N. and Danny "Coach Dan" N. -- thank you for helping bring this to
+        To Andrew L. , James N. and Danny &quot;Coach Dan&quot; N. -- thank you for helping bring this to
         life.
       </div>
     </div>
