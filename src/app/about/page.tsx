@@ -11,8 +11,9 @@ export default function Home() {
         they know about NBA players and their alma maters.
       </p>
       <p>
-        You&apos;ve probably played this game while sitting on the couch with your buddies. You're
-        watching the Knicks and Jalen Brunson nails a three. You point wildly at the TV and ask:
+        You&apos;ve probably played this game while sitting on the couch with your buddies.
+        You&apos;re watching the Knicks and Jalen Brunson nails a three. You&apos;re point wildly at
+        the TV and ask:
       </p>
       <p className="text-center">&quot;Jalen Brunson. From???&quot;</p>
       <p>

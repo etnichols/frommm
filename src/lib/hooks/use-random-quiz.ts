@@ -69,6 +69,11 @@ function randomQuizReducer(state: RandomQuizState, action: Action): RandomQuizSt
       }
     }
     case RandomQuizAction.SUBMIT_ANSWER: {
+      // Only accept answers while actively playing to prevent double-submissions
+      if (state.step !== RandomQuizStep.PLAYING) {
+        return state
+      }
+
       const answer = action.payload
       const isCorrect =
         answer !== null &&
