@@ -70,7 +70,7 @@ export async function getPlayer(playerId: number) {
     return {
       success: false,
       player: null,
-      error: 'Failed to get player: ' + JSON.stringify(error, null, 2),
+      error: `Failed to get player: ${JSON.stringify(error, null, 2)}`,
     }
   }
 }

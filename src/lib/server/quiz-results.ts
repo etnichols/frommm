@@ -35,7 +35,7 @@ export async function getLeaderboard(quizId: number) {
     .eq('quiz_id', quizId)
     .order('score', { ascending: false })
     .order('created_at', { ascending: true })
-    .limit(50)
+    .limit(10)
 
   if (error) {
     throw new Error(error.message)
