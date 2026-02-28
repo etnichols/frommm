@@ -61,8 +61,7 @@ export default function Home() {
         .
       </div>
       <div className="italic text-gray-600 font-bold text-sm">
-        To Andrew L. , James N. and Danny &quot;Coach Dan&quot; N. -- thank you for helping bring this to
-        life.
+        To Andrew, James and Danny -- thanks for helping me make From??? a reality.
       </div>
     </div>
   )

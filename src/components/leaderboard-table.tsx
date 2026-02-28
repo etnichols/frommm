@@ -52,6 +52,14 @@ export function LeaderboardTable({
     return <div className="text-sm text-gray-500 py-8 text-center">No results yet. Be the first!</div>
   }
 
+  // Competition ranking: same score = same rank; next rank skips (e.g. 1,2,3,3,3,6)
+  const ranks: number[] = []
+  for (let i = 0; i < data.length; i++) {
+    if (i === 0) ranks.push(1)
+    else if (data[i].score === data[i - 1].score) ranks.push(ranks[i - 1]!)
+    else ranks.push(i + 1)
+  }
+
   return (
     <div className="w-full max-w-lg mx-auto border border-border rounded-md overflow-hidden">
       <Table className="text-xs sm:text-sm">
@@ -66,6 +74,7 @@ export function LeaderboardTable({
         </TableHeader>
         <TableBody>
         {data.map((entry, index) => {
+          const rank = ranks[index]!
           const displayName = `${entry.first_name} ${entry.last_name.charAt(0).toUpperCase()}.`
           const scoreString = `${entry.score}/${entry.total_questions}`
           const percentage = Math.round((entry.score / entry.total_questions) * 100)
@@ -75,8 +84,8 @@ export function LeaderboardTable({
             year: 'numeric',
           })
 
-          const podium = podiumStyles[index]
-          const isPodium = index < 3
+          const podium = rank <= 3 ? podiumStyles[rank - 1] : undefined
+          const isPodium = rank <= 3
 
           return (
             <TableRow key={entry.id} className={cn(podium?.row)}>
@@ -84,7 +93,7 @@ export function LeaderboardTable({
                 <span className="flex items-center gap-1">
                   {isPodium && <Trophy className={cn('size-3.5', podium?.trophy)} />}
                   <span className={cn(isPodium ? podium?.rank : 'text-gray-400')}>
-                    {index + 1}
+                    {rank}
                   </span>
                 </span>
               </TableCell>

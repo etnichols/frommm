@@ -275,19 +275,28 @@ export function QuizForm({ initialData, onSuccess }: QuizFormProps) {
     })
   }, [])
 
-  // Fetch players on component mount
+  // Fetch players on component mount (include origin/school for dropdown label)
   useEffect(() => {
     const fetchPlayers = async () => {
       try {
-        const { data, error } = await supabase.from('players').select('id, name')
+        const { data, error } = await supabase
+          .from('players')
+          .select('id, name, origin:origin_id(id, name)')
 
         if (error) throw error
 
+        type PlayerRow = { id: number; name: string | null; origin: { id: number; name: string } | { id: number; name: string }[] | null }
         setPlayers(
-          data.map((player) => ({
-            value: player.id.toString(),
-            label: player.name || 'Unknown Player',
-          })),
+          (data ?? []).map((player: PlayerRow) => {
+            const name = player.name || 'Unknown Player'
+            const origin = player.origin
+            const school = Array.isArray(origin) ? origin[0]?.name : origin?.name
+            const label = school ? `${name} (${school})` : name
+            return {
+              value: player.id.toString(),
+              label,
+            }
+          }),
         )
       } catch (error) {
         setError('Failed to load players')
